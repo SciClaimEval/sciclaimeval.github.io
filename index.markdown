@@ -5,8 +5,6 @@
 layout: home
 ---
 
-#  SciClaimEval: Cross-modal Scientific Claim Verification
-
 Welcome to **SciClaimEval**, a pilot task on the **verification of scientific claims against tables and figures** from scientific articles.
 The task is organized as part of [NTCIR-19](https://research.nii.ac.jp/ntcir/ntcir-19/) and aims to evaluate systems that can reliably check the truthfulness of scientific statements using **multi-modal evidence**.
 
