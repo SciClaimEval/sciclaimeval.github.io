@@ -34,7 +34,7 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-This JSON is an example of the prediction format. All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`.
+**Prediction Format:** This JSON is an example of the prediction format. All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`.
   
 ```json
 [
@@ -46,7 +46,7 @@ This JSON is an example of the prediction format. All participants of subtask 1 
 ```
   </div>
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-This JSON is an example of a ground truth entry for subtask 1 with full information access.
+**Ground Truth:** This JSON is an example of a ground truth entry for subtask 1 with full information access.
   
 ```json
 [
@@ -71,6 +71,8 @@ This JSON is an example of a ground truth entry for subtask 1 with full informat
   </div>
 </div>
 
+------------------------
+
 ### Subtask 2: Evidence Prediction
 
 In this task, you predict which of the two given evidences (tables and figures as above) supports the claim (text).
@@ -79,7 +81,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-This JSON is an example of the prediction format for subtask 2. All participants of subtask 2 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim.
+**Prediction Format:** This JSON is an example of the prediction format for subtask 2. All participants of subtask 2 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim.
 
 ```json
 [
@@ -91,7 +93,7 @@ This JSON is an example of the prediction format for subtask 2. All participants
 ```
   </div>
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-This JSON is an example of a ground truth entry for subtask 2 with full information access.
+**Ground Truth:** This JSON is an example of a ground truth entry for subtask 2 with full information access.
 
 ```json
 [
@@ -116,6 +118,8 @@ This JSON is an example of a ground truth entry for subtask 2 with full informat
 ```
   </div>
 </div>
+
+------------------------
 
 ## News
 
