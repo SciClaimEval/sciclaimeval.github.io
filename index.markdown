@@ -22,13 +22,31 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 
 - The dataset is available here: tba.
 
-### Task 1: Support Prediction
+The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data in February. Second, the formal dataset will be released only for task participants in March. Following NTCIR, we make the full dataset subsequently publicly available in the end of 2026.
 
-In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). The ground truth as well as the prediction formats are in JSON with examples below.
+This task includes two subtasks. Participants can submit solutions to either or both subtasks.
+
+### Subtask 1: Support Prediction
+
+In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
+
+**Dataset:** Besides the claim, we provide contextual information, including the caption, immediate context of the claim, and a path to the full paper content (in JSON format). The `use_context` field provides the distinction if the context or the full paper is necessary to potentially disambiguit the claim. In this case, `use_context` contains either `yes` (requires the `context` field for disambiguation) or `other` (requires the full paper for disambiguation). The ground truth data, the test set, and the prediction format are all in JSON. We provide example snippets below.
 
 <div style="display: flex;">
-  <div style="flex: 1; padding: 0 10px; width: 50%" markdown="1">
-Example of the ground truth data.
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
+This JSON is an example of the prediction format. All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`.
+  
+```json
+[
+  {
+    "claim_id": "val_tab_0001",
+    "pred_label": "Refuted"
+  }
+]
+```
+  </div>
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
+This JSON is an example of a ground truth entry for subtask 1 with full information access.
   
 ```json
 [
@@ -51,37 +69,50 @@ Example of the ground truth data.
 ]
 ```
   </div>
-  <div style="flex: 1; padding: 0 10px; width: 50%" markdown="1">
-Example of the prediction format.
-  
+</div>
+
+### Subtask 2: Evidence Prediction
+
+In this task, you predict which of the two given evidences (tables and figures as above) supports the claim (text).
+
+**Dataset:** The data follows the same format as for subtask 1 above with some small changes. The data contains now two fields for two evidence references `evidence_id_1` and `evidence_id_2` with the `label` pointing to the evidence ID that supports the claim. Both evidences are always of the same type (figure vs table and LaTeX or PNG). Furthermore, you can assume that exactly one evidence supports the claim. As in subtask 1, you are required to predict the label.
+
+<div style="display: flex;">
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
+This JSON is an example of the prediction format for subtask 2. All participants of subtask 2 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim.
+
 ```json
 [
   {
-    "claim_id": "val_tab_0001",
-    "pred_label": "Refuted"
+    "sample_id": "val_0081",
+    "pred_label": "evidence_id_1"
   }
 ]
 ```
   </div>
-</div>
-
-### Task 2: Evidence Prediction
-
-In this task, you predict which evidence (tables and figures as above) support the given claim (text). You can assume that there is one evidence that supports the claim, while the others are altered in a way that refutes the claim. As above, the ground truth and prediction formats are in JSON with examples below.
-
-<div style="display: flex;">
-  <div style="flex: 1; padding: 0 10px; width: 50%" markdown="1">
-Example of the ground truth data for Task 2:
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
+This JSON is an example of a ground truth entry for subtask 2 with full information access.
 
 ```json
-tba
-```
-  </div>
-  <div style="flex: 1; padding: 0 10px; width: 50%" markdown="1">
-Example of the prediction format for Task 2:
-  
-```json
-tba
+[
+  {
+    "sample_id": "val_0081",
+    "question": "Which piece of evidence supports the claim? Only return the evidence ID (for example, evidence_id_1 or evidence_id_2).",
+    "evidence_id_1": "figures/dev/val_fig_0113.png",
+    "evidence_id_2": "figures/dev/val_fig_0114.png",
+    "label": "evidence_id_1",
+    "claim": "As shown in Figure 4(b) , increasing the value of \\alpha can prevent the model from outputting more sensitive information, but it may also lead to the loss of necessary information.",
+    "context": "For unlearning, we found that adjusting the value of \\alpha can serve as a balance between forgetting and retaining .",
+    "caption": "(a) Impact on instruction tuning; (b) Impact on unlearning; Impact of strength coefficient \\alpha on performance",
+    "domain": "ml",
+    "evi_type": "figure",
+    "paper_id": "2410.17599",
+    "use_context": "other sources",
+    "operation": "Graph Flip",
+    "paper_path": "papers/dev/ml_2410.17599.json",
+    "detail_others": ""
+  }
+]
 ```
   </div>
 </div>
@@ -92,14 +123,16 @@ tba
 
 ## Important Dates
 
-- January 2026 - Dataset release
-- January-June 2026 - Dry run
-- June 1, 2026 - Registration deadline for participation
-- March-July 2026 - Formal run
-- August 1, 2026 - Evaluation results return
-- August 1, 2026 - Task overview release
-- September 1, 2026 - Submission due of participant papers
-- December 8-10, 2026 - NTCIR-19 conference
+| Date | Event |
+| ---: | :--- |
+| February | Dev Dataset Release |
+| January - June | Dry Run |
+| June 1, 2026 | Registration Deadline for Participants |
+| March - July | Formal Run |
+| August 1, 2026 | Evaluation Results Return |
+| August 1, 2026 | Task Overview Release |
+| September 1, 2026 | Submission Due for Participant's Papers |
+| December 8 - 10, 2026 | NTCIR-19 Conference |
 
 ## Registration for Participation
 
