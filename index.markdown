@@ -27,7 +27,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). The ground truth as well as the prediction formats are in JSON with examples below.
 
 <div style="display: flex;">
-  <div style="flex: 1; padding: 0 10px;">
+  <div style="flex: 1; padding: 0 10px;" markdown="1">
     Example of the ground truth data.
       
     ```json
@@ -51,7 +51,7 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
     ]
     ```
   </div>
-  <div style="flex: 1; padding: 0 10px;">
+  <div style="flex: 1; padding: 0 10px;" markdown="1">
     Example of the prediction format.
       
     ```json
@@ -70,14 +70,14 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 In this task, you predict which evidence (tables and figures as above) support the given claim (text). You can assume that there is one evidence that supports the claim, while the others are altered in a way that refutes the claim. As above, the ground truth and prediction formats are in JSON with examples below.
 
 <div style="display: flex;">
-  <div style="flex: 1; padding: 0 10px;">
+  <div style="flex: 1; padding: 0 10px;" markdown="1">
     Example of the ground truth data for Task 2:
       
     ```json
     tba
     ```
   </div>
-  <div style="flex: 1; padding: 0 10px;">
+  <div style="flex: 1; padding: 0 10px;" markdown="1">
     Example of the prediction format for Task 2:
       
     ```json
