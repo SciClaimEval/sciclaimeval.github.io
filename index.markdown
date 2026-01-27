@@ -28,40 +28,40 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px;" markdown="1">
-    Example of the ground truth data.
-      
-    ```json
-    [
-      {
-        "paper_id": "2403.19137",
-        "claim_id": "val_tab_0001",
-        "claim": "Table 1 shows that our probabilistic inference module consistently outperforms its deterministic counterpart in terms of Avg and Last accuracy.",
-        "label": "Supported",
-        "caption": "Table 1 : Performance comparison of different methods averaged over three runs. Best scores are in bold . Second best scores are in blue . The results for L2P, DualPrompt, and PROOF are taken from [ 92 ] . See App. Table 14 for std. dev. scores.",
-        "evi_type": "table",
-        "evi_path": "tables/dev/val_tab_0001.tex",
-        "context": "To understand our probabilistic inference modules further, we examine their performance against the deterministic variant of ours (Ours w/o VI).",
-        "domain": "ml",
-        "use_context": "yes",
-        "operation": "Change the cell values",
-        "paper_path": "papers/dev/ml_2403.19137.json",
-        "detail_others": "",
-        "claim_id_pair": "0001"
-      }
-    ]
-    ```
+Example of the ground truth data.
+  
+```json
+[
+  {
+    "paper_id": "2403.19137",
+    "claim_id": "val_tab_0001",
+    "claim": "Table 1 shows that our probabilistic inference module consistently outperforms its deterministic counterpart in terms of Avg and Last accuracy.",
+    "label": "Supported",
+    "caption": "Table 1 : Performance comparison of different methods averaged over three runs. Best scores are in bold . Second best scores are in blue . The results for L2P, DualPrompt, and PROOF are taken from [ 92 ] . See App. Table 14 for std. dev. scores.",
+    "evi_type": "table",
+    "evi_path": "tables/dev/val_tab_0001.tex",
+    "context": "To understand our probabilistic inference modules further, we examine their performance against the deterministic variant of ours (Ours w/o VI).",
+    "domain": "ml",
+    "use_context": "yes",
+    "operation": "Change the cell values",
+    "paper_path": "papers/dev/ml_2403.19137.json",
+    "detail_others": "",
+    "claim_id_pair": "0001"
+  }
+]
+```
   </div>
   <div style="flex: 1; padding: 0 10px;" markdown="1">
-    Example of the prediction format.
-      
-    ```json
-    [
-      {
-        "claim_id": "val_tab_0001",
-        "pred_label": "Refuted"
-      }
-    ]
-    ```
+Example of the prediction format.
+  
+```json
+[
+  {
+    "claim_id": "val_tab_0001",
+    "pred_label": "Refuted"
+  }
+]
+```
   </div>
 </div>
 
@@ -71,18 +71,18 @@ In this task, you predict which evidence (tables and figures as above) support t
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px;" markdown="1">
-    Example of the ground truth data for Task 2:
-      
-    ```json
-    tba
-    ```
+Example of the ground truth data for Task 2:
+
+```json
+tba
+```
   </div>
   <div style="flex: 1; padding: 0 10px;" markdown="1">
-    Example of the prediction format for Task 2:
-      
-    ```json
-    tba
-    ```
+Example of the prediction format for Task 2:
+  
+```json
+tba
+```
   </div>
 </div>
 
