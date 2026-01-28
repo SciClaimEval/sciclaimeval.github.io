@@ -5,9 +5,15 @@
 layout: home
 ---
 
-* TOC
-{:toc}
----
+<div class="sidebar-toc" markdown="1">
+  <div class="toc-header">
+    <img src="{{ site.baseurl }}/assets/logo.png" class="toc-logo" alt="Logo">
+    <span class="toc-site-title">{{ site.title }}</span>
+  </div>
+  
+  * TOC
+  {:toc}
+</div>
 
 Welcome to **SciClaimEval**, a pilot task on the **verification of scientific claims against tables and figures** from scientific articles.
 The task is organized as part of [NTCIR-19](https://research.nii.ac.jp/ntcir/ntcir-19/) and aims to evaluate systems that can reliably check the truthfulness of scientific statements using **multi-modal evidence**.
