@@ -27,7 +27,7 @@ The task dataset will be published in three rounds. First, we publish a developm
 
 This task includes two subtasks. Participants can submit solutions to either or both subtasks.
 
-### Subtask 1: Support Prediction
+### Subtask 1: Claim Label Prediction Task
 
 In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
 
@@ -74,7 +74,7 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 
 ------------------------
 
-### Subtask 2: Evidence Prediction
+### Subtask 2: Claim Evidence Prediction Task
 
 In this task, you predict which of the two given evidences (tables and figures as above) supports the claim (text).
 
@@ -130,14 +130,16 @@ In this task, you predict which of the two given evidences (tables and figures a
 
 | Date | Event |
 | ---: | :--- |
-| February | Dev Dataset Release |
+| January 31, 2026 | Development Dataset Release |
 | January - June | Dry Run |
 | June 1, 2026 | Registration Deadline for Participants |
+| June 1, 2026 | Full Dataset Release for Participants |
 | March - July | Formal Run |
 | August 1, 2026 | Evaluation Results Return |
 | August 1, 2026 | Task Overview Release |
 | September 1, 2026 | Submission Due for Participant's Papers |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
+| December 11, 2026 | Full Dataset Release |
 
 ## Registration for Participation
 
