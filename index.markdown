@@ -5,6 +5,10 @@
 layout: home
 ---
 
+* TOC
+{:toc}
+---
+
 Welcome to **SciClaimEval**, a pilot task on the **verification of scientific claims against tables and figures** from scientific articles.
 The task is organized as part of [NTCIR-19](https://research.nii.ac.jp/ntcir/ntcir-19/) and aims to evaluate systems that can reliably check the truthfulness of scientific statements using **multi-modal evidence**.
 
@@ -82,7 +86,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-**Prediction Format:** This JSON is an example of the prediction format for subtask 2. All participants of subtask 2 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim.
+**Prediction Format:** This JSON is an example of the prediction format for subtask 2. All participants of subtask 2 are required to submit a results file in this format. The `sample_id` matches the `sample_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim.
 
 ```json
 [

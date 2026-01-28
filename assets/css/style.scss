@@ -9,5 +9,90 @@
 #logo {
     max-height: 50px;
     float: left;
-    margin: 3px 5px 3px 0px;
+    margin: 10px 5px 10px 0px;
+}
+
+.site-title {
+  margin: 8px 5px 10px 5px;
+}
+
+/* 1. Reset the list style */
+#markdown-toc {
+  list-style-type: none;
+  padding: 0 0 0 15px;
+  margin: 0;
+  border-left: 1px solid #eee; /* The vertical line */
+}
+
+#markdown-toc::before {
+    content: "Table of Contents";
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+/* 2. Desktop Mode: Pop it out to the left */
+@media (min-width: 800px) {
+  #markdown-toc {
+    position: fixed;
+    left: calc(50% - 650px); /* Centers it relative to the 800px main content */
+    top: 150px;
+    width: 200px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 3. Styling the links */
+#markdown-toc a {
+  color: #666; /* Subtle gray */
+  text-decoration: none;
+  display: block;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+#markdown-toc a:hover {
+  color: #007bff; /* Professional Blue */
+  border-left: 2px solid #007bff;
+  margin-left: -17px; /* Pulls it back to align with the border */
+  padding-left: 15px;
+}
+
+@media (max-width: 1320px) { /* 800px content + 200px sidebar */
+  .wrapper {
+    margin-left: 230px;
+  }
+
+  #markdown-toc {
+    position: fixed;
+    left: 10px; /* Centers it relative to the 800px main content */
+    top: 150px;
+    width: 200px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 4. Mobile/Tablet Mode: Put it back in the flow */
+@media (max-width: 1099px) {
+  .wrapper {
+    margin: 0 auto;
+  }
+  
+  #markdown-toc {
+    position: static;
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: calc(100% - 50px);
+  }
+  
+  #markdown-toc::before {
+    content: "Table of Contents";
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
 }
