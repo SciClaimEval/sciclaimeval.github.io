@@ -142,7 +142,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 | ---: | :--- |
 | January 31, 2026 | Development Dataset Release |
 | January - June | Dry Run |
-| June 1, 2026 | Registration Deadline for Participants |
+| **June 1, 2026** | **Registration Deadline for Participants** |
 | June 1, 2026 | Full Dataset Release for Participants |
 | March - July | Formal Run |
 | August 1, 2026 | Evaluation Results Return |
