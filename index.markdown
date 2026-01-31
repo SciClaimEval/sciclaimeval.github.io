@@ -30,7 +30,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 
 ## Task Description
 
-- The dataset is available here: tba.
+- The dataset is available here: [sciclaimeval-shared-task](https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task)
 - Evaluation scripts & examples: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task)
 
 The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data in February. Second, the formal dataset will be released only for task participants in March. Following NTCIR, we make the full dataset subsequently publicly available in the end of 2026.
