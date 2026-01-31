@@ -33,7 +33,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 - The dataset is available here: [sciclaimeval-shared-task](https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task)
 - Evaluation scripts & examples: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task)
 
-The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data in February. Second, the formal dataset will be released only for task participants in March. Following NTCIR, we make the full dataset subsequently publicly available in the end of 2026.
+The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data on January 31. Second, the formal dataset will be released only for task participants in March. Following NTCIR, we make the full dataset subsequently publicly available in the end of 2026.
 
 This task includes two subtasks. Participants can submit solutions to either or both subtasks.
 
@@ -41,7 +41,7 @@ This task includes two subtasks. Participants can submit solutions to either or 
 
 In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
 
-**Dataset:** Besides the claim, we provide contextual information, including the caption, immediate context of the claim, and a path to the full paper content (in JSON format). The `use_context` field provides the distinction if the context or the full paper is necessary to potentially disambiguit the claim. In this case, `use_context` contains either `yes` (requires the `context` field for disambiguation) or `other` (requires the full paper for disambiguation). The ground truth data, the test set, and the prediction format are all in JSON. We provide example snippets below.
+**Dataset:** Besides the claim, we provide contextual information, including the caption, immediate context of the claim, and a path to the full paper content (in JSON format). The `use_context` field provides the distinction if the context or the full paper is necessary to potentially disambiguit the claim. In this case, `use_context` contains either `yes` (requires the `context` field for disambiguation) or `other sources` (requires the full paper for disambiguation). The ground truth data, the test set, and the prediction format are all in JSON. We provide example snippets below.
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
@@ -68,13 +68,15 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
     "label": "Supported",
     "caption": "Table 1 : Performance comparison of different methods averaged over three runs. Best scores are in bold . Second best scores are in blue . The results for L2P, DualPrompt, and PROOF are taken from [ 92 ] . See App. Table 14 for std. dev. scores.",
     "evi_type": "table",
-    "evi_path": "tables/dev/val_tab_0001.tex",
+    "evi_path": "tables/val_tab_0001.tex",
     "context": "To understand our probabilistic inference modules further, we examine their performance against the deterministic variant of ours (Ours w/o VI).",
     "domain": "ml",
     "use_context": "yes",
     "operation": "Change the cell values",
     "paper_path": "papers/dev/ml_2403.19137.json",
     "detail_others": "",
+    "license_name": "CC BY 4.0",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/",
     "claim_id_pair": "0001"
   }
 ]
@@ -97,7 +99,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 ```json
 [
   {
-    "sample_id": "val_0081",
+    "sample_id": "val_0071",
     "pred_label": "evidence_id_1"
   }
 ]
@@ -108,11 +110,10 @@ In this task, you predict which of the two given evidences (tables and figures a
 
 ```json
 [
-  {
-    "sample_id": "val_0081",
+    "sample_id": "val_0071",
     "question": "Which piece of evidence supports the claim? Only return the evidence ID (for example, evidence_id_1 or evidence_id_2).",
-    "evidence_id_1": "figures/dev/val_fig_0113.png",
-    "evidence_id_2": "figures/dev/val_fig_0114.png",
+    "evidence_id_1": "figures/val_fig_0113.png",
+    "evidence_id_2": "figures/val_fig_0114.png",
     "label": "evidence_id_1",
     "claim": "As shown in Figure 4(b) , increasing the value of \\alpha can prevent the model from outputting more sensitive information, but it may also lead to the loss of necessary information.",
     "context": "For unlearning, we found that adjusting the value of \\alpha can serve as a balance between forgetting and retaining .",
@@ -123,8 +124,9 @@ In this task, you predict which of the two given evidences (tables and figures a
     "use_context": "other sources",
     "operation": "Graph Flip",
     "paper_path": "papers/dev/ml_2410.17599.json",
-    "detail_others": ""
-  }
+    "detail_others": "",
+    "license_name": "CC BY 4.0",
+    "license_url": "http://creativecommons.org/licenses/by/4.0/"
 ]
 ```
   </div>
@@ -142,12 +144,12 @@ In this task, you predict which of the two given evidences (tables and figures a
 | ---: | :--- |
 | January 31, 2026 | Development Dataset Release |
 | January - June | Dry Run |
-| **June 1, 2026** | **Registration Deadline for Participants** |
-| June 1, 2026 | Full Dataset Release for Participants |
 | March - July | Formal Run |
+| **June 1, 2026** | **Registration Deadline for Participants** |
 | August 1, 2026 | Evaluation Results Return |
-| August 1, 2026 | Task Overview Release |
-| September 1, 2026 | Submission Due for Participant's Papers |
+| August 1, 2026 | Task Overview Release (draft) |
+| September 1, 2026 | Submission Due for Participant's Papers (draft) |
+| November 1, 2026 | Camera-ready participant paper due |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
 | December 11, 2026 | Full Dataset Release |
 
