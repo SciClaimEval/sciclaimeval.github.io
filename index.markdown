@@ -110,7 +110,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 
 ```json
 [
-{
+  {
     "sample_id": "val_0071",
     "question": "Which piece of evidence supports the claim? Only return the evidence ID (for example, evidence_id_1 or evidence_id_2).",
     "evidence_id_1": "figures/val_fig_0113.png",
@@ -128,7 +128,7 @@ In this task, you predict which of the two given evidences (tables and figures a
     "detail_others": "",
     "license_name": "CC BY 4.0",
     "license_url": "http://creativecommons.org/licenses/by/4.0/"
-}
+  {
 ]
 ```
   </div>
