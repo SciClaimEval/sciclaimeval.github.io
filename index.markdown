@@ -157,7 +157,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 | **June 1, 2026** | **Registration Deadline for Participants** |
 | **July 31, 2026** | **Formal Run Submission Deadline** |
 | August 1, 2026 | Evaluation Results Return |
-| September 1, 2026 | Submission Due for Participant's Papers (draft) |
+| September 1, 2026 | Submission Due for Participant's Papers |
 | November 1, 2026 | Camera-ready participant paper due |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
 | December 11, 2026 | Full Dataset Release |
