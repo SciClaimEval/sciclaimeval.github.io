@@ -31,7 +31,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 ## Synopsis
 
 - <a href="#registration-for-participation">Register</a> as participant by **June 1, 2026**
-- Submit your run on the test dataset by **July 31, 2026**
+- Submit your run on the test dataset by **July 1, 2026**
 - Submit your paper draft by **September 1, 2026**
 
 ## Task Description
@@ -155,7 +155,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 | January 31, 2026 | Development Dataset Release |
 | March 01, 2026 | Formal Run Dataset Release |
 | **June 1, 2026** | **Registration Deadline for Participants** |
-| **July 31, 2026** | **Formal Run Submission Deadline** |
+| **July 1, 2026** | **Formal Run Submission Deadline** |
 | August 1, 2026 | Evaluation Results Return |
 | September 1, 2026 | Submission Due for Participant's Papers |
 | November 1, 2026 | Camera-ready participant paper due |
