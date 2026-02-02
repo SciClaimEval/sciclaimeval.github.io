@@ -12,6 +12,10 @@
     margin: 10px 5px 10px 0px;
 }
 
+.long-pre pre {
+  max-height: 223px;
+}
+
 .site-title {
   margin: 8px 5px 10px 5px;
 }
@@ -49,7 +53,6 @@
 #markdown-toc a:hover {
   color: #007bff;
 }
-
 
 #markdown-toc::before {
   content: "Page Navigation";

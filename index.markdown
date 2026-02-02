@@ -28,12 +28,19 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
         style="width: 90%; height: auto;" />
 </div>
 
+## Synopsis
+
+- <a href="#registration-for-participation">Register</a> as participant by **June 1, 2026**
+- Submit your run on the test dataset by **July 31, 2026**
+- Submit your paper draft by **September 1, 2026**
+
 ## Task Description
 
-- The dataset is available here: [sciclaimeval-shared-task](https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task)
+- Development Dataset: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">huggingface.co/datasets/alabnii/sciclaimeval-shared-task</a>
+- Formal Run Dataset: <i>will be released on March 01, 2026</i>
 - Evaluation scripts & examples: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task)
 
-The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data on January 31. Second, the formal dataset will be released only for task participants in March. Following NTCIR, we make the full dataset subsequently publicly available in the end of 2026.
+The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data on January 31. Second, the formal test dataset will be released only for task participants in March. Participants are required to submit their results on this formal run dataset! Following the NTCIR conference, we make all data subsequently publicly available by the end of 2026.
 
 This task includes two subtasks. Participants can submit solutions to either or both subtasks.
 
@@ -41,7 +48,7 @@ This task includes two subtasks. Participants can submit solutions to either or 
 
 In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
 
-**Dataset:** Besides the claim, we provide contextual information, including the caption, immediate context of the claim, and a path to the full paper content (in JSON format). The `use_context` field provides the distinction if the context or the full paper is necessary to potentially disambiguit the claim. In this case, `use_context` contains either `yes` (requires the `context` field for disambiguation) or `other sources` (requires the full paper for disambiguation). The ground truth data, the test set, and the prediction format are all in JSON. We provide example snippets below.
+**Dataset:** We provide contextual information, including the caption (`caption`), immediate context of the claim (`context`), and a path to the full paper content (`paper_path`). The `use_context` field provides the distinction if the context or the full paper is necessary to potentially disambiguit the claim. In this case, `use_context` contains either `yes` (requires the `context` field for disambiguation) or `other sources` (requires the full paper for disambiguation). The ground truth data, the test set, and the prediction format are all in JSON. We provide example snippets below.
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
@@ -56,8 +63,8 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 ]
 ```
   </div>
-  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-**Ground Truth:** This JSON is an example of a ground truth entry for subtask 1 with full information access.
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre" markdown="1">
+**Test Data:** This JSON is an example of a ground truth entry for subtask 1 with full information access.
   
 ```json
 [
@@ -105,7 +112,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 ]
 ```
   </div>
-  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre" markdown="1">
 **Ground Truth:** This JSON is an example of a ground truth entry for subtask 2 with full information access.
 
 ```json
@@ -128,7 +135,7 @@ In this task, you predict which of the two given evidences (tables and figures a
     "detail_others": "",
     "license_name": "CC BY 4.0",
     "license_url": "http://creativecommons.org/licenses/by/4.0/"
-  {
+  }
 ]
 ```
   </div>
@@ -139,17 +146,17 @@ In this task, you predict which of the two given evidences (tables and figures a
 ## News
 
 - <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
+- The development dataset is now available at huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
 
 ## Important Dates
 
 | Date | Event |
 | ---: | :--- |
 | January 31, 2026 | Development Dataset Release |
-| January - June | Dry Run |
-| March - July | Formal Run |
+| March 01, 2026 | Formal Run Dataset Release |
 | **June 1, 2026** | **Registration Deadline for Participants** |
+| **July 31, 2026** | **Formal Run Submission Deadline** |
 | August 1, 2026 | Evaluation Results Return |
-| August 1, 2026 | Task Overview Release (draft) |
 | September 1, 2026 | Submission Due for Participant's Papers (draft) |
 | November 1, 2026 | Camera-ready participant paper due |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
