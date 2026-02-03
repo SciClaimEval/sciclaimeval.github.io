@@ -20,7 +20,7 @@ The task is organized as part of [NTCIR-19](https://research.nii.ac.jp/ntcir/ntc
 
 Scientific claim verification involves determining whether claims made in research papers are supported or refuted by accompanying evidence, such as experimental results, tables, and figures. With the rapid rise of generative AI and large language models (LLMs), the volume of scientific submissions has increased substantially, creating a growing demand for tools that can assist reviewers in assessing the validity and consistency of paper claims.
 
-The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verification**, aiming to assess whether textual claims in scientific papers are adequately supported by evidence from diverse modalities, namely **tables and figures**. We introduce a new benchmark dataset, constructed by extracting claims and their corresponding evidence from scientific articles across multiple domains, including **biomedicine, machine learning, and natural language processing**. The figure below illustrates an example from the benchmark dataset. The task consists in determining whether a claim is **supported** or **refuted** given a piece of evidence (a table or a figure) and optional contextual information (preceding text in the original paragraph).
+The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verification**, aiming to assess whether textual claims in scientific papers are adequately supported by evidence from diverse modalities, namely **tables and figures**. We introduce a new benchmark dataset, constructed by extracting claims and their corresponding evidence from scientific articles across multiple domains, including **biomedicine, machine learning, and natural language processing**. The figure below illustrates an example from the benchmark dataset. The task involves determining whether a claim is **supported** or **refuted** given a piece of evidence (a table or a figure) and optional contextual information (preceding text in the original paragraph).
 
 <div style="text-align: center; margin: 1.5em 0;">
     <img src="/assets/ntcir-19-dataset_example.png"
@@ -28,10 +28,12 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
         style="width: 90%; height: auto;" />
 </div>
 
+------------------------
+
 ## Synopsis
 
 - <a href="#registration-for-participation">Register</a> as participant by **June 1, 2026**
-- Submit your run on the test dataset by **July 1, 2026**
+- Submit your run on the test dataset by **July 19, 2026**
 - Submit your paper draft by **September 1, 2026**
 
 ## Task Description
@@ -44,16 +46,20 @@ The task dataset will be published in three rounds. First, we publish a developm
 
 This task includes two subtasks. Participants can submit solutions to either or both subtasks.
 
+### Dataset
+
+The data consists of JSON files of all claims alongside figures (PNG), tables (LaTeX, HTML, and PNG), and the full paper texts (JSON).
+Each claim contains a unique path to an evidence file (`evi_path` for subtask 1 or `evidence_id_1`/`evidence_id_2` for subtask 2) and `evi_type` that indicates the type of evidence (either table or figure).
+Additionally, we provide contextual information, including the caption (`caption`), immediate context of the claim (`context`), and a path to the full paper content (`paper_path`). The `use_context` field indicates whether additional context is necessary to potentially disambiguate the claim. Specifically, `use_context` contains either `no` (no additional context required), `yes` (requires the `context` field for disambiguation), or `other sources` (requires the full paper for disambiguation). 
+
 ### Subtask 1: Claim Label Prediction Task
 
-In this task, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
-
-**Dataset:** We provide contextual information, including the caption (`caption`), immediate context of the claim (`context`), and a path to the full paper content (`paper_path`). The `use_context` field provides the distinction if the context or the full paper is necessary to potentially disambiguit the claim. In this case, `use_context` contains either `yes` (requires the `context` field for disambiguation) or `other sources` (requires the full paper for disambiguation). The ground truth data, the test set, and the prediction format are all in JSON. We provide example snippets below.
+In this subtask, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-**Prediction Format:** This JSON is an example of the prediction format. All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`.
-  
+**Prediction Format:** This JSON is an example of the prediction format. All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`. Any other fields in this format will be ignored.
+
 ```json
 [
   {
@@ -64,7 +70,7 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 ```
   </div>
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre" markdown="1">
-**Test Data:** This JSON is an example of a ground truth entry for subtask 1 with full information access.
+**Test Format:** This JSON is an example of a test entry for subtask 1.
   
 ```json
 [
@@ -72,19 +78,15 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
     "paper_id": "2403.19137",
     "claim_id": "val_tab_0001",
     "claim": "Table 1 shows that our probabilistic inference module consistently outperforms its deterministic counterpart in terms of Avg and Last accuracy.",
-    "label": "Supported",
     "caption": "Table 1 : Performance comparison of different methods averaged over three runs. Best scores are in bold . Second best scores are in blue . The results for L2P, DualPrompt, and PROOF are taken from [ 92 ] . See App. Table 14 for std. dev. scores.",
     "evi_type": "table",
     "evi_path": "tables/val_tab_0001.tex",
     "context": "To understand our probabilistic inference modules further, we examine their performance against the deterministic variant of ours (Ours w/o VI).",
     "domain": "ml",
     "use_context": "yes",
-    "operation": "Change the cell values",
     "paper_path": "papers/dev/ml_2403.19137.json",
-    "detail_others": "",
     "license_name": "CC BY 4.0",
-    "license_url": "http://creativecommons.org/licenses/by/4.0/",
-    "claim_id_pair": "0001"
+    "license_url": "http://creativecommons.org/licenses/by/4.0/"
   }
 ]
 ```
@@ -95,9 +97,7 @@ In this task, you predict if a given claim (text) is either `Supported` or `Refu
 
 ### Subtask 2: Claim Evidence Prediction Task
 
-In this task, you predict which of the two given evidences (tables and figures as above) supports the claim (text).
-
-**Dataset:** The data follows the same format as for subtask 1 above with some small changes. The data contains now two fields for two evidence references `evidence_id_1` and `evidence_id_2` with the `label` pointing to the evidence ID that supports the claim. Both evidences are always of the same type (figure vs table and LaTeX or PNG). Furthermore, you can assume that exactly one evidence supports the claim. As in subtask 1, you are required to predict the label.
+In this subtask, you predict which of the two given pieces of evidence (tables and figures) supports the claim (text).
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
@@ -113,16 +113,14 @@ In this task, you predict which of the two given evidences (tables and figures a
 ```
   </div>
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre" markdown="1">
-**Ground Truth:** This JSON is an example of a ground truth entry for subtask 2 with full information access.
+**Test Format:** This JSON is an example of a test entry for subtask 2.
 
 ```json
 [
   {
     "sample_id": "val_0071",
-    "question": "Which piece of evidence supports the claim? Only return the evidence ID (for example, evidence_id_1 or evidence_id_2).",
     "evidence_id_1": "figures/val_fig_0113.png",
     "evidence_id_2": "figures/val_fig_0114.png",
-    "label": "evidence_id_1",
     "claim": "As shown in Figure 4(b) , increasing the value of \\alpha can prevent the model from outputting more sensitive information, but it may also lead to the loss of necessary information.",
     "context": "For unlearning, we found that adjusting the value of \\alpha can serve as a balance between forgetting and retaining .",
     "caption": "(a) Impact on instruction tuning; (b) Impact on unlearning; Impact of strength coefficient \\alpha on performance",
@@ -130,9 +128,7 @@ In this task, you predict which of the two given evidences (tables and figures a
     "evi_type": "figure",
     "paper_id": "2410.17599",
     "use_context": "other sources",
-    "operation": "Graph Flip",
     "paper_path": "papers/dev/ml_2410.17599.json",
-    "detail_others": "",
     "license_name": "CC BY 4.0",
     "license_url": "http://creativecommons.org/licenses/by/4.0/"
   }
@@ -142,6 +138,70 @@ In this task, you predict which of the two given evidences (tables and figures a
 </div>
 
 ------------------------
+
+## Evaluation & Baselines
+
+The evaluation script (in python) is available on github: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task).
+
+All submissions will be evaluated on precision, recall, and macro F1. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
+
+<div class="evaluation-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Subtask 1 Baselines</th>
+        <th>Precision</th>
+        <th>Recall</th>
+        <th>Macro F1</th>
+        <th>Accuracy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Llama-3.2-11B-Vision</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>Qwen3-VL-8B</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>InternVL3_5-38B</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="evaluation-table" style="width: 82.5%">
+  <table>
+    <thead>
+      <tr>
+        <th>Subtask 1 Baselines</th>
+        <th>Precision</th>
+        <th>Recall</th>
+        <th>Macro F1</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+        <td>-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## News
 
@@ -155,7 +215,7 @@ In this task, you predict which of the two given evidences (tables and figures a
 | January 31, 2026 | Development Dataset Release |
 | March 01, 2026 | Formal Run Dataset Release |
 | **June 1, 2026** | **Registration Deadline for Participants** |
-| **July 1, 2026** | **Formal Run Submission Deadline** |
+| **July 19, 2026** | **Formal Run Submission Deadline** |
 | August 1, 2026 | Evaluation Results Return |
 | September 1, 2026 | Submission Due for Participant's Papers |
 | November 1, 2026 | Camera-ready participant paper due |
