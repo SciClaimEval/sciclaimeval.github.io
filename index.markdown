@@ -150,31 +150,28 @@ All submissions will be evaluated on precision, recall, and macro F1. In order t
     <thead>
       <tr>
         <th>Subtask 1 Baselines</th>
-        <th>Precision</th>
-        <th>Recall</th>
-        <th>Macro F1</th>
-        <th>Accuracy</th>
+        <th>Macro-F1</th>
+        <th>Pair Accuracy<span data-uk-icon="arrow-down"></span></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Llama-3.2-11B-Vision</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
+        <td>Qwen3-VL-30B-A3B</td>
+        <td>75.9</td>
+        <td>54.8</td>
       </tr>
       <tr>
         <td>Qwen3-VL-8B</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
+        <td>71.8</td>
+        <td>46.6</td>
       </tr>
       <tr>
         <td>InternVL3_5-38B</td>
-        <td>-</td>
-        <td>-</td>
+        <td>66.3</td>
+        <td>37.8</td>
+      </tr>
+      <tr>
+        <td>Llama-3.2-11B-Vision</td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -186,16 +183,12 @@ All submissions will be evaluated on precision, recall, and macro F1. In order t
   <table>
     <thead>
       <tr>
-        <th>Subtask 1 Baselines</th>
-        <th>Precision</th>
-        <th>Recall</th>
-        <th>Macro F1</th>
+        <th>Subtask 2 Baselines</th>
+        <th>Macro-F1</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>-</td>
-        <td>-</td>
         <td>-</td>
         <td>-</td>
       </tr>
