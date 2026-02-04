@@ -145,6 +145,11 @@ The evaluation script (in python) is available on github: [github.com/SciClaimEv
 
 All submissions will be evaluated on precision, recall, and macro F1. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
 
+### Table Evidence Format
+All submissions must use a PNG table as the default format for comparison.
+Participants may also submit additional results in other formats, such as JSON or TeX/HTML, and must indicate when these formats are used in their submissions.
+
+
 <div class="evaluation-table">
   <table>
     <thead>
