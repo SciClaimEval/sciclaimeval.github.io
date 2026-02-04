@@ -80,7 +80,7 @@ In this subtask, you predict if a given claim (text) is either `Supported` or `R
     "claim": "Table 1 shows that our probabilistic inference module consistently outperforms its deterministic counterpart in terms of Avg and Last accuracy.",
     "caption": "Table 1 : Performance comparison of different methods averaged over three runs. Best scores are in bold . Second best scores are in blue . The results for L2P, DualPrompt, and PROOF are taken from [ 92 ] . See App. Table 14 for std. dev. scores.",
     "evi_type": "table",
-    "evi_path": "tables/val_tab_0001.tex",
+    "evi_path": "tables_png/dev/val_tab_0001.png",
     "context": "To understand our probabilistic inference modules further, we examine their performance against the deterministic variant of ours (Ours w/o VI).",
     "domain": "ml",
     "use_context": "yes",
@@ -119,8 +119,8 @@ In this subtask, you predict which of the two given pieces of evidence (tables a
 [
   {
     "sample_id": "val_0071",
-    "evidence_id_1": "figures/val_fig_0113.png",
-    "evidence_id_2": "figures/val_fig_0114.png",
+    "evidence_id_1": "figures/dev/val_fig_0113.png",
+    "evidence_id_2": "figures/dev/val_fig_0114.png",
     "claim": "As shown in Figure 4(b) , increasing the value of \\alpha can prevent the model from outputting more sensitive information, but it may also lead to the loss of necessary information.",
     "context": "For unlearning, we found that adjusting the value of \\alpha can serve as a balance between forgetting and retaining .",
     "caption": "(a) Impact on instruction tuning; (b) Impact on unlearning; Impact of strength coefficient \\alpha on performance",
