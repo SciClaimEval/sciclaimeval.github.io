@@ -54,7 +54,7 @@ Additionally, we provide contextual information, including the caption (`caption
 
 ### Subtask 1: Claim Label Prediction Task
 
-In this subtask, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables in PNG or LaTeX format and figures in PNG format). 
+In this subtask, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables and figures in PNG format). 
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
