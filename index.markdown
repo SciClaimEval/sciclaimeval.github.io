@@ -48,7 +48,7 @@ This task includes two subtasks. Participants can submit solutions to either or 
 
 ### Dataset
 
-The data consists of JSON files of all claims alongside figures (PNG), tables (LaTeX, HTML, and PNG), and the full paper texts (JSON).
+The data consists of JSON files of all claims alongside figures (PNG), tables (PNG), and the full paper texts (JSON).
 Each claim contains a unique path to an evidence file (`evi_path` for subtask 1 or `evidence_id_1`/`evidence_id_2` for subtask 2) and `evi_type` that indicates the type of evidence (either table or figure).
 Additionally, we provide contextual information, including the caption (`caption`), immediate context of the claim (`context`), and a path to the full paper content (`paper_path`). The `use_context` field indicates whether additional context is necessary to potentially disambiguate the claim. Specifically, `use_context` contains either `no` (no additional context required), `yes` (requires the `context` field for disambiguation), or `other sources` (requires the full paper for disambiguation). 
 
@@ -144,11 +144,6 @@ In this subtask, you predict which of the two given pieces of evidence (tables a
 The evaluation script (in python) is available on github: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task).
 
 All submissions will be evaluated on precision, recall, and macro F1. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
-
-### Table Evidence Format
-All submissions must use a PNG table as the default format for comparison.
-Participants may also submit additional results in other formats, such as JSON or TeX/HTML, and must indicate when these formats are used in their submissions.
-
 
 <div class="evaluation-table">
   <table>
