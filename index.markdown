@@ -52,13 +52,15 @@ The data consists of JSON files of all claims alongside figures (PNG), tables (P
 Each claim contains a unique path to an evidence file (`evi_path` for subtask 1 or `evidence_id_1`/`evidence_id_2` for subtask 2) and `evi_type` that indicates the type of evidence (either table or figure).
 Additionally, we provide contextual information, including the caption (`caption`), immediate context of the claim (`context`), and a path to the full paper content (`paper_path`). The `use_context` field indicates whether additional context is necessary to potentially disambiguate the claim. Specifically, `use_context` contains either `no` (no additional context required), `yes` (requires the `context` field for disambiguation), or `other sources` (requires the full paper for disambiguation). 
 
+**Optional**: For tables, we provide access to the original source format of the table (LaTeX or HTML). Participants are allowed to additionally submit results for subtask 1 on these formats besides the mandatory PNG formats. `evi_path_original` can be used as a unique path to the original variant.
+
 ### Subtask 1: Claim Label Prediction Task
 
-In this subtask, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables and figures in PNG format). 
+In this subtask, you predict if a given claim (text) is either `Supported` or `Refuted` by the given evidence (tables and figures in PNG format).
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-**Prediction Format:** This JSON is an example of the prediction format. All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`. Any other fields in this format will be ignored.
+**Prediction Format:** All participants of subtask 1 are required to submit a results file in this format. The `claim_id` matches the `claim_id` in the data. The `pred_label` (prediction label) contains either `Supported` or `Refuted`. If your solution produces a confidence score for the prediction, you can add the optional `score` field to the submission. Any other fields will be ignored. A submission on other formats (see optional description above) will be distinguished in the submission form and not the result format.
 
 ```json
 [
@@ -69,8 +71,8 @@ In this subtask, you predict if a given claim (text) is either `Supported` or `R
 ]
 ```
   </div>
-  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre" markdown="1">
-**Test Format:** This JSON is an example of a test entry for subtask 1.
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre-1" markdown="1">
+**Test Format:** Example of a test entry for subtask 1.
   
 ```json
 [
@@ -81,6 +83,7 @@ In this subtask, you predict if a given claim (text) is either `Supported` or `R
     "caption": "Table 1 : Performance comparison of different methods averaged over three runs. Best scores are in bold . Second best scores are in blue . The results for L2P, DualPrompt, and PROOF are taken from [ 92 ] . See App. Table 14 for std. dev. scores.",
     "evi_type": "table",
     "evi_path": "tables_png/dev/val_tab_0001.png",
+    "evi_path_original": "tables/dev/val_tab_0001.tex",
     "context": "To understand our probabilistic inference modules further, we examine their performance against the deterministic variant of ours (Ours w/o VI).",
     "domain": "ml",
     "use_context": "yes",
@@ -101,7 +104,7 @@ In this subtask, you predict which of the two given pieces of evidence (tables a
 
 <div style="display: flex;">
   <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" markdown="1">
-**Prediction Format:** This JSON is an example of the prediction format for subtask 2. All participants of subtask 2 are required to submit a results file in this format. The `sample_id` matches the `sample_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim.
+**Prediction Format:** All participants of subtask 2 are required to submit a results file in this format. The `sample_id` matches the `sample_id` in the data. The `pred_label` (prediction label) contains either `evidence_id_1` or `evidence_id_2` depending on which evidence supports the claim. As for subtask 1, participants can provide an additional `score` flag to indicate the model's confidence.
 
 ```json
 [
@@ -112,8 +115,8 @@ In this subtask, you predict which of the two given pieces of evidence (tables a
 ]
 ```
   </div>
-  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre" markdown="1">
-**Test Format:** This JSON is an example of a test entry for subtask 2.
+  <div style="flex: 1; padding: 0 10px; width: 50%; box-sizing: border-box; min-width: 0" class="long-pre-2" markdown="1">
+**Test Format:** Example of a test entry for subtask 2.
 
 ```json
 [
@@ -143,52 +146,71 @@ In this subtask, you predict which of the two given pieces of evidence (tables a
 
 The evaluation script (in python) is available on github: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task).
 
-All submissions will be evaluated on precision, recall, and macro F1. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
+All submissions will be evaluated on precision, recall, macro F1, and accuracy. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
 
 <div class="evaluation-table">
   <table>
     <thead>
       <tr>
         <th>Subtask 1 Baselines</th>
+        <th>Precision</th>
+        <th>Recall</th>
         <th>Macro-F1</th>
-        <th>Pair Accuracy<span data-uk-icon="arrow-down"></span></th>
+        <th>Accuracy</th>
+        <th>Pair Accuracy</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Qwen3-VL-30B-A3B</td>
-        <td>75.9</td>
-        <td>54.8</td>
+        <th>o4-mini</th>
+        <td>83.4</td>
+        <td>82.3</td>
+        <td>82.8</td>
+        <td>82.2</td>
+        <td>68.0</td>
       </tr>
       <tr>
-        <td>Qwen3-VL-8B</td>
-        <td>71.8</td>
-        <td>46.6</td>
+        <th>Qwen3-VL-8B</th>
+        <td>76.1</td>
+        <td>67.3</td>
+        <td>70.6</td>
+        <td>66.8</td>
+        <td>45.7</td>
       </tr>
       <tr>
-        <td>InternVL3_5-38B</td>
-        <td>66.3</td>
-        <td>37.8</td>
+        <th>InternVL3_5-38B</th>
+        <td>72.1</td>
+        <td>69.8</td>
+        <td>69.6</td>
+        <td>70.7</td>
+        <td>42.9</td>
       </tr>
       <tr>
-        <td>Llama-3.2-11B-Vision</td>
-        <td>-</td>
-        <td>-</td>
+        <th>Llama-3.2-11B-Vision</th>
+        <td>57.0</td>
+        <td>52.7</td>
+        <td>48.2</td>
+        <td>54.6</td>
+        <td>10.2</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div class="evaluation-table" style="width: 82.5%">
+<div class="evaluation-table">
   <table>
     <thead>
       <tr>
         <th>Subtask 2 Baselines</th>
+        <th>Precision</th>
+        <th>Recall</th>
         <th>Macro-F1</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <th>tba.</th>
+        <td>-</td>
         <td>-</td>
         <td>-</td>
       </tr>
@@ -199,7 +221,7 @@ All submissions will be evaluated on precision, recall, and macro F1. In order t
 ## News
 
 - <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
-- The development dataset is now available at huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
+- The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
 
 ## Important Dates
 
@@ -238,7 +260,7 @@ To participate in the SciClaimEval task, participants must (1) register via the 
 
 ## Organizers
 
-- [Akiko Aizawa](https://www-al.nii.ac.jp/en/home-2/) (National Institute of Informatics)
+- [Akiko Aizawa](https://www-al.nii.ac.jp/en/home-2/) (National Institute of Informatics, Japan)
 - [André Greiner-Petter](https://gipplab.uni-goettingen.de/team/dr-andre-greiner-petter/) (University of Göttingen, Germany)
 - [Florian Boudin](https://boudinfl.github.io/) (Inria, France)
-- [Xanh Ho](https://xanhho.github.io/) (National Institute of Informatics)
+- [Xanh Ho](https://xanhho.github.io/) (National Institute of Informatics, Japan)
