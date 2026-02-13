@@ -258,6 +258,10 @@ To participate in the SciClaimEval task, participants must (1) register via the 
     </a>
 </div>
 
+## Contact
+
+Please direct any questions or corrections regarding the task to: sciclaimeval (at) gmail.com
+
 ## Organizers
 
 - [Akiko Aizawa](https://www-al.nii.ac.jp/en/home-2/) (National Institute of Informatics, Japan)
