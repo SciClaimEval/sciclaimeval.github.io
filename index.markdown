@@ -164,34 +164,42 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
       <tr>
         <th>o4-mini</th>
         <td>83.4</td>
+        <td>82.4</td>
+        <td>82.9</td>
         <td>82.3</td>
-        <td>82.8</td>
-        <td>82.2</td>
-        <td>68.0</td>
+        <td>68.2</td>
+      </tr>
+      <tr>
+        <th>Qwen3-VL-30B-A3B</th>
+        <td>77.1</td>
+        <td>74.8</td>
+        <td>76.0</td>
+        <td>75.0</td>
+        <td>54.8</td>
       </tr>
       <tr>
         <th>Qwen3-VL-8B</th>
-        <td>76.1</td>
-        <td>67.3</td>
-        <td>70.6</td>
-        <td>66.8</td>
-        <td>45.7</td>
+        <td>76.3</td>
+        <td>68.3</td>
+        <td>72.1</td>
+        <td>68.3</td>
+        <td>46.9</td>
       </tr>
       <tr>
         <th>InternVL3_5-38B</th>
         <td>72.1</td>
-        <td>69.8</td>
-        <td>69.6</td>
-        <td>70.7</td>
-        <td>42.9</td>
+        <td>68.1</td>
+        <td>67.8</td>
+        <td>69.2</td>
+        <td>40.1</td>
       </tr>
       <tr>
         <th>Llama-3.2-11B-Vision</th>
-        <td>57.0</td>
-        <td>52.7</td>
-        <td>48.2</td>
-        <td>54.6</td>
-        <td>10.2</td>
+        <td>57.4</td>
+        <td>52.9</td>
+        <td>48.6</td>
+        <td>54.8</td>
+        <td>10.8</td>
       </tr>
     </tbody>
   </table>
