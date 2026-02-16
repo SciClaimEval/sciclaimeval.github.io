@@ -142,7 +142,7 @@ In this subtask, you predict which of the two given pieces of evidence (tables a
 
 ------------------------
 
-## Evaluation & Baselines
+### Evaluations & Baselines
 
 The evaluation script (in python) is available on github: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task).
 
@@ -228,8 +228,9 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 ## News
 
-- <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
-- The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
+- [2026-01-26] <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
+- [2026-01-31] The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
+- [2026-02-07] We published a paper explaining the task at LREC 2026. The pre-print is available on arXiv: <a href="https://arxiv.org/abs/2602.07621">SciClaimEval: Cross-modal Claim Verification in Scientific Papers</a>
 
 ## Important Dates
 
@@ -269,6 +270,24 @@ To participate in the SciClaimEval task, participants must (1) register via the 
 ## Contact
 
 Please direct any questions or corrections regarding the task to: sciclaimeval (at) gmail.com
+
+## Cite Us
+
+To cite this work, please use the following BibTeX. 
+*We will update the URL and page numbers once the official LREC 2026 proceedings are released.*
+
+```bibtex
+@InProceedings{HoWKXBGA2026,
+    title = "{S}ci{C}laim{E}val: Cross-modal Claim Verification in Scientific Papers",
+    author = "Xanh Ho and Yun-Ang Wu and Sunisth Kumar and Tian Cheng Xia and Florian Boudin and Andre Greiner-Petter and Akiko Aizawa",
+    booktitle = "Proceedings of the 15th Language Resources and Evaluation Conference (LREC 2026)",
+    month = may,
+    year = "2026",
+    address = "Palma de Mallorca, Spain",
+    publisher = "ELRA Language Resources Association",
+    url = "https://arxiv.org/abs/2602.07621"
+}
+```
 
 ## Organizers
 
