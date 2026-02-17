@@ -246,6 +246,8 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 | December 8 - 10, 2026 | NTCIR-19 Conference |
 | December 11, 2026 | Full Dataset Release |
 
+All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).
+
 ## Registration for Participation
 
 To participate in the SciClaimEval task, participants must (1) register via the 19th NTCIR online registration system and (2) submit a signed memorandum.
