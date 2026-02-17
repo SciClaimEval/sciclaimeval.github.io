@@ -228,9 +228,11 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 ## News
 
-- [2026-01-26] <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
-- [2026-01-31] The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
 - [2026-02-07] We published a paper explaining the task at LREC 2026. The pre-print is available on arXiv: <a href="https://arxiv.org/abs/2602.07621">SciClaimEval: Cross-modal Claim Verification in Scientific Papers</a>
+- [2026-01-31] The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
+- [2026-01-26] <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
+
+
 
 ## Important Dates
 
