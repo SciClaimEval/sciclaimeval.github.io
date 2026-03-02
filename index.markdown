@@ -39,7 +39,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 ## Task Description
 
 - Development Dataset: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">huggingface.co/datasets/alabnii/sciclaimeval-shared-task</a>
-- Formal Run Dataset: <i>will be released on March 01, 2026</i>
+- Formal Run Dataset: <a href="[https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task](https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task-test)">huggingface.co/datasets/alabnii/sciclaimeval-shared-task-test</a>
 - Evaluation scripts & examples: [github.com/SciClaimEval/sciclaimeval-shared-task](https://github.com/SciClaimEval/sciclaimeval-shared-task)
 
 The task dataset will be published in three rounds. First, we publish a development dataset (dev set) in order to let everyone explore parts of the data on January 31. Second, the formal test dataset will be released only for task participants in March. Participants are required to submit their results on this formal run dataset! Following the NTCIR conference, we make all data subsequently publicly available by the end of 2026.
@@ -228,6 +228,7 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 ## News
 
+- [2026-03-02] The test dataset is now available on huggingface: <a href="[https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task](https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task-test)">alabnii/sciclaimeval-shared-task-test</a>.
 - [2026-02-07] We published a paper explaining the task at LREC 2026. The pre-print is available on arXiv: <a href="https://arxiv.org/abs/2602.07621">SciClaimEval: Cross-modal Claim Verification in Scientific Papers</a>
 - [2026-01-31] The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
 - [2026-01-26] <a href="#registration-for-participation">Participation registration</a> for SciClaimEval is now available.
