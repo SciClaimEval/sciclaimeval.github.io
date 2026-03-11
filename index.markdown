@@ -300,3 +300,7 @@ To cite this work, please use the following BibTeX.
 - [André Greiner-Petter](https://gipplab.uni-goettingen.de/team/dr-andre-greiner-petter/) (University of Göttingen, Germany)
 - [Florian Boudin](https://boudinfl.github.io/) (Inria, France)
 - [Xanh Ho](https://xanhho.github.io/) (National Institute of Informatics, Japan)
+
+## Explorer
+
+Explore pairs of scientific claims with supporting and refuting evidence in our interactive [Examples Explorer](/explorer.html).
