@@ -258,6 +258,8 @@ permalink: /explorer.html
             // Use the claim from one of them (they should be the same)
             const claim = supported.claim;
             const caption = supported.caption;
+            const use_context = supported.use_context || 'N/A';
+            const domain = supported.domain || 'N/A';
             const operation = supported.operation || 'N/A';
             const context = supported.context || 'No context available';
             
@@ -271,6 +273,16 @@ permalink: /explorer.html
                     <div class="info-row">
                         <span class="info-label">Caption:</span>
                         <div class="caption">${caption}</div>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">Use Context:</span>
+                        <span class="info-value">${use_context}</span>
+                    </div>
+                    
+                    <div class="info-row">
+                        <span class="info-label">Domain:</span>
+                        <span class="info-value">${domain}</span>
                     </div>
                     
                     <div class="info-row">
