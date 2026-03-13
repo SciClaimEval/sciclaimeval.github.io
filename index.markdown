@@ -226,8 +226,11 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
   </table>
 </div>
 
-## News
+### Submission Form
+You can submit your prediction file for the test data here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform">forms-sciclaimeval-test-prediction-submission</a>
 
+## News
+- [2026-03-013] The submission form is now available here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform">forms-sciclaimeval-test-prediction-submission</a>.
 - [2026-03-02] The test dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task-test">alabnii/sciclaimeval-shared-task-test</a>.
 - [2026-02-07] We published a paper explaining the task at LREC 2026. The pre-print is available on arXiv: <a href="https://arxiv.org/abs/2602.07621">SciClaimEval: Cross-modal Claim Verification in Scientific Papers</a>
 - [2026-01-31] The development dataset is now available on huggingface: <a href="https://huggingface.co/datasets/alabnii/sciclaimeval-shared-task">alabnii/sciclaimeval-shared-task</a>.
