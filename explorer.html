@@ -9,6 +9,8 @@ permalink: /explorer.html
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SciClaimEval Examples Explorer</title>
+    <!-- #4: explicit favicon so the browser doesn't 404 on /favicon.ico -->
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,63 +48,129 @@ permalink: /explorer.html
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+ 
+        /* ── Info rows ── */
         .info-row {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0;           /* label + value sit flush; gap handled by label width */
         }
-        
+ 
+        /* Rows where the value is a full-width block (claim, caption) */
+        .info-row.block {
+            flex-direction: column;
+            gap: 6px;
+        }
+ 
+        /* #2: fixed-width label so all values align in a column */
         .info-label {
             font-weight: bold;
             color: #34495e;
             margin-right: 10px;
+            flex-shrink: 0;
+            width: 110px;     /* enough for the longest label ("Use Context") */
         }
-        
+ 
+        /* #3: plain text value, no box */
         .info-value {
             color: #555;
         }
+ 
+        /* Block-row labels don't need the fixed width */
+        .info-row.block .info-label {
+            width: auto;
+            margin-right: 0;
+        }
         
         .claim {
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 17px;
+            line-height: 1.65;
             color: #2c3e50;
-            padding: 15px;
-            margin-top: 10px;
+            padding: 14px 16px;
             background-color: #ecf0f1;
             border-left: 4px solid #3498db;
             border-radius: 4px;
         }
-        
-        .image-section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
  
-        .image-section h3 {
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
- 
-        .image-section.supported h3 { color: #27ae60; }
-        .image-section.refuted h3  { color: #e74c3c; }
-        
-        .image-section img {
-            max-width: 100%;
-            height: auto;
-            border: 2px solid #ddd;
+        .caption {
+            font-style: italic;
+            color: #666;
+            padding: 12px 16px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #ccc;
             border-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+ 
+        /* ── Label badge ── */
+        .label-badge {
+            display: inline-block;
+            padding: 3px 11px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+ 
+        .label-badge.supported {
+            background-color: #d4edda;
+            color: #155724;
+        }
+ 
+        .label-badge.refuted {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+ 
+        /* ── Context toggle button (inline pill) ── */
+        .context-toggle-btn {
+            display: inline-block;
+            background: none;
+            border: 1px solid #27ae60;
+            color: #27ae60;
+            padding: 3px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 0 0 0 6px;
+            transition: background-color 0.2s, color 0.2s;
+            line-height: 1.6;
+        }
+ 
+        .context-toggle-btn:hover {
+            background-color: #27ae60;
+            color: white;
+        }
+ 
+        /* ── Inline context box ── */
+        .context-inline {
+            display: none;
+            width: 100%;
+            margin-top: 6px;
+            padding: 12px 16px;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #555;
+        }
+ 
+        .context-inline.show {
             display: block;
         }
- 
+        
+        /* ── Partner link ── */
         .partner-link-box {
-            margin-top: 16px;
-            padding: 14px 18px;
+            display: inline-block;
+            padding: 5px 12px;
             background-color: #f0f4f8;
             border: 1px solid #d0dbe8;
-            border-radius: 6px;
+            border-radius: 5px;
             font-size: 14px;
             color: #444;
         }
@@ -117,48 +185,79 @@ permalink: /explorer.html
             text-decoration: underline;
         }
  
-        .label-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: bold;
-            margin-left: 6px;
-            vertical-align: middle;
+        /* ── Image section ── */
+        .image-section {
+            margin-bottom: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0;
         }
  
-        .label-badge.supported {
-            background-color: #d4edda;
-            color: #155724;
-        }
- 
-        .label-badge.refuted {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        .context-section {
-            background-color: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .context-content {
-            display: none;
-            padding: 15px;
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
+        /* #1: thumbnail — cursor signals it's clickable */
+        .image-section img {
+            max-height: 320px;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            border: 2px solid #ddd;
             border-radius: 4px;
-            margin-top: 15px;
-            line-height: 1.6;
-        }
-        
-        .context-content.show {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             display: block;
+            cursor: zoom-in;
+            transition: opacity 0.15s;
+        }
+ 
+        .image-section img:hover {
+            opacity: 0.85;
+        }
+ 
+        /* ── #1: Lightbox overlay ── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;                       /* top/right/bottom/left: 0 */
+            background: rgba(0, 0, 0, 0.82);
+            z-index: 1000;
+            cursor: zoom-out;
+            /* centre the image */
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+ 
+        #lightbox.open {
+            display: flex;
+        }
+ 
+        #lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 4px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.6);
+            cursor: default;               /* img itself doesn't close; overlay does */
+            object-fit: contain;
+        }
+ 
+        #lightbox-close {
+            position: fixed;
+            top: 16px;
+            right: 22px;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            user-select: none;
+            opacity: 0.8;
+            transition: opacity 0.15s;
+        }
+ 
+        #lightbox-close:hover {
+            opacity: 1;
         }
         
+        /* ── Random button ── */
         .random_button {
             text-align: center;
             margin-top: 20px;
@@ -179,25 +278,6 @@ permalink: /explorer.html
         
         button:hover { background-color: #2980b9; }
         button:active { transform: translateY(1px); }
-        
-        #showContextBtn {
-            background-color: #27ae60;
-        }
-        
-        #showContextBtn:hover {
-            background-color: #229954;
-        }
-        
-        .caption {
-            font-style: italic;
-            color: #666;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            margin-top: 10px;
-            border-left: 4px solid #cccccc;
-            border-radius: 4px;
-        }
  
         #loadingMsg {
             text-align: center;
@@ -208,6 +288,13 @@ permalink: /explorer.html
     </style>
 </head>
 <body>
+ 
+    <!-- #1: Lightbox — lives outside exampleContainer so re-renders don't remove it -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <span id="lightbox-close" onclick="closeLightbox()">✕</span>
+        <img id="lightbox-img" src="" alt="Full-size evidence">
+    </div>
+ 
     <div class="header">
         <h1>SciClaimEval Examples Explorer</h1>
     </div>
@@ -223,7 +310,7 @@ permalink: /explorer.html
         // ── 1. Load JSON from external file ──────────────────────────────────
         fetch('/assets/explorer_data.json')
             .then(r => {
-                if (!r.ok) throw new Error('Failed to load examples.json: ' + r.status);
+                if (!r.ok) throw new Error('Failed to load explorer_data.json: ' + r.status);
                 return r.json();
             })
             .then(data => {
@@ -274,35 +361,44 @@ permalink: /explorer.html
             const isSupported = entry.label === 'Supported';
             const labelClass = isSupported ? 'supported' : 'refuted';
             const labelSymbol = isSupported ? '✓ Supported' : '✗ Refuted';
- 
-            const partnerHtml = partner ? `
-                <div class="partner-link-box">
-                    This is the <strong>${entry.label}</strong> version of this claim.
-                    <a href="${partnerUrl(partner.claim_id)}">
-                        View the ${partner.label} version →
-                    </a>
-                </div>
-            ` : '';
- 
+            const useContext = (entry.use_context || '').toLowerCase() === 'yes';
             const contextText = entry.context || '';
+ 
+            const partnerHtml = partner
+                ? `<div class="partner-link-box">
+                       This is the <strong>${entry.label}</strong> version.
+                       <a href="${partnerUrl(partner.claim_id)}">View the ${partner.label} version →</a>
+                   </div>`
+                : '';
+ 
+            // Context toggle + inline box, placed inside the Use Context row
+            const contextBlockHtml = contextText
+                ? `<button class="context-toggle-btn" onclick="toggleContext(this)">
+                       ${useContext ? 'Hide Context' : 'Show Context'}
+                   </button>
+                   <div class="context-inline${useContext ? ' show' : ''}">
+                       ${contextText}
+                   </div>`
+                : '';
  
             const html = `
                 <div class="random_button">
                     <button onclick="showRandom()">Show Another Random Example</button>
                 </div>
-
+ 
                 <div class="info-section">
+ 
                     <div class="info-row">
                         <span class="info-label">Claim ID:</span>
                         <span class="info-value">${entry.claim_id}</span>
                     </div>
-                    
-                    <div class="info-row">
+ 
+                    <div class="info-row block">
                         <span class="info-label">Claim:</span>
                         <div class="claim">${entry.claim}</div>
                     </div>
                     
-                    <div class="info-row">
+                    <div class="info-row block">
                         <span class="info-label">Caption:</span>
                         <div class="caption">${entry.caption}</div>
                     </div>
@@ -311,10 +407,11 @@ permalink: /explorer.html
                         <span class="info-label">Label:</span>
                         <span class="label-badge ${labelClass}">${labelSymbol}</span>
                     </div>
-                    
-                    <div class="info-row">
+ 
+                    <div class="info-row" style="align-items: center;">
                         <span class="info-label">Use Context:</span>
                         <span class="info-value">${entry.use_context || 'N/A'}</span>
+                        ${contextBlockHtml}
                     </div>
                     
                     <div class="info-row">
@@ -327,64 +424,66 @@ permalink: /explorer.html
                         <span class="info-value">${entry.operation || 'N/A'}</span>
                     </div>
 
+                    <div class="image-section">
+                        <span class="info-label">Evidence:</span>
+                        <img src="${entry.evi_path}"
+                            alt="${entry.label} evidence"
+                            onclick="openLightbox(this.src)">
+                    </div>
+ 
                     <div class="info-row">
                         ${partnerHtml}
                     </div>
-                </div>
  
-                <div class="image-section ${labelClass}">
-                    <img src="${entry.evi_path}" alt="${entry.label} evidence">
                 </div>
- 
-                ${contextText ? `
-                <div class="context-section">
-                    <button id="showContextBtn" onclick="toggleContext()">Show Context</button>
-                    <div id="contextContent" class="context-content">
-                        <strong>Context:</strong> ${contextText}
-                    </div>
-                </div>
-                ` : ''}
             `;
  
             document.getElementById('exampleContainer').innerHTML = html;
         }
  
-        // ── 7. Toggle context ─────────────────────────────────────────────────
-        function toggleContext() {
-            const el = document.getElementById('contextContent');
-            const btn = document.getElementById('showContextBtn');
-            const showing = el.classList.toggle('show');
+        // ── Lightbox ──────────────────────────────────────────────────────────
+        function openLightbox(src) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';   // prevent background scroll
+        }
+ 
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.getElementById('lightbox-img').src = '';
+            document.body.style.overflow = '';
+        }
+ 
+        // Close on Escape key
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+ 
+        // ── Toggle context ─────────────────────────────────────────────────
+        function toggleContext(btn) {
+            const box = btn.nextElementSibling;
+            const showing = box.classList.toggle('show');
             btn.textContent = showing ? 'Hide Context' : 'Show Context';
         }
  
-        // ── 8. Show a random entry ────────────────────────────────────────────
+        // ── Show a random entry ───────────────────────────────────────────────
         function showRandom() {
-            // Pick a random pair, then randomly pick one of the two entries
             const pair = allPairs[Math.floor(Math.random() * allPairs.length)];
             const entry = pair[Math.floor(Math.random() * pair.length)];
- 
-            // Update URL without reloading the page
             const url = new URL(window.location.href);
             url.searchParams.set('id', entry.claim_id);
             history.pushState({}, '', url.toString());
- 
             displayEntry(entry);
         }
  
-        // ── 9. Init: check for ?id= param, else random ────────────────────────
+        // ── Init: check for ?id= param, else random ───────────────────────────
         function init() {
             const params = new URLSearchParams(window.location.search);
             const requestedId = params.get('id');
- 
             if (requestedId) {
                 const entry = findById(requestedId);
-                if (entry) {
-                    displayEntry(entry);
-                    return;
-                }
-                // Unknown id — fall through to random
+                if (entry) { displayEntry(entry); return; }
             }
- 
             showRandom();
         }
     </script>
