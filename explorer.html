@@ -173,6 +173,7 @@ permalink: /explorer.html
             border-radius: 5px;
             font-size: 14px;
             color: #444;
+            margin-left: 120px;
         }
  
         .partner-link-box a {
@@ -364,6 +365,8 @@ permalink: /explorer.html
             const useContext = (entry.use_context || '').toLowerCase() === 'yes';
             const contextText = entry.context || '';
  
+            const operation = isSupported ? "None (supported evidences have not been changed)" : entry.operation
+
             const partnerHtml = partner
                 ? `<div class="partner-link-box">
                        This is the <strong>${entry.label}</strong> version.
@@ -418,10 +421,15 @@ permalink: /explorer.html
                         <span class="info-label">Domain:</span>
                         <span class="info-value">${entry.domain || 'N/A'}</span>
                     </div>
+
+                    <div class="info-row">
+                        <span class="info-label">Evidence type:</span>
+                        <span class="info-value">${entry.evi_type || 'N/A'}</span>
+                    </div>
                     
                     <div class="info-row">
                         <span class="info-label">Operation:</span>
-                        <span class="info-value">${entry.operation || 'N/A'}</span>
+                        <span class="info-value">${operation}</span>
                     </div>
 
                     <div class="image-section">
@@ -434,7 +442,11 @@ permalink: /explorer.html
                     <div class="info-row">
                         ${partnerHtml}
                     </div>
- 
+
+                    <div class="info-row">
+                        <span class="info-label">License:</span>
+                        <span class="info-value">${entry.license_name || 'N/A'}</span>
+                    </div>
                 </div>
             `;
  
