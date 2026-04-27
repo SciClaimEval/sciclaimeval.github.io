@@ -224,11 +224,11 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
       </tr>
       <tr>
         <th>InternVL3_5-38B</th>
-        <td>56.2</td>
+        <td>54.5</td>
       </tr>
       <tr>
         <th>Qwen3-VL-30B-A3B</th>
-        <td>56.2</td>
+        <td>54.3</td>
       </tr>
       <tr>
         <th>Llama-3.2-11B-Vision</th>
