@@ -210,17 +210,29 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
     <thead>
       <tr>
         <th>Subtask 2 Baselines</th>
-        <th>Precision</th>
-        <th>Recall</th>
-        <th>Macro-F1</th>
+        <th>Accuracy</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>tba.</th>
-        <td>-</td>
-        <td>-</td>
-        <td>-</td>
+        <th>o4-mini</th>
+        <td>85.2</td>
+      </tr>
+      <tr>
+        <th>Qwen3-VL-8B</th>
+        <td>56.2</td>
+      </tr>
+      <tr>
+        <th>InternVL3_5-38B</th>
+        <td>56.2</td>
+      </tr>
+      <tr>
+        <th>Qwen3-VL-30B-A3B</th>
+        <td>56.2</td>
+      </tr>
+      <tr>
+        <th>Llama-3.2-11B-Vision</th>
+        <td>34.7</td>
       </tr>
     </tbody>
   </table>
