@@ -226,6 +226,8 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
   </table>
 </div>
 
+*Note: these scores are evaluated on the validation set.
+
 ### Submission Form
 You can submit your prediction file for the test data here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform">forms-sciclaimeval-test-prediction-submission</a>
 
