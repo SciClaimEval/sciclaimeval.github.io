@@ -260,7 +260,7 @@ You can submit your prediction file for the test data here: <a href="https://doc
 | ---: | :--- |
 | January 31, 2026 | Development Dataset Release |
 | March 01, 2026 | Formal Run Dataset Release |
-| **June 1, 2026** | **Registration Deadline for Participants** |
+| ~~June 1, 2026~~ **July 10, 2026 (extend)** | **Registration Deadline for Participants** |
 | **July 19, 2026** | **Formal Run Submission Deadline** |
 | August 1, 2026 | Evaluation Results Return |
 | September 1, 2026 | Submission Due for Participant's Papers |
