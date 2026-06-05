@@ -32,7 +32,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 
 ## Synopsis
 
-- <a href="#registration-for-participation">Register</a> as participant by **June 1, 2026**
+- <a href="#registration-for-participation">Register</a> as participant by ~~June 1, 2026~~ **July 10, 2026 (extend)**
 - Submit your run on the test dataset by **July 19, 2026**
 - Submit your paper draft by **September 1, 2026**
 
