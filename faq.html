@@ -206,6 +206,22 @@ permalink: /faq.html
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag data">Data</span>Some claims contain ambiguous words such as "it" or "they" and I'm not sure what they refer to. Are these considered problematic samples?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                If you encounter such ambiguous claims, please refer to the <code>use_context</code> field in
+                our dataset. This field can have three values: <code>no</code> (no additional context
+                required), <code>yes</code> (requires the <code>context</code> field for disambiguation), or
+                <code>other sources</code> (requires the full paper for disambiguation). Based on our
+                experience creating and reviewing the dataset, we have found that most ambiguous claims can be
+                clarified using the context information (either the provided short paragraph or the full
+                paper).
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
                 <span class="q-text"><span class="faq-tag submission">Submission</span>Is there a limitation on how many submissions we can make?</span>
                 <span class="toggle-icon">+</span>
             </button>
