@@ -1,0 +1,266 @@
+---
+layout: none
+title: FAQ
+permalink: /faq.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciClaimEval FAQ</title>
+    <!-- explicit favicon so the browser doesn't 404 on /favicon.ico -->
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            font-size: 27px;
+        }
+
+        .header p {
+            margin: 5px 0;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover { text-decoration: underline; }
+
+        .faq-section {
+            background-color: white;
+            padding: 8px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* ── Accordion item ── */
+        .faq-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            font-size: 17px;
+            font-weight: 600;
+            text-align: left;
+            padding: 18px 4px;
+            margin: 0;
+            cursor: pointer;
+            font-family: inherit;
+            transition: color 0.2s;
+        }
+
+        .faq-question:hover { color: #2980b9; background: none; }
+
+        /* ── Category tag ── */
+        .faq-question .q-text {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .faq-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+        }
+
+        .faq-tag.task {
+            background-color: #e8e3fb;
+            color: #5b3fae;
+        }
+
+        .faq-tag.data {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .faq-tag.submission {
+            background-color: #fce8d4;
+            color: #a4520a;
+        }
+
+        .faq-question .toggle-icon {
+            flex-shrink: 0;
+            margin-left: 16px;
+            font-size: 20px;
+            color: #3498db;
+            transition: transform 0.2s;
+            line-height: 1;
+        }
+
+        .faq-item.open .toggle-icon { transform: rotate(45deg); }
+
+        .faq-answer {
+            display: none;
+            padding: 0 4px 18px;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .faq-item.open .faq-answer { display: block; }
+
+        .faq-answer a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer a:hover { text-decoration: underline; }
+
+        .faq-answer code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #c0392b;
+        }
+
+        .faq-answer ul {
+            margin: 8px 0;
+            padding-left: 22px;
+        }
+
+        .faq-answer li { margin-bottom: 6px; }
+
+        .contact-note {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .contact-note a {
+            color: #2980b9;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-note a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>SciClaimEval — Frequently Asked Questions</h1>
+        <a class="back-link" href="/">← Back to the task home page</a>
+    </div>
+
+    <div class="faq-section" id="faqSection">
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag data">Data</span>What should I do if I find errors in the dataset samples?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                As mentioned in our paper, all samples in the dataset were created by humans. However, human
+                annotators can occasionally make mistakes due to workload, oversight, or other factors. To
+                date, we are aware of only a few problematic samples in the dataset (approximately two cases
+                so far). Nevertheless, to ensure a fair comparison among all participating teams, we have
+                decided to keep the dataset unchanged at this time.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag submission">Submission</span>Is there a limitation on how many submissions we can make?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                No, there is no limitation on how many submissions you can make.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag submission">Submission</span>The submission is a Google Form where we can upload a file, so there will be no leaderboard, right?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Yes, we decided not to have a leaderboard this time. However, on our website
+                (<a href="https://sciclaimeval.github.io/#evaluations--baselines">Evaluations &amp; Baselines</a>), you can compare your
+                results against the baseline scores.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag submission">Submission</span>Will evaluation results be provided on our submissions during the active phase (i.e., before the final submission deadline on July 19th)?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Yes, after you submit your file, we will let you know whether your submission is valid and
+                provide the corresponding scores.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag submission">Submission</span>How will the final entry be selected?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                The best run on the primary metric (task 1: pair accuracy, task 2: accuracy) decides your team rank versus other team's best submission. However, we will still show and analyse other submissions than the best one if they differ sufficiently (different approach rather than just hyperparameter tuning). Hence, we encourage all teams to explain each submission and explore different ideas so that we can summarize all approaches instead of only the best ones.
+            </div>
+        </div>
+
+    </div>
+
+    <p class="contact-note">
+        Still have questions? Email us at
+        <a href="mailto:sciclaimeval@gmail.com">sciclaimeval (at) gmail.com</a>.
+    </p>
+
+    <script>
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            item.classList.toggle('open');
+            btn.querySelector('.toggle-icon').textContent =
+                item.classList.contains('open') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>
