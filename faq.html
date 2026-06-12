@@ -198,9 +198,9 @@ permalink: /faq.html
             <div class="faq-answer">
                 As mentioned in our paper, all samples in the dataset were created by humans. However, human
                 annotators can occasionally make mistakes due to workload, oversight, or other factors. To
-                date, we are aware of only a few problematic samples in the dataset (approximately two cases
-                so far). Nevertheless, to ensure a fair comparison among all participating teams, we have
-                decided to keep the dataset unchanged at this time.
+                date, we are aware of only a few (two at the moment) problematic samples in the dataset. 
+                To ensure a fair comparison among all participating teams, we have decided to keep the dataset 
+                unchanged at this time. If you encounter any errors, please don't hesitate to inform us.
             </div>
         </div>
 
@@ -232,13 +232,15 @@ permalink: /faq.html
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span class="q-text"><span class="faq-tag submission">Submission</span>The submission is a Google Form where we can upload a file, so there will be no leaderboard, right?</span>
+                <span class="q-text"><span class="faq-tag submission">Submission</span>Is there a live leaderboard available?</span>
                 <span class="toggle-icon">+</span>
             </button>
             <div class="faq-answer">
-                Yes, we decided not to have a leaderboard this time. However, on our website
+                No, we do not provide a leaderboard before the run submission deadline (July 19th). However, on our website
                 (<a href="https://sciclaimeval.github.io/#evaluations--baselines">Evaluations &amp; Baselines</a>), you can compare your
-                results against the baseline scores.
+                results against the baseline scores. When you upload a new submission, we will also inform you about your validity and scores
+                for that particular submission. This allows you to improve against your own submissions.
+                We publish a full leaderboard only after the run submission deadline.
             </div>
         </div>
 
@@ -255,11 +257,13 @@ permalink: /faq.html
 
         <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
-                <span class="q-text"><span class="faq-tag submission">Submission</span>How will the final entry be selected?</span>
+                <span class="q-text"><span class="faq-tag submission">Submission</span>Which submission do you select, if we upload multiple submissions?</span>
                 <span class="toggle-icon">+</span>
             </button>
             <div class="faq-answer">
-                The best run on the primary metric (task 1: pair accuracy, task 2: accuracy) decides your team rank versus other team's best submission. However, we will still show and analyse other submissions than the best one if they differ sufficiently (different approach rather than just hyperparameter tuning). Hence, we encourage all teams to explain each submission and explore different ideas so that we can summarize all approaches instead of only the best ones.
+                The best run on the primary metric (task 1: pair accuracy, task 2: accuracy) decides your team rank versus other team's best submission regardless of the submission date/order. 
+                However, we will still show and analyse all other submissions if they differ sufficiently (for example, different architecture/model differs sufficiently; hyperparameter tuning does not). 
+                Hence, we encourage all teams to explain each submission during the upload in the Google form and explore different ideas. The final leaderboard will contain all submissions eventually.
             </div>
         </div>
 
