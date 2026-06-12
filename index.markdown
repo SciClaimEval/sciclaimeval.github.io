@@ -34,6 +34,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 
 - <a href="#registration-for-participation">Register</a> as participant by ~~June 1, 2026~~ **July 10, 2026 (extend)**
 - Submit your run on the test dataset by **July 19, 2026**
+- <a href="#submission-form">Make a submission</a> via our submission form
 - Submit your paper draft by **September 1, 2026**
 
 ## Task Description
@@ -240,8 +241,6 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 *Note: these scores are evaluated on the validation set.
 
-### Submission Form
-You can submit your prediction file for the test data here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform">forms-sciclaimeval-test-prediction-submission</a>
 
 ## News
 - [2026-06-11] We created an FAQ page for participants. Check it out here: <a href="https://sciclaimeval.github.io/faq.html">sciclaimeval.github.io/faq.html</a>
@@ -292,6 +291,29 @@ To participate in the SciClaimEval task, participants must (1) register via the 
     Register for Participation
     </a>
 </div>
+
+
+## Submission Form
+You can submit your prediction file for the test data here.
+
+
+<div style="text-align: center; margin: 1.5em 0;">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform"
+    target="_blank"
+    rel="noopener"
+    style="
+        display: inline-block;
+        padding: 10px 16px;
+        background-color: #0066cc;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+    ">
+    Submit
+    </a>
+</div>
+
 
 ## Contact
 
