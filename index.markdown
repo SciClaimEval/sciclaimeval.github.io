@@ -244,6 +244,8 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 You can submit your prediction file for the test data here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform">forms-sciclaimeval-test-prediction-submission</a>
 
 ## News
+- [2026-06-11] We created an FAQ page for participants. Check it out here: <a href="https://sciclaimeval.github.io/faq.html">sciclaimeval.github.io/faq.html</a>
+- [2026-06-02] The registration deadline for participants has been extended until July 10.
 - [2026-03-26] Dataset explorers are now available; please check them out here: <a href="https://sciclaimeval.github.io/explorer.html">sciclaimeval.github.io/explorer.html</a>.
 - [2026-03-26] The JSON tables with human verification are now available. 
 - [2026-03-13] The submission form is now available here: <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform">forms-sciclaimeval-test-prediction-submission</a>.
