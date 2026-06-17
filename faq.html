@@ -91,7 +91,6 @@ permalink: /faq.html
         .faq-question .q-text {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
             gap: 10px;
         }
 
@@ -238,9 +237,10 @@ permalink: /faq.html
             <div class="faq-answer">
                 No, we do not provide a leaderboard before the run submission deadline (July 19th). However, on our website
                 (<a href="https://sciclaimeval.github.io/#evaluations--baselines">Evaluations &amp; Baselines</a>), you can compare your
-                results against the baseline scores. When you upload a new submission, we will also inform you about your validity and scores
-                for that particular submission. This allows you to improve against your own submissions.
-                We publish a full leaderboard only after the run submission deadline.
+                results against the baseline scores. When you upload a new submission, our evaluation bot (EvalBot) will send out an e-mail
+                to your full team containing the results (or an error message if something went wrong). You are encouraged to upload more
+                runs to further improve your scores but you cannot see other participant's scores before the deadline.
+                We publish a full leaderboard after the run submission deadline.
             </div>
         </div>
 
@@ -250,8 +250,20 @@ permalink: /faq.html
                 <span class="toggle-icon">+</span>
             </button>
             <div class="faq-answer">
-                Yes, after you submit your file, we will let you know whether your submission is valid and
-                provide the corresponding scores.
+                Yes, after you submit your file, our evaluation bot (EvalBot) sends your team an e-mail containing your results.
+                If you haven't received an e-mail after 30min, please send an e-mail to the organizers (<a href="mailto:sciclaimeval@gmail.com">sciclaimeval (at) gmail.com</a>) as there was likely an error during the evaluation.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag submission">Submission</span>I have uploaded a submission but did not receive an e-mail notification.</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                We deployed an automated evaluation bot (EvalBot) that automatically verifies and evaluates your result but it may take up to 30min for you to receive the e-mail. The e-mail will have the subject 'SciClaimEval Submission Update' and
+                come from sciclaimeval@gmail.com. If you haven't received an e-mail after 30min, please send an e-mail to the organizers (<a href="mailto:sciclaimeval@gmail.com">sciclaimeval (at) gmail.com</a>) as there was likely an error during the evaluation.
+                Please also make sure you use the correct 'Group ID' assigned to you, as this is the way EvalBot cross-checks your team member's e-mails.
             </div>
         </div>
 
