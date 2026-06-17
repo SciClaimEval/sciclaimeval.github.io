@@ -243,6 +243,7 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 
 ## News
+- [2026-06-17] EvalBot is now live. It automatically evaluates your submission and informs you via e-mail about your results within 30min.
 - [2026-06-11] We created an FAQ page for participants. Check it out here: <a href="https://sciclaimeval.github.io/faq.html">sciclaimeval.github.io/faq.html</a>
 - [2026-06-02] The registration deadline for participants has been extended until July 10.
 - [2026-03-26] Dataset explorers are now available; please check them out here: <a href="https://sciclaimeval.github.io/explorer.html">sciclaimeval.github.io/explorer.html</a>.
