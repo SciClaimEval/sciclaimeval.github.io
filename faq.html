@@ -120,6 +120,11 @@ permalink: /faq.html
             color: #a4520a;
         }
 
+        .faq-tag.paper {
+            background-color: #d6ecf7;
+            color: #155b80;
+        }
+
         .faq-question .toggle-icon {
             flex-shrink: 0;
             margin-left: 16px;
@@ -276,6 +281,20 @@ permalink: /faq.html
                 The best run on the primary metric (task 1: pair accuracy, task 2: accuracy) decides your team rank versus other team's best submission regardless of the submission date/order. 
                 However, we will still show and analyse all other submissions if they differ sufficiently (for example, different architecture/model differs sufficiently; hyperparameter tuning does not). 
                 Hence, we encourage all teams to explain each submission during the upload in the Google form and explore different ideas. The final leaderboard will contain all submissions eventually.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span class="q-text"><span class="faq-tag paper">Paper Submission</span>Is there a specific template for the paper submission, and what are the formal requirements (e.g., page limit)?</span>
+                <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                Information regarding the paper template and formal requirements (including the page limit and
+                formatting guidelines) is available on the NTCIR-19 submission instructions page. Please refer
+                to the
+                <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html" target="_blank" rel="noopener">NTCIR-19 Paper Submission Instructions</a>
+                for details.
             </div>
         </div>
 

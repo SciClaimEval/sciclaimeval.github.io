@@ -35,7 +35,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 - <a href="#registration-for-participation">Register</a> as participant by ~~June 1, 2026~~ **July 10, 2026 (extend)**
 - Submit your run on the test dataset by **July 19, 2026**
 - <a href="#submission-form">Make a submission</a> via our submission form
-- Submit your paper draft by **September 1, 2026**
+- Submit your paper draft by **September 1, 2026** (Please refer to the <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html" target="_blank" rel="noopener">NTCIR-19 Paper Submission Instructions</a> for details.)
 
 ## Task Description
 
