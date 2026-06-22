@@ -296,24 +296,44 @@ To participate in the SciClaimEval task, participants must (1) register via the 
 
 ## Submission Form
 You can submit your prediction file for the test data here.
-Please make sure you have registered for the task and received your 'Group ID' before submitting a run.
 
+<div id="submit-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; border-radius:8px; padding:2rem; max-width:440px; width:90%; margin:1rem;">
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:1rem;">
+      <div style="width:36px; height:36px; border-radius:50%; background:#fff8e1; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:20px;">⚠️</div>
+      <h3 style="margin:0; font-size:18px; font-weight:600;">Before you submit</h3>
+    </div>
+    <p style="margin:0 0 1rem; line-height:1.6;">
+      Submissions are only accepted from <strong>registered participants</strong> with a valid <strong>Group ID</strong>.
+    </p>
+    <div style="background:#fff8e1; border-left:3px solid #f59e0b; padding:10px 14px; border-radius:0 4px 4px 0; margin-bottom:1.25rem;">
+      <p style="font-size:13px; color:#92400e; margin:0; line-height:1.5;">
+        If you have <strong>not</strong> registered yet, please do so first and wait to receive your Group ID — unregistered submissions will be discarded.
+      </p>
+    </div>
+    <p style="font-size:14px; color:#555; margin:0 0 1.5rem;">Have you registered and received your Group ID?</p>
+    <div style="display:flex; gap:10px;">
+      <a href="https://research.nii.ac.jp/ntcir/ntcir-19/howto.html"
+        target="_blank" rel="noopener"
+        onclick="document.getElementById('submit-modal').style.display='none'"
+        style="flex:1; padding:9px 16px; border-radius:4px; border:1px solid #ccc; background:#fff; color:#555; font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; text-decoration:none;">
+        No, I need to register first
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform"
+        target="_blank" rel="noopener"
+        onclick="document.getElementById('submit-modal').style.display='none'"
+        style="flex:1; padding:9px 16px; border-radius:4px; background:#0066cc; color:white; font-size:14px; font-weight:600; text-decoration:none; text-align:center; display:flex; align-items:center; justify-content:center;">
+        Yes, proceed to form
+      </a>
+    </div>
+  </div>
+</div>
 
-<div style="text-align: center; margin: 1.5em 0;">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform"
-    target="_blank"
-    rel="noopener"
-    style="
-        display: inline-block;
-        padding: 10px 16px;
-        background-color: #0066cc;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        font-weight: 600;
-    ">
-    Submit a Run
-    </a>
+<div style="text-align:center; margin:1.5em 0;">
+  <button onclick="document.getElementById('submit-modal').style.display='flex'"
+    style="display:inline-block; padding:10px 16px; background-color:#0066cc; color:white; border:none; border-radius:4px; font-weight:600; font-size:1em; cursor:pointer;">
+    Submit a run
+  </button>
 </div>
 
 
