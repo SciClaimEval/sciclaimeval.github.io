@@ -296,6 +296,7 @@ To participate in the SciClaimEval task, participants must (1) register via the 
 
 ## Submission Form
 You can submit your prediction file for the test data here.
+Please make sure you have registered for the task and received your 'Group ID' before submitting a run.
 
 
 <div style="text-align: center; margin: 1.5em 0;">
@@ -311,7 +312,7 @@ You can submit your prediction file for the test data here.
         border-radius: 4px;
         font-weight: 600;
     ">
-    Submit
+    Submit a Run
     </a>
 </div>
 
