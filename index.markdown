@@ -347,15 +347,17 @@ To cite this work, please use the following BibTeX.
 *We will update the URL and page numbers once the official LREC 2026 proceedings are released.*
 
 ```bibtex
-@InProceedings{HoWKXBGA2026,
-    title = "{S}ci{C}laim{E}val: Cross-modal Claim Verification in Scientific Papers",
-    author = "Xanh Ho and Yun-Ang Wu and Sunisth Kumar and Tian Cheng Xia and Florian Boudin and Andre Greiner-Petter and Akiko Aizawa",
-    booktitle = "Proceedings of the 15th Language Resources and Evaluation Conference (LREC 2026)",
-    month = may,
-    year = "2026",
-    address = "Palma de Mallorca, Spain",
-    publisher = "ELRA Language Resources Association",
-    url = "https://arxiv.org/abs/2602.07621"
+@inproceedings{ho-etal-2026-sciclaimeval,
+  title = {SciClaimEval: Cross-modal Claim Verification in Scientific Papers},
+  author = {Ho, Xanh and Wu, Yun-Ang and Kumar, Sunisth and Xia, Tian Cheng and Boudin, Florian and Greiner-Petter, Andre and Aizawa, Akiko},
+  booktitle = {Proceedings of the Fifteenth Language Resources and Evaluation Conference (LREC 2026)},
+  month = {May},
+  year = {2026},
+  pages = {11060--11071},
+  address = {Palma, Mallorca, Spain},
+  publisher = {European Language Resources Association (ELRA)},
+  editor = {Piperidis, Stelios and Bel, Núria and van den Heuvel, Henk and Ide, Nancy and Krek, Simon and Toral, Antonio},
+  doi = {10.63317/4ap9rg2gnwmf}
 }
 ```
 
