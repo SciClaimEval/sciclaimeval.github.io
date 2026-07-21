@@ -193,7 +193,7 @@ table th {
 }
 
 .results-table tbody tr.main-row:nth-child(even of .main-row) {
-  background: #f5f5f5;
+  background: #f7f7f7;
 }
 
 .main-row {
@@ -281,4 +281,53 @@ table th {
 
 .detail-table tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* Container inside the TD to isolate layouts */
+.table-tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: help; /* Adds a visual cue that a tooltip is available */
+}
+
+/* Tooltip base styling and positioning */
+.table-tooltip-container .custom-tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 130%; /* Positions the box right above the text */
+  left: 50%;
+  transform: translate(20%, 40%);
+  
+  /* Styling to match your layout */
+  background-color: #222222;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: nowrap; /* Keeps line single, change to normal + add max-width for long text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+  
+  /* Smooth Fade Animation */
+  opacity: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 100; /* Stays above the table boundaries */
+}
+
+/* Reveal tooltip seamlessly on hover */
+.table-tooltip-container:hover .custom-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Optional: Subtle indicator line beneath tooltip-capable cells */
+.table-tooltip-container {
+  border-bottom: 1px dashed #888;
+}
+
+.table-tooltip-container .custom-tooltip {
+  white-space: normal;      /* Overwrite single line restriction */
+  width: max-content;
+  max-width: 450px;         /* Prevents horizontal screen overflow */
+  word-wrap: break-word;    /* Breaks long text safely */
 }

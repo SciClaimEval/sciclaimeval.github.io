@@ -1,0 +1,361 @@
+[
+  {
+    "team": "SciTrue",
+    "is_baseline": false,
+    "accuracy": 98.2,
+    "runs": [
+      {
+        "method_name": "Direct pairwi...",
+        "tooltip": "Direct pairwise evidence selection with a single model. Claude Fable 5 is shown the claim (with caption and context) and both candidate evidence images side by side, and selects the one that supports the claim, returning a confidence score for each option. No ensembling is used, since Subtask 2 is already a relative-comparison task.",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 98.2
+      },
+      {
+        "method_name": "SciTrue-T2-GP...",
+        "tooltip": "SciTrue-T2-GPT5.5",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 97.5
+      },
+      {
+        "method_name": "Score-weighte...",
+        "tooltip": "Score-weighted combination of two strong single models for pairwise evidence selection. GPT-5.5 and Claude Fable 5 each independently choose which of two evidence images supports the claim, with Fable 5 additionally providing continuous per-image confidence scores. The two models' signals are summed (GPT-5.5's discrete choice contributes \u00b11, Fable 5 contributes its score difference), and the evidence item with the higher combined score is selected \u2014 so the two models agree on the large majority of items, and Fable 5's confidence arbitrates the small number of disagreements.",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 97.5
+      }
+    ]
+  },
+  {
+    "team": "Bonn-Juelich Informatics",
+    "is_baseline": false,
+    "accuracy": 97.9,
+    "runs": [
+      {
+        "method_name": "purly table i...",
+        "tooltip": "purly table image seed 22 + threshold 5 + HITL",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 97.9
+      },
+      {
+        "method_name": "purly table i...",
+        "tooltip": "purly table image seed 22 + threshold 5 + HITL",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 97.7
+      },
+      {
+        "method_name": "purly table i...",
+        "tooltip": "purly table image seed 22 + threshold 5.5 + HITL",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 96.3
+      },
+      {
+        "method_name": "purly table i...",
+        "tooltip": "purly table image seed 22 + threshold 6 + HITL",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 95.6
+      },
+      {
+        "method_name": "pipline run p...",
+        "tooltip": "pipline run purely on table image with random seed 22",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 93.3
+      }
+    ]
+  },
+  {
+    "team": "University of Southampton NTCIR team",
+    "is_baseline": false,
+    "accuracy": 95.9,
+    "runs": [
+      {
+        "method_name": "GPT 5.5 v1 ta...",
+        "tooltip": "GPT 5.5 v1 task 2",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 95.9
+      }
+    ]
+  },
+  {
+    "team": "Takasu Lab",
+    "is_baseline": false,
+    "accuracy": 93.6,
+    "runs": [
+      {
+        "method_name": "Gemma4 Pipeli...",
+        "tooltip": "Gemma4 Pipeline",
+        "team_notes": "CommitID: bf1...",
+        "notes_tooltip": "CommitID: bf1bce5",
+        "accuracy": 93.6
+      },
+      {
+        "method_name": "Gemma4 Pipeli...",
+        "tooltip": "Gemma4 Pipeline",
+        "team_notes": "CommitID: bf1...",
+        "notes_tooltip": "CommitID: bf1bce5",
+        "accuracy": 93.6
+      }
+    ]
+  },
+  {
+    "team": "SIB Text Mining",
+    "is_baseline": false,
+    "accuracy": 90.1,
+    "runs": [
+      {
+        "method_name": "SIBTM_T2_R01",
+        "tooltip": "",
+        "team_notes": "Apply Task 1 ...",
+        "notes_tooltip": "Apply Task 1 to each image (SIBTM_T1_R01). If no definitive verdict can be reached\u2014because both are refuted or both are confirmed\u2014call the model with both images. In this case, use one prompt for images and a separate prompt for tables.",
+        "accuracy": 90.1
+      },
+      {
+        "method_name": "Qwen3-VL-32B-...",
+        "tooltip": "Qwen3-VL-32B-Instruct + fine-tuning + prompting",
+        "team_notes": "Step-by-step ...",
+        "notes_tooltip": "Step-by-step reasoning prompt to support the model used for SIBTM_T2_R03",
+        "accuracy": 80.3
+      },
+      {
+        "method_name": "Qwen3-VL deci...",
+        "tooltip": "Qwen3-VL decider + chart/table advisor",
+        "team_notes": "ChartGemma an...",
+        "notes_tooltip": "ChartGemma and PaddleOCR act as advisors, extracting figure interpretations and table structure respectively, which Qwen uses to make the final decision",
+        "accuracy": 79.8
+      },
+      {
+        "method_name": "Qwen3-VL-32B-...",
+        "tooltip": "Qwen3-VL-32B-Instruct + fine-tuning",
+        "team_notes": "QLoRA fine-tu...",
+        "notes_tooltip": "QLoRA fine-tuning of Qwen3 on automatically-perturbed claim\u2013evidence pairs derived from SIBiLS/PMC OA tables and figures.",
+        "accuracy": 72.0
+      },
+      {
+        "method_name": "Baseline Qwen...",
+        "tooltip": "Baseline Qwen3-VL-32B-Instruct",
+        "team_notes": "Baseline eval...",
+        "notes_tooltip": "Baseline evaluation of the evidence selection task (Task 2) on the test split, without fine-tuning, providing a reference point for future runs",
+        "accuracy": 65.1
+      }
+    ]
+  },
+  {
+    "team": "Baselines",
+    "is_baseline": true,
+    "accuracy": 85.2,
+    "runs": [
+      {
+        "method_name": "o4-mini",
+        "tooltip": "",
+        "team_notes": "",
+        "accuracy": 85.2
+      },
+      {
+        "method_name": "Qwen3-VL-8B",
+        "tooltip": "",
+        "team_notes": "",
+        "accuracy": 56.2
+      },
+      {
+        "method_name": "InternVL3_5-3...",
+        "tooltip": "InternVL3_5-38B",
+        "team_notes": "",
+        "accuracy": 54.5
+      },
+      {
+        "method_name": "Qwen3-VL-30B-...",
+        "tooltip": "Qwen3-VL-30B-A3B",
+        "team_notes": "",
+        "accuracy": 54.3
+      },
+      {
+        "method_name": "Llama-3.2-11B...",
+        "tooltip": "Llama-3.2-11B-Vision",
+        "team_notes": "",
+        "accuracy": 34.7
+      }
+    ]
+  },
+  {
+    "team": "ProvideQ",
+    "is_baseline": false,
+    "accuracy": 83.0,
+    "runs": [
+      {
+        "method_name": "chandraOCR_HT...",
+        "tooltip": "chandraOCR_HTML\u2014qwen3.6:35B+qwen3-vl:8B-compare_prompting",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 83.0
+      }
+    ]
+  },
+  {
+    "team": "LMU & TUM NLP team",
+    "is_baseline": false,
+    "accuracy": 81.4,
+    "runs": [
+      {
+        "method_name": "2step_op_8tab...",
+        "tooltip": "2step_op_8tabpng_json_extraction_fallback_30fig",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 81.4
+      },
+      {
+        "method_name": "2step_op_8tab...",
+        "tooltip": "2step_op_8tabpng_indep_desc_30fig",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 78.7
+      },
+      {
+        "method_name": "2step_op_refr...",
+        "tooltip": "2step_op_reframed_antibias_8tab30fig",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 70.4
+      }
+    ]
+  },
+  {
+    "team": "procrast",
+    "is_baseline": false,
+    "accuracy": 80.5,
+    "runs": [
+      {
+        "method_name": "v3.5",
+        "tooltip": "",
+        "team_notes": "label 2",
+        "notes_tooltip": "",
+        "accuracy": 80.5
+      },
+      {
+        "method_name": "v8",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 80.0
+      },
+      {
+        "method_name": "v7",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 79.8
+      },
+      {
+        "method_name": "v3_rev2",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 79.8
+      },
+      {
+        "method_name": "v3.5",
+        "tooltip": "",
+        "team_notes": "default label...",
+        "notes_tooltip": "default label 1",
+        "accuracy": 78.7
+      },
+      {
+        "method_name": "v3.5",
+        "tooltip": "",
+        "team_notes": "label 1 impro...",
+        "notes_tooltip": "label 1 improved",
+        "accuracy": 76.8
+      },
+      {
+        "method_name": "v6",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 75.9
+      },
+      {
+        "method_name": "v9",
+        "tooltip": "",
+        "team_notes": "fixed",
+        "notes_tooltip": "",
+        "accuracy": 75.9
+      },
+      {
+        "method_name": "v3",
+        "tooltip": "",
+        "team_notes": "improved",
+        "notes_tooltip": "",
+        "accuracy": 75.7
+      },
+      {
+        "method_name": "v5",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 75.5
+      },
+      {
+        "method_name": "v3.5",
+        "tooltip": "",
+        "team_notes": "label 2 impro...",
+        "notes_tooltip": "label 2 improved",
+        "accuracy": 75.0
+      },
+      {
+        "method_name": "v2_rev2",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 74.3
+      },
+      {
+        "method_name": "v4",
+        "tooltip": "",
+        "team_notes": "default label...",
+        "notes_tooltip": "default label 1",
+        "accuracy": 68.3
+      },
+      {
+        "method_name": "v4",
+        "tooltip": "",
+        "team_notes": "label 2",
+        "notes_tooltip": "",
+        "accuracy": 66.7
+      },
+      {
+        "method_name": "v1-png",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 60.8
+      },
+      {
+        "method_name": "v9",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 50.0
+      }
+    ]
+  },
+  {
+    "team": "ditlab",
+    "is_baseline": false,
+    "accuracy": 61.0,
+    "runs": [
+      {
+        "method_name": "baseline",
+        "tooltip": "",
+        "team_notes": "",
+        "notes_tooltip": "",
+        "accuracy": 61.0
+      }
+    ]
+  }
+]

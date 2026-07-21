@@ -31,6 +31,9 @@ BASELINE_MODELS = {
 
 RANK_METRIC = {"subtask1": "pair_accuracy", "subtask2": "accuracy"}
 TASK_LABEL = {"subtask1": "Subtask 1", "subtask2": "Subtask 2"}
+METRICS = {"subtask1": METRIC_COLS, "subtask2": ['accuracy']}
+
+CHAR_LIMIT = 13
 
 
 # --------------------------------------------------------------------------
@@ -119,16 +122,25 @@ def build_baseline_entry(task_key):
 
     run_list = []
     for m in runs_sorted:
-        run = {"method_name": clean_text(m.get("method_name")), "team_notes": ""}
-        for c in METRIC_COLS:
+        method = clean_text(m.get("method_name"))
+        tooltip = ""
+        if len(method) > CHAR_LIMIT:
+            tooltip = method
+            method = method[:CHAR_LIMIT] + "..."
+        run = {
+            "method_name": method,
+            "tooltip": tooltip, 
+            "team_notes": ""
+        }
+        for c in METRICS[task_key]:
             run[c] = clean_metric(m.get(c))
         run_list.append(run)
 
     best = run_list[0]
     return {
-        "team": "Baseline",
+        "team": "Baselines",
         "is_baseline": True,
-        **{c: best.get(c) for c in METRIC_COLS},
+        **{c: best.get(c) for c in METRICS[task_key]},
         "runs": run_list,
     }
 
@@ -153,17 +165,31 @@ def build_task(df, task_key):
 
         run_list = []
         for _, r in runs.iterrows():
+            method = clean_text(r.get("method_name"))
+            tooltip = ""
+            notes_tooltip = ""
+            if len(method) > CHAR_LIMIT:
+                tooltip = method
+                method = method[:CHAR_LIMIT] + "..."
+            
+            notes = clean_text(r.get("team_notes"))
+            if len(notes) > CHAR_LIMIT:
+                notes_tooltip = notes
+                notes = notes[:CHAR_LIMIT] + "..."
+
             run_list.append({
-                "method_name": clean_text(r.get("method_name")),
-                "team_notes": clean_text(r.get("team_notes")),
-                **{c: clean_metric(r.get(c)) for c in METRIC_COLS},
+                "method_name": method,
+                "tooltip": tooltip, 
+                "team_notes": notes,
+                "notes_tooltip": notes_tooltip,
+                **{c: clean_metric(r.get(c)) for c in METRICS[task_key]},
             })
 
         best = run_list[0]
         teams.append({
             "team": clean_text(team_name),
             "is_baseline": False,
-            **{c: best.get(c) for c in METRIC_COLS},
+            **{c: best.get(c) for c in METRICS[task_key]},
             "runs": run_list,
         })
 
@@ -179,7 +205,7 @@ def main():
 
     OUT_DIR.mkdir(exist_ok=True)
 
-    for task_key in ["subtask1"]:
+    for task_key in ["subtask1", "subtask2"]:
         print(f"Processing {task_key}...")
         data = build_task(df, task_key)
         with open(OUT_DIR / f"{task_key}.json", "w") as f:

@@ -149,11 +149,17 @@ The evaluation script (in python) is available on github: [github.com/SciClaimEv
 
 All submissions will be evaluated on precision, recall, macro F1, and accuracy. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
 
+## Results
+
+The following tables show the results of all submissions. In each table, only the best submission is shown directly. To see other run submissions from the same team, click on the specific row.
+
+### Subtask 1
+
 <div class="evaluation-table">
   <table class="results-table">
     <thead>
       <tr>
-        <th></th>
+        <th>Team Name</th>
         <th>Precision</th>
         <th>Recall</th>
         <th>Macro-F1</th>
@@ -195,8 +201,26 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
                 <tbody>
                   {% for run in entry.runs %}
                   <tr>
-                    <td>{{ run.method_name }}</td>
-                    <td>{{ run.team_notes }}</td>
+                    <td>
+                      {% if run.tooltip != "" %}
+                        <div class="table-tooltip-container">
+                          {{ run.method_name }}
+                        <div class="custom-tooltip" role="tooltip">{{ run.tooltip }}</div>
+                      </div>
+                      {% else %}
+                        {{ run.method_name }}
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if run.notes_tooltip != "" %}
+                        <div class="table-tooltip-container">
+                          {{ run.team_notes }}
+                        <div class="custom-tooltip" role="tooltip">{{ run.notes_tooltip }}</div>
+                      </div>
+                      {% else %}
+                        {{ run.team_notes }}
+                      {% endif %}
+                    </td>
                     <td>{{ run.precision | default: "–" }}</td>
                     <td>{{ run.recall | default: "–" }}</td>
                     <td>{{ run.macro_f1 | default: "–" }}</td>
@@ -216,35 +240,73 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
   </table>
 </div>
 
+### Subtask 2
+
 <div class="evaluation-table">
-  <table>
+  <table class="results-table">
     <thead>
       <tr>
-        <th>Subtask 2 Baselines</th>
+        <th>Team Name</th>
         <th>Accuracy</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>o4-mini</th>
-        <td>85.2</td>
+      {% for entry in site.data.subtask2 %}
+      {% assign expandable = false %}
+      {% if entry.runs.size > 1 %}{% assign expandable = true %}{% endif %}
+      <tr class="main-row{% if expandable %} expandable{% endif %}{% if entry.is_baseline %} {% capture alt_class %}{% cycle 'subtask1-zebra': 'row-alt', '' %}{% endcapture %} row-alt{% endif %}">
+        <th>
+          {{ entry.team }}{% if expandable %}<span class="chevron">&#9656;</span>{% endif %}
+        </th>
+        <td>{{ entry.accuracy | default: "–" }}</td>
       </tr>
-      <tr>
-        <th>Qwen3-VL-8B</th>
-        <td>56.2</td>
+      {% if expandable %}
+      <tr class="detail-row">
+        <td colspan="6">
+          <div class="detail-wrapper">
+            <div class="detail-inner">
+              <table class="detail-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Notes</th>
+                    <th>Accuracy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for run in entry.runs %}
+                  <tr>
+                    <td>
+                      {% if run.tooltip != "" %}
+                        <div class="table-tooltip-container">
+                          {{ run.method_name }}
+                        <div class="custom-tooltip" role="tooltip">{{ run.tooltip }}</div>
+                      </div>
+                      {% else %}
+                        {{ run.method_name }}
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% if run.notes_tooltip != "" %}
+                        <div class="table-tooltip-container">
+                          {{ run.team_notes }}
+                        <div class="custom-tooltip" role="tooltip">{{ run.notes_tooltip }}</div>
+                      </div>
+                      {% else %}
+                        {{ run.team_notes }}
+                      {% endif %}
+                    </td>
+                    <td>{{ run.accuracy | default: "–" }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </td>
       </tr>
-      <tr>
-        <th>InternVL3_5-38B</th>
-        <td>54.5</td>
-      </tr>
-      <tr>
-        <th>Qwen3-VL-30B-A3B</th>
-        <td>54.3</td>
-      </tr>
-      <tr>
-        <th>Llama-3.2-11B-Vision</th>
-        <td>34.7</td>
-      </tr>
+      {% endif %}
+      {% endfor %}
     </tbody>
   </table>
 </div>
