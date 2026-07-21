@@ -149,9 +149,11 @@ The evaluation script (in python) is available on github: [github.com/SciClaimEv
 
 All submissions will be evaluated on precision, recall, macro F1, and accuracy. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
 
+------------------------
+
 ## Results
 
-The following tables show the results of all submissions. In each table, only the best submission is shown directly. To see other run submissions from the same team, click on the specific row.
+The following tables show the results of all submissions. In each table, only the best submission is shown directly. To see other runs from the same team, click on the specific row.
 
 ### Subtask 1
 
@@ -312,9 +314,6 @@ The following tables show the results of all submissions. In each table, only th
 </div>
 
 <script src="{{ '/assets/js/tables.js' | relative_url }}"></script>
-
-*Note: these scores are evaluated on the validation set.
-
 
 ## News
 - [2026-07-21] Submissions are now closed. Thanks to all participants. Remember the paper submission.
