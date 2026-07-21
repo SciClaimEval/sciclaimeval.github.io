@@ -150,10 +150,10 @@ The evaluation script (in python) is available on github: [github.com/SciClaimEv
 All submissions will be evaluated on precision, recall, macro F1, and accuracy. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
 
 <div class="evaluation-table">
-  <table>
+  <table class="results-table">
     <thead>
       <tr>
-        <th>Subtask 1 Baselines</th>
+        <th></th>
         <th>Precision</th>
         <th>Recall</th>
         <th>Macro-F1</th>
@@ -162,46 +162,56 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>o4-mini</th>
-        <td>83.4</td>
-        <td>82.4</td>
-        <td>82.9</td>
-        <td>82.3</td>
-        <td>68.2</td>
+      {% for entry in site.data.subtask1 %}
+      {% assign expandable = false %}
+      {% if entry.runs.size > 1 %}{% assign expandable = true %}{% endif %}
+      <tr class="main-row{% if expandable %} expandable{% endif %}{% if entry.is_baseline %} {% capture alt_class %}{% cycle 'subtask1-zebra': 'row-alt', '' %}{% endcapture %} row-alt{% endif %}">
+        <th>
+          {{ entry.team }}{% if expandable %}<span class="chevron">&#9656;</span>{% endif %}
+        </th>
+        <td>{{ entry.precision | default: "–" }}</td>
+        <td>{{ entry.recall | default: "–" }}</td>
+        <td>{{ entry.macro_f1 | default: "–" }}</td>
+        <td>{{ entry.accuracy | default: "–" }}</td>
+        <td>{{ entry.pair_accuracy | default: "–" }}</td>
       </tr>
-      <tr>
-        <th>Qwen3-VL-30B-A3B</th>
-        <td>77.1</td>
-        <td>74.8</td>
-        <td>76.0</td>
-        <td>75.0</td>
-        <td>54.8</td>
+      {% if expandable %}
+      <tr class="detail-row">
+        <td colspan="6">
+          <div class="detail-wrapper">
+            <div class="detail-inner">
+              <table class="detail-table">
+                <thead>
+                  <tr>
+                    <th>Approach</th>
+                    <th>Notes</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Macro-F1</th>
+                    <th>Accuracy</th>
+                    <th>Pair Accuracy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for run in entry.runs %}
+                  <tr>
+                    <td>{{ run.method_name }}</td>
+                    <td>{{ run.team_notes }}</td>
+                    <td>{{ run.precision | default: "–" }}</td>
+                    <td>{{ run.recall | default: "–" }}</td>
+                    <td>{{ run.macro_f1 | default: "–" }}</td>
+                    <td>{{ run.accuracy | default: "–" }}</td>
+                    <td>{{ run.pair_accuracy | default: "–" }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </td>
       </tr>
-      <tr>
-        <th>Qwen3-VL-8B</th>
-        <td>76.3</td>
-        <td>68.3</td>
-        <td>72.1</td>
-        <td>68.3</td>
-        <td>46.9</td>
-      </tr>
-      <tr>
-        <th>InternVL3_5-38B</th>
-        <td>72.1</td>
-        <td>68.1</td>
-        <td>67.8</td>
-        <td>69.2</td>
-        <td>40.1</td>
-      </tr>
-      <tr>
-        <th>Llama-3.2-11B-Vision</th>
-        <td>57.4</td>
-        <td>52.9</td>
-        <td>48.6</td>
-        <td>54.8</td>
-        <td>10.8</td>
-      </tr>
+      {% endif %}
+      {% endfor %}
     </tbody>
   </table>
 </div>
@@ -238,6 +248,8 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
     </tbody>
   </table>
 </div>
+
+<script src="{{ '/assets/js/tables.js' | relative_url }}"></script>
 
 *Note: these scores are evaluated on the validation set.
 
