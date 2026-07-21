@@ -32,10 +32,10 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 
 ## Synopsis
 
-- <a href="#registration-for-participation">Register</a> as participant by ~~June 1, 2026~~ **July 10, 2026 (extend)**
-- Submit your run on the test dataset by **July 19, 2026**
-- <a href="#submission-form">Make a submission</a> via our submission form
-- Submit your paper draft by **September 1, 2026** (Please refer to the <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html" target="_blank" rel="noopener">NTCIR-19 Paper Submission Instructions</a> for details.)
+- ~~<a href="#registration-for-participation">Register</a> as participant by July 10, 2026~~
+- ~~Submit your run on the test dataset by July 19, 2026~~
+- ~~<a href="#submission-form">Make a submission</a> via our submission form~~
+- Submit your paper draft by **September 1, 2026** <br>(Please refer to the <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html" target="_blank" rel="noopener">NTCIR-19 Paper Submission Instructions</a> for details.)
 
 ## Task Description
 
@@ -243,6 +243,7 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 
 ## News
+- [2026-07-21] Submissions are now closed. Thanks to all participants. Remember the paper submission.
 - [2026-06-17] EvalBot is now live. It automatically evaluates your submission and informs you via e-mail about your results within 30min.
 - [2026-06-11] We created an FAQ page for participants. Check it out here: <a href="https://sciclaimeval.github.io/faq.html">sciclaimeval.github.io/faq.html</a>
 - [2026-06-02] The registration deadline for participants has been extended until July 10.
@@ -260,12 +261,12 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 | Date | Event |
 | ---: | :--- |
-| January 31, 2026 | Development Dataset Release |
-| March 01, 2026 | Formal Run Dataset Release |
-| ~~June 1, 2026~~ **July 10, 2026 (extend)** | **Registration Deadline for Participants** |
-| **July 19, 2026** | **Formal Run Submission Deadline** |
-| August 1, 2026 | Evaluation Results Return |
-| September 1, 2026 | Submission Due for Participant's Papers |
+| ~~January 31, 2026~~ | Development Dataset Release |
+| ~~March 01, 2026~~ | Formal Run Dataset Release |
+| ~~July 10, 2026~~ | Registration Deadline for Participants |
+| ~~July 19, 2026~~ | Formal Run Submission Deadline |
+| **August 1, 2026** | **Evaluation Results Return** |
+| **September 1, 2026** | **Submission Due for Participant's Papers** |
 | November 1, 2026 | Camera-ready participant paper due |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
 | December 11, 2026 | Full Dataset Release |
@@ -274,16 +275,17 @@ All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).
 
 ## Registration for Participation
 
-To participate in the SciClaimEval task, participants must (1) register via the 19th NTCIR online registration system and (2) submit a signed memorandum.
+**The registration is now closed.**
+~~To participate in the SciClaimEval task, participants must (1) register via the 19th NTCIR online registration system and (2) submit a signed memorandum.~~
 
 <div style="text-align: center; margin: 1.5em 0;">
-    <a href="https://research.nii.ac.jp/ntcir/ntcir-19/howto.html"
+    <a
     target="_blank"
     rel="noopener"
     style="
         display: inline-block;
         padding: 10px 16px;
-        background-color: #0066cc;
+        background-color: #bebebe;
         color: white;
         text-decoration: none;
         border-radius: 4px;
@@ -295,12 +297,24 @@ To participate in the SciClaimEval task, participants must (1) register via the 
 
 
 ## Submission Form
-You can submit your prediction file for the test data here.
+**The submission of runs is now closed.**
+~~You can submit your prediction file for the test data here.~~
 
 <div style="text-align:center; margin:1.5em 0;">
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf3Vzu1MkCyqX3CHqBGOmVS2JGviIKTnYUyPQdEN7IoCq0g7A/viewform"
+  <a
     target="_blank" rel="noopener"
-    style="display:inline-block; padding:10px 16px; background-color:#0066cc; color:white; border:none; border-radius:4px; font-weight:600; font-size:1em; cursor:pointer; text-decoration:none;">
+    style="
+      display: inline-block; 
+      padding: 10px 16px; 
+      background-color: #bebebe;
+      color: white; 
+      border: none; 
+      border-radius: 4px; 
+      font-weight: 600; 
+      font-size: 1em; 
+      ursor: pointer; 
+      text-decoration: none;
+    ">
     Submit a run
   </a>
 </div>
