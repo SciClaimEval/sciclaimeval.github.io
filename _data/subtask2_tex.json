@@ -1,0 +1,147 @@
+{
+  "entries": [
+    {
+      "team": "Bonn-Juelich Informatics",
+      "is_baseline": false,
+      "accuracy": 97.2,
+      "runs": [
+        {
+          "method_name": "random seed 2...",
+          "tooltip": "random seed 22 + riskscore threshold 5 + HITL",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 97.2
+        },
+        {
+          "method_name": "random seed +...",
+          "tooltip": "random seed + riskscore threshold 5.5 + HITL fixed",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 95.9
+        },
+        {
+          "method_name": "random seed 2...",
+          "tooltip": "random seed 22 + risk score threshold 5.5 + HITL",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 95.6
+        },
+        {
+          "method_name": "random seed 2...",
+          "tooltip": "random seed 22+risk threshold 0.6 + HITL",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 95.2
+        },
+        {
+          "method_name": "top 3 majorit...",
+          "tooltip": "top 3 majority voting",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.6
+        },
+        {
+          "method_name": "Ensemble resu...",
+          "tooltip": "Ensemble results with random seed 23-24-26",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.3
+        },
+        {
+          "method_name": "Hybrid task 1...",
+          "tooltip": "Hybrid task 1 with task 2 predictions",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.3
+        },
+        {
+          "method_name": "Best performi...",
+          "tooltip": "Best performing pipeline with random seed 25",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.3
+        },
+        {
+          "method_name": "Best performi...",
+          "tooltip": "Best performing pipeline with random seed 23",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.3
+        },
+        {
+          "method_name": "Best performi...",
+          "tooltip": "Best performing pipeline with random seed 26",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.1
+        },
+        {
+          "method_name": "parser fix",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 93.1
+        },
+        {
+          "method_name": "SciClaim-Reas...",
+          "tooltip": "SciClaim-Reasoner, a modular claim verifi- cation framework built on top of Qwen3.6-35B-A3B",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 92.9
+        },
+        {
+          "method_name": "Task 2 no cor...",
+          "tooltip": "Task 2 no correction process",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 92.9
+        },
+        {
+          "method_name": "Ensemble resu...",
+          "tooltip": "Ensemble results with random seed 22-24-26",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 92.9
+        },
+        {
+          "method_name": "This submissi...",
+          "tooltip": "This submission uses the updated Task 2 conflict tiebreaker with explicit original-vs-swapped diagnosis",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 92.7
+        },
+        {
+          "method_name": "Best performi...",
+          "tooltip": "Best performing pipeline with random seed 24",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 92.4
+        },
+        {
+          "method_name": "Best performi...",
+          "tooltip": "Best performing pipeline with random seed 27",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 92.4
+        }
+      ]
+    },
+    {
+      "team": "ProvideQ",
+      "is_baseline": false,
+      "accuracy": 91.5,
+      "runs": [
+        {
+          "method_name": "table_qwen36_...",
+          "tooltip": "table_qwen36_contrastive__figure_qwen37plus_two_round",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 91.5
+        }
+      ]
+    }
+  ],
+  "best": {
+    "accuracy": 97.2
+  }
+}

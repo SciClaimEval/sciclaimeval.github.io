@@ -1,0 +1,297 @@
+{
+  "entries": [
+    {
+      "team": "Black Socks",
+      "is_baseline": false,
+      "precision": 92.5,
+      "recall": 92.6,
+      "macro_f1": 92.6,
+      "accuracy": 92.6,
+      "pair_accuracy": 87.8,
+      "runs": [
+        {
+          "method_name": "image input +...",
+          "tooltip": "image input + CoT + pairwise inference + gemma4 31b none thinking",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 92.5,
+          "recall": 92.6,
+          "macro_f1": 92.6,
+          "accuracy": 92.6,
+          "pair_accuracy": 87.8
+        },
+        {
+          "method_name": "pairwise + ge...",
+          "tooltip": "pairwise + gemma4",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 86.8,
+          "recall": 86.9,
+          "macro_f1": 86.8,
+          "accuracy": 86.8,
+          "pair_accuracy": 85.5
+        },
+        {
+          "method_name": "Pure Image + ...",
+          "tooltip": "Pure Image + Gemma4:31b (think=high) + CoT",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 86.0,
+          "recall": 86.0,
+          "macro_f1": 86.0,
+          "accuracy": 86.0,
+          "pair_accuracy": 74.1
+        },
+        {
+          "method_name": "Pointwise + g...",
+          "tooltip": "Pointwise + gemma no hedge no PoT gate",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 82.9,
+          "recall": 82.8,
+          "macro_f1": 82.8,
+          "accuracy": 82.9,
+          "pair_accuracy": 67.9
+        },
+        {
+          "method_name": "pointwise + g...",
+          "tooltip": "pointwise + gemma4 no hedge",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 81.0,
+          "recall": 81.0,
+          "macro_f1": 81.0,
+          "accuracy": 81.0,
+          "pair_accuracy": 64.7
+        },
+        {
+          "method_name": "PoT + LLM hed...",
+          "tooltip": "PoT + LLM hedge check + raw json",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 79.8,
+          "recall": 79.8,
+          "macro_f1": 79.8,
+          "accuracy": 79.8,
+          "pair_accuracy": 62.8
+        },
+        {
+          "method_name": "pointwise + g...",
+          "tooltip": "pointwise + glm gemma no hedge no PoT",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 78.6,
+          "recall": 78.5,
+          "macro_f1": 78.6,
+          "accuracy": 78.6,
+          "pair_accuracy": 62.4
+        },
+        {
+          "method_name": "pointwise + g...",
+          "tooltip": "pointwise + glm gemma no hedge",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 79.7,
+          "recall": 79.7,
+          "macro_f1": 79.7,
+          "accuracy": 79.7,
+          "pair_accuracy": 62.2
+        },
+        {
+          "method_name": "image input +...",
+          "tooltip": "image input + stg1 data extraction + stg2 optional code execution + gemma4 31b think high",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 79.3,
+          "recall": 79.4,
+          "macro_f1": 79.3,
+          "accuracy": 79.4,
+          "pair_accuracy": 62.2
+        }
+      ]
+    },
+    {
+      "team": "procrast",
+      "is_baseline": false,
+      "precision": 83.5,
+      "recall": 83.5,
+      "macro_f1": 83.5,
+      "accuracy": 83.5,
+      "pair_accuracy": 83.3,
+      "runs": [
+        {
+          "method_name": "v6",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 83.5,
+          "recall": 83.5,
+          "macro_f1": 83.5,
+          "accuracy": 83.5,
+          "pair_accuracy": 83.3
+        },
+        {
+          "method_name": "v7",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 83.0,
+          "recall": 83.1,
+          "macro_f1": 83.1,
+          "accuracy": 83.1,
+          "pair_accuracy": 82.6
+        }
+      ]
+    },
+    {
+      "team": "SEBIS TUM team",
+      "is_baseline": false,
+      "precision": 72.2,
+      "recall": 72.2,
+      "macro_f1": 72.2,
+      "accuracy": 72.2,
+      "pair_accuracy": 72.5,
+      "runs": [
+        {
+          "method_name": "Using disagre...",
+          "tooltip": "Using disagreement between text LLM and VLM on different evidence types as a signal",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 72.2,
+          "recall": 72.2,
+          "macro_f1": 72.2,
+          "accuracy": 72.2,
+          "pair_accuracy": 72.5
+        }
+      ]
+    },
+    {
+      "team": "Takasu Lab",
+      "is_baseline": false,
+      "precision": 84.4,
+      "recall": 84.3,
+      "macro_f1": 84.3,
+      "accuracy": 84.4,
+      "pair_accuracy": 70.9,
+      "runs": [
+        {
+          "method_name": "Gemma4 Pipeli...",
+          "tooltip": "Gemma4 Pipeline",
+          "team_notes": "Commit ID: 3e...",
+          "notes_tooltip": "Commit ID: 3ece2e4",
+          "precision": 84.4,
+          "recall": 84.3,
+          "macro_f1": 84.3,
+          "accuracy": 84.4,
+          "pair_accuracy": 70.9
+        },
+        {
+          "method_name": "Gemma4 Pipeli...",
+          "tooltip": "Gemma4 Pipeline",
+          "team_notes": "Commit ID: 3e...",
+          "notes_tooltip": "Commit ID: 3ece2e4",
+          "precision": 84.5,
+          "recall": 84.3,
+          "macro_f1": 84.3,
+          "accuracy": 84.4,
+          "pair_accuracy": 70.0
+        },
+        {
+          "method_name": "Qwen3-VL-8B-I...",
+          "tooltip": "Qwen3-VL-8B-Instruct Pipeline",
+          "team_notes": "Commit ID: 3e...",
+          "notes_tooltip": "Commit ID: 3ece2e4",
+          "precision": 71.1,
+          "recall": 70.5,
+          "macro_f1": 70.8,
+          "accuracy": 70.7,
+          "pair_accuracy": 44.7
+        }
+      ]
+    },
+    {
+      "team": "SciNex",
+      "is_baseline": false,
+      "precision": 78.1,
+      "recall": 77.8,
+      "macro_f1": 77.5,
+      "accuracy": 77.5,
+      "pair_accuracy": 59.2,
+      "runs": [
+        {
+          "method_name": "subtask1-one-...",
+          "tooltip": "subtask1-one-stage",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 78.1,
+          "recall": 77.8,
+          "macro_f1": 77.5,
+          "accuracy": 77.5,
+          "pair_accuracy": 59.2
+        },
+        {
+          "method_name": "subtask1-two-...",
+          "tooltip": "subtask1-two-stages",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 75.6,
+          "recall": 75.2,
+          "macro_f1": 75.2,
+          "accuracy": 75.5,
+          "pair_accuracy": 55.7
+        },
+        {
+          "method_name": "subtask1-one-...",
+          "tooltip": "subtask1-one-stage-thinking",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 72.7,
+          "recall": 72.7,
+          "macro_f1": 72.7,
+          "accuracy": 72.7,
+          "pair_accuracy": 52.8
+        }
+      ]
+    },
+    {
+      "team": "CAISALab",
+      "is_baseline": false,
+      "precision": 65.9,
+      "recall": 64.8,
+      "macro_f1": 64.6,
+      "accuracy": 65.4,
+      "pair_accuracy": 32.8,
+      "runs": [
+        {
+          "method_name": "baseline_phi4...",
+          "tooltip": "baseline_phi4_qwenvl",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 65.9,
+          "recall": 64.8,
+          "macro_f1": 64.6,
+          "accuracy": 65.4,
+          "pair_accuracy": 32.8
+        },
+        {
+          "method_name": "baseline_phi4...",
+          "tooltip": "baseline_phi4_14B_qwen_vl",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 65.9,
+          "recall": 64.8,
+          "macro_f1": 64.6,
+          "accuracy": 65.4,
+          "pair_accuracy": 32.8
+        }
+      ]
+    }
+  ],
+  "best": {
+    "precision": 92.5,
+    "recall": 92.6,
+    "macro_f1": 92.6,
+    "accuracy": 92.6,
+    "pair_accuracy": 87.8
+  }
+}

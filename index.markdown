@@ -153,164 +153,52 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 ## Results
 
-The following tables show the results of all submissions. In each table, only the best submission is shown directly. To see other runs from the same team, click on the specific row.
+The following tables show the results of all submissions on the evaluation set. In each table, only the best submission is shown directly. To see all run submissions from the same team, click on the specific row. Approaches and notes descriptions were given by the teams. All tables show the team names and baselines.
 
-### Subtask 1
+Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was sorted by the primary metric 'accuracy'.
+
+<link rel="stylesheet" href="{{ '/assets/css/tables.css' | relative_url }}">
 
 <div class="evaluation-table">
-  <table class="results-table">
-    <thead>
-      <tr>
-        <th>Team Name</th>
-        <th>Precision</th>
-        <th>Recall</th>
-        <th>Macro-F1</th>
-        <th>Accuracy</th>
-        <th>Pair Accuracy</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for entry in site.data.subtask1 %}
-      {% assign expandable = false %}
-      {% if entry.runs.size > 1 %}{% assign expandable = true %}{% endif %}
-      <tr class="main-row{% if expandable %} expandable{% endif %}{% if entry.is_baseline %} {% capture alt_class %}{% cycle 'subtask1-zebra': 'row-alt', '' %}{% endcapture %} row-alt{% endif %}">
-        <th>
-          {{ entry.team }}{% if expandable %}<span class="chevron">&#9656;</span>{% endif %}
-        </th>
-        <td>{{ entry.precision | default: "–" }}</td>
-        <td>{{ entry.recall | default: "–" }}</td>
-        <td>{{ entry.macro_f1 | default: "–" }}</td>
-        <td>{{ entry.accuracy | default: "–" }}</td>
-        <td>{{ entry.pair_accuracy | default: "–" }}</td>
-      </tr>
-      {% if expandable %}
-      <tr class="detail-row">
-        <td colspan="6">
-          <div class="detail-wrapper">
-            <div class="detail-inner">
-              <table class="detail-table">
-                <thead>
-                  <tr>
-                    <th>Approach</th>
-                    <th>Notes</th>
-                    <th>Precision</th>
-                    <th>Recall</th>
-                    <th>Macro-F1</th>
-                    <th>Accuracy</th>
-                    <th>Pair Accuracy</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for run in entry.runs %}
-                  <tr>
-                    <td>
-                      {% if run.tooltip != "" %}
-                        <div class="table-tooltip-container">
-                          {{ run.method_name }}
-                        <div class="custom-tooltip" role="tooltip">{{ run.tooltip }}</div>
-                      </div>
-                      {% else %}
-                        {{ run.method_name }}
-                      {% endif %}
-                    </td>
-                    <td>
-                      {% if run.notes_tooltip != "" %}
-                        <div class="table-tooltip-container">
-                          {{ run.team_notes }}
-                        <div class="custom-tooltip" role="tooltip">{{ run.notes_tooltip }}</div>
-                      </div>
-                      {% else %}
-                        {{ run.team_notes }}
-                      {% endif %}
-                    </td>
-                    <td>{{ run.precision | default: "–" }}</td>
-                    <td>{{ run.recall | default: "–" }}</td>
-                    <td>{{ run.macro_f1 | default: "–" }}</td>
-                    <td>{{ run.accuracy | default: "–" }}</td>
-                    <td>{{ run.pair_accuracy | default: "–" }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      {% endif %}
-      {% endfor %}
-    </tbody>
-  </table>
+  <div class="section-header-row">
+    <div class="tab-nav" role="tablist" aria-label="Subtask 1 evidence format">
+      <button class="tab-btn active" data-target="subtask1-png" role="tab" aria-selected="true">PNG</button>
+      <button class="tab-btn" data-target="subtask1-json" role="tab" aria-selected="false">JSON</button>
+      <button class="tab-btn" data-target="subtask1-tex" role="tab" aria-selected="false">TeX</button>
+    </div>
+    <h3 id="subtask-1" class="section-title">Subtask 1</h3>
+  </div>
+
+  <div class="tab-panel" id="subtask1-png">
+    {% include results_table_subtask1.html data=site.data.subtask1_png panel_id="subtask1-png-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask1-json" hidden>
+    {% include results_table_subtask1.html data=site.data.subtask1_json panel_id="subtask1-json-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask1-tex" hidden>
+    {% include results_table_subtask1.html data=site.data.subtask1_tex panel_id="subtask1-tex-zebra" %}
+  </div>
 </div>
 
-### Subtask 2
-
 <div class="evaluation-table">
-  <table class="results-table">
-    <thead>
-      <tr>
-        <th>Team Name</th>
-        <th>Accuracy</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for entry in site.data.subtask2 %}
-      {% assign expandable = false %}
-      {% if entry.runs.size > 1 %}{% assign expandable = true %}{% endif %}
-      <tr class="main-row{% if expandable %} expandable{% endif %}{% if entry.is_baseline %} {% capture alt_class %}{% cycle 'subtask1-zebra': 'row-alt', '' %}{% endcapture %} row-alt{% endif %}">
-        <th>
-          {{ entry.team }}{% if expandable %}<span class="chevron">&#9656;</span>{% endif %}
-        </th>
-        <td>{{ entry.accuracy | default: "–" }}</td>
-      </tr>
-      {% if expandable %}
-      <tr class="detail-row">
-        <td colspan="6">
-          <div class="detail-wrapper">
-            <div class="detail-inner">
-              <table class="detail-table">
-                <thead>
-                  <tr>
-                    <th>Approach</th>
-                    <th>Notes</th>
-                    <th>Accuracy</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for run in entry.runs %}
-                  <tr>
-                    <td>
-                      {% if run.tooltip != "" %}
-                        <div class="table-tooltip-container">
-                          {{ run.method_name }}
-                        <div class="custom-tooltip" role="tooltip">{{ run.tooltip }}</div>
-                      </div>
-                      {% else %}
-                        {{ run.method_name }}
-                      {% endif %}
-                    </td>
-                    <td>
-                      {% if run.notes_tooltip != "" %}
-                        <div class="table-tooltip-container">
-                          {{ run.team_notes }}
-                        <div class="custom-tooltip" role="tooltip">{{ run.notes_tooltip }}</div>
-                      </div>
-                      {% else %}
-                        {{ run.team_notes }}
-                      {% endif %}
-                    </td>
-                    <td>{{ run.accuracy | default: "–" }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </td>
-      </tr>
-      {% endif %}
-      {% endfor %}
-    </tbody>
-  </table>
+  <div class="section-header-row">
+    <div class="tab-nav" role="tablist" aria-label="Subtask 2 evidence format">
+      <button class="tab-btn active" data-target="subtask2-png" role="tab" aria-selected="true">PNG</button>
+      <button class="tab-btn" data-target="subtask2-json" role="tab" aria-selected="false">JSON</button>
+      <button class="tab-btn" data-target="subtask2-tex" role="tab" aria-selected="false">TeX</button>
+    </div>
+    <h3 id="subtask-2" class="section-title">Subtask 2</h3>
+  </div>
+
+  <div class="tab-panel" id="subtask2-png">
+    {% include results_table_subtask2.html data=site.data.subtask2_png panel_id="subtask2-png-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask2-json" hidden>
+    {% include results_table_subtask2.html data=site.data.subtask2_json panel_id="subtask2-json-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask2-tex" hidden>
+    {% include results_table_subtask2.html data=site.data.subtask2_tex panel_id="subtask2-tex-zebra" %}
+  </div>
 </div>
 
 <script src="{{ '/assets/js/tables.js' | relative_url }}"></script>

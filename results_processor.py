@@ -31,7 +31,9 @@ BASELINE_MODELS = {
 
 RANK_METRIC = {"subtask1": "pair_accuracy", "subtask2": "accuracy"}
 TASK_LABEL = {"subtask1": "Subtask 1", "subtask2": "Subtask 2"}
-METRICS = {"subtask1": METRIC_COLS, "subtask2": ['accuracy']}
+METRICS = {"subtask1": METRIC_COLS, "subtask2": ["accuracy"]}
+
+EVIDENCE_FORMATS = [".PNG", ".JSON", ".TEX AND/OR .HTML"]
 
 CHAR_LIMIT = 13
 
@@ -62,6 +64,15 @@ def clean_metric(v):
         return None
 
 
+def truncate(text):
+    """Shorten long text for display, returning (short, tooltip).
+    tooltip is "" when no truncation happened, matching the templates'
+    `{% if run.tooltip != "" %}` check."""
+    if len(text) > CHAR_LIMIT:
+        return text[:CHAR_LIMIT] + "...", text
+    return text, ""
+
+
 # --------------------------------------------------------------------------
 # Filters — add new rules here as they come up. Each filter takes the full
 # dataframe and returns a filtered dataframe. They run in order.
@@ -83,22 +94,21 @@ def exclude_organizer_submissions(df):
     # group_id so our own sanity-check runs never show up as "results".
     if "group_id" not in df.columns:
         return df
-
     return df[df["group_id"].astype(str).str.strip() != "SciClaimEval"]
 
 
-# Example of how to add another rule later:
-#
 @register_filter("exclude_tests")
-def exclude_withdrawn_teams(df):
-    df = df[~df["group_id"].astype(str).str.strip().str.lower().str.startswith('test')]
-    return df
+def exclude_test_submissions(df):
+    if "group_id" not in df.columns:
+        return df
+    return df[~df["group_id"].astype(str).str.strip().str.lower().str.startswith("test")]
+
 
 @register_filter("exclude_errors")
-def exclude_withdrawn_teams(df):
-    # print(df['errors'])
-    df = df[df["errors"].apply(is_nan)]
-    return df
+def exclude_errored_submissions(df):
+    if "errors" not in df.columns:
+        return df
+    return df[df["errors"].apply(is_nan).astype(bool)]
 
 def apply_filters(df):
     for name, fn in FILTERS:
@@ -122,15 +132,12 @@ def build_baseline_entry(task_key):
 
     run_list = []
     for m in runs_sorted:
-        method = clean_text(m.get("method_name"))
-        tooltip = ""
-        if len(method) > CHAR_LIMIT:
-            tooltip = method
-            method = method[:CHAR_LIMIT] + "..."
+        method, tooltip = truncate(clean_text(m.get("method_name")))
         run = {
             "method_name": method,
-            "tooltip": tooltip, 
-            "team_notes": ""
+            "tooltip": tooltip,
+            "team_notes": "",
+            "notes_tooltip": "",
         }
         for c in METRICS[task_key]:
             run[c] = clean_metric(m.get(c))
@@ -149,12 +156,12 @@ def build_baseline_entry(task_key):
 # Team submissions
 # --------------------------------------------------------------------------
 
-def build_task(df, task_key):
+def build_task(df, task_key, evidence_format):
     metric = RANK_METRIC[task_key]
 
     sub = df[
         (df["task"] == TASK_LABEL[task_key])
-        & (df["evidence_format"].astype(str).str.upper().str.strip(".") == "PNG")
+        & (df["evidence_format"].astype(str).str.upper() == evidence_format)
     ].copy()
 
     sub = apply_filters(sub)
@@ -165,21 +172,12 @@ def build_task(df, task_key):
 
         run_list = []
         for _, r in runs.iterrows():
-            method = clean_text(r.get("method_name"))
-            tooltip = ""
-            notes_tooltip = ""
-            if len(method) > CHAR_LIMIT:
-                tooltip = method
-                method = method[:CHAR_LIMIT] + "..."
-            
-            notes = clean_text(r.get("team_notes"))
-            if len(notes) > CHAR_LIMIT:
-                notes_tooltip = notes
-                notes = notes[:CHAR_LIMIT] + "..."
+            method, tooltip = truncate(clean_text(r.get("method_name")))
+            notes, notes_tooltip = truncate(clean_text(r.get("team_notes")))
 
             run_list.append({
                 "method_name": method,
-                "tooltip": tooltip, 
+                "tooltip": tooltip,
                 "team_notes": notes,
                 "notes_tooltip": notes_tooltip,
                 **{c: clean_metric(r.get(c)) for c in METRICS[task_key]},
@@ -193,10 +191,22 @@ def build_task(df, task_key):
             "runs": run_list,
         })
 
-    teams.append(build_baseline_entry(task_key))
+    # Baselines were only run on PNG evidence — only attach them there.
+    if evidence_format == ".PNG":
+        teams.append(build_baseline_entry(task_key))
 
     teams.sort(key=lambda t: (t.get(metric) is not None, t.get(metric, 0)), reverse=True)
     return teams
+
+
+def compute_best(entries, task_key):
+    """Per-column max across the displayed (best-run-per-team + baseline)
+    rows. Used by the templates to bold the best value in each column."""
+    best = {}
+    for c in METRICS[task_key]:
+        vals = [e.get(c) for e in entries if e.get(c) is not None]
+        best[c] = max(vals) if vals else None
+    return best
 
 
 def main():
@@ -206,12 +216,18 @@ def main():
     OUT_DIR.mkdir(exist_ok=True)
 
     for task_key in ["subtask1", "subtask2"]:
-        print(f"Processing {task_key}...")
-        data = build_task(df, task_key)
-        with open(OUT_DIR / f"{task_key}.json", "w") as f:
-            json.dump(data, f, indent=2)
-        print(f"{task_key}: {len(data)} rows written (incl. 1 grouped baseline row)")
-
+        for fmt in EVIDENCE_FORMATS:
+            print(f"Processing {task_key} / {fmt} ...")
+            entries = build_task(df, task_key, fmt)
+            payload = {
+                "entries": entries,
+                "best": compute_best(entries, task_key),
+            }
+            fmt_clean = fmt[1:5] if fmt.startswith(".J") else fmt[1:4]
+            out_name = f"{task_key}_{fmt_clean.lower()}.json"
+            with open(OUT_DIR / out_name, "w") as f:
+                json.dump(payload, f, indent=2)
+            print(f"  -> {out_name}: {len(entries)} row(s)")
 
 if __name__ == "__main__":
     main()
