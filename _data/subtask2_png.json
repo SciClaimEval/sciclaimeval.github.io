@@ -85,7 +85,7 @@
       ]
     },
     {
-      "team": "Takasu Lab",
+      "team": "TakasuLab",
       "is_baseline": false,
       "accuracy": 93.6,
       "runs": [
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "team": "procrast",
+      "team": "Pro\u00b2Crast",
       "is_baseline": false,
       "accuracy": 80.5,
       "runs": [
@@ -351,7 +351,7 @@
       ]
     },
     {
-      "team": "ditlab",
+      "team": "Denso IT Laboratory NTCIR team",
       "is_baseline": false,
       "accuracy": 61.0,
       "runs": [

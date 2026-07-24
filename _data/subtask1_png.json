@@ -133,7 +133,7 @@
       ]
     },
     {
-      "team": "procrast",
+      "team": "Pro\u00b2Crast",
       "is_baseline": false,
       "precision": 87.3,
       "recall": 87.3,
@@ -195,6 +195,17 @@
           "macro_f1": 86.1,
           "accuracy": 86.2,
           "pair_accuracy": 84.2
+        },
+        {
+          "method_name": "v5_zuy_cot_re...",
+          "tooltip": "v5_zuy_cot_revertlowconf_5ctxtwindow",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 78.8,
+          "recall": 78.6,
+          "macro_f1": 78.6,
+          "accuracy": 78.7,
+          "pair_accuracy": 60.8
         },
         {
           "method_name": "base",
@@ -485,7 +496,7 @@
       ]
     },
     {
-      "team": "ditlab",
+      "team": "Denso IT Laboratory NTCIR team",
       "is_baseline": false,
       "precision": 73.4,
       "recall": 73.5,
@@ -529,7 +540,7 @@
       ]
     },
     {
-      "team": "Takasu Lab",
+      "team": "TakasuLab",
       "is_baseline": false,
       "precision": 86.1,
       "recall": 85.7,
@@ -679,28 +690,6 @@
           "macro_f1": 77.6,
           "accuracy": 77.6,
           "pair_accuracy": 58.0
-        }
-      ]
-    },
-    {
-      "team": "Pro2Crast",
-      "is_baseline": false,
-      "precision": 78.8,
-      "recall": 78.6,
-      "macro_f1": 78.6,
-      "accuracy": 78.7,
-      "pair_accuracy": 60.8,
-      "runs": [
-        {
-          "method_name": "v5_zuy_cot_re...",
-          "tooltip": "v5_zuy_cot_revertlowconf_5ctxtwindow",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 78.8,
-          "recall": 78.6,
-          "macro_f1": 78.6,
-          "accuracy": 78.7,
-          "pair_accuracy": 60.8
         }
       ]
     }

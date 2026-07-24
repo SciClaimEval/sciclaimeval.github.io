@@ -5,7 +5,8 @@ import os
 from pathlib import Path
 
 ASSETS_PATH = Path("assets")
-XLSX_PATH = os.path.join(ASSETS_PATH, "SciClaimEval26_Results.xlsx")
+XLSX_RESULTS_PATH = os.path.join(ASSETS_PATH, "SciClaimEval26_Results.xlsx")
+XLSX_TEAMREG_PATH = os.path.join(ASSETS_PATH, "2026_team_info.xlsx")
 OUT_DIR = Path("_data")
 
 METRIC_COLS = ["precision", "recall", "macro_f1", "accuracy", "pair_accuracy"]
@@ -156,7 +157,7 @@ def build_baseline_entry(task_key):
 # Team submissions
 # --------------------------------------------------------------------------
 
-def build_task(df, task_key, evidence_format):
+def build_task(df, df_teams, task_key, evidence_format):
     metric = RANK_METRIC[task_key]
 
     sub = df[
@@ -167,7 +168,14 @@ def build_task(df, task_key, evidence_format):
     sub = apply_filters(sub)
 
     teams = []
-    for team_name, group in sub.groupby("group_name"):
+    for team_id, group in sub.groupby("group_id"):
+        team_row = df_teams[df_teams['group id'] == team_id.strip().lower()]
+        if team_row.empty:
+            print(f"Unable to identify ID {team_id} in teams excel. Skipping.")
+            continue
+
+        team_name = team_row.iloc[0]['group name']
+
         runs = group.sort_values(metric, ascending=False, na_position="last")
 
         run_list = []
@@ -210,15 +218,19 @@ def compute_best(entries, task_key):
 
 
 def main():
-    df = pd.read_excel(XLSX_PATH)
+    df = pd.read_excel(XLSX_RESULTS_PATH)
     df.columns = [c.strip().lower() for c in df.columns]
+
+    df_teams = pd.read_excel(XLSX_TEAMREG_PATH)
+    df_teams.columns = [c.strip().lower() for c in df_teams.columns]
+    df_teams['group id'] = df_teams['group id'].astype(str).str.strip().str.lower()
 
     OUT_DIR.mkdir(exist_ok=True)
 
     for task_key in ["subtask1", "subtask2"]:
         for fmt in EVIDENCE_FORMATS:
             print(f"Processing {task_key} / {fmt} ...")
-            entries = build_task(df, task_key, fmt)
+            entries = build_task(df, df_teams, task_key, fmt)
             payload = {
                 "entries": entries,
                 "best": compute_best(entries, task_key),

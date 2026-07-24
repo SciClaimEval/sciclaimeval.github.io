@@ -111,7 +111,7 @@
       ]
     },
     {
-      "team": "procrast",
+      "team": "Pro\u00b2Crast",
       "is_baseline": false,
       "precision": 83.5,
       "recall": 83.5,
@@ -166,7 +166,7 @@
       ]
     },
     {
-      "team": "Takasu Lab",
+      "team": "TakasuLab",
       "is_baseline": false,
       "precision": 84.4,
       "recall": 84.3,
