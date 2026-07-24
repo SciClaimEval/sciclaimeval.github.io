@@ -164,7 +164,7 @@ Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was s
     <div class="tab-nav" role="tablist" aria-label="Subtask 1 evidence format">
       <button class="tab-btn active" data-target="subtask1-png" role="tab" aria-selected="true">PNG</button>
       <button class="tab-btn" data-target="subtask1-json" role="tab" aria-selected="false">JSON</button>
-      <button class="tab-btn" data-target="subtask1-tex" role="tab" aria-selected="false">TeX</button>
+      <button class="tab-btn" data-target="subtask1-tex" role="tab" aria-selected="false">TeX / HTML</button>
     </div>
     <h3 id="subtask-1" class="section-title">Subtask 1</h3>
   </div>
@@ -185,7 +185,7 @@ Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was s
     <div class="tab-nav" role="tablist" aria-label="Subtask 2 evidence format">
       <button class="tab-btn active" data-target="subtask2-png" role="tab" aria-selected="true">PNG</button>
       <button class="tab-btn" data-target="subtask2-json" role="tab" aria-selected="false">JSON</button>
-      <button class="tab-btn" data-target="subtask2-tex" role="tab" aria-selected="false">TeX</button>
+      <button class="tab-btn" data-target="subtask2-tex" role="tab" aria-selected="false">TeX / HTML</button>
     </div>
     <h3 id="subtask-2" class="section-title">Subtask 2</h3>
   </div>
