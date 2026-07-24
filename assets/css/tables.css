@@ -84,6 +84,10 @@ table th {
   cursor: help;
 }
 
+th:has(.sort-badge) {
+  min-width: 75px;
+}
+
 /* bold the best value in each column (ties are all bolded) */
 .results-table td.best {
   font-weight: 700;
