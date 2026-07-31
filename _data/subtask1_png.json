@@ -3,187 +3,154 @@
     {
       "team": "Bonn-Juelich Informatics",
       "is_baseline": false,
-      "precision": 96.5,
-      "recall": 96.6,
-      "macro_f1": 96.5,
-      "accuracy": 96.5,
-      "pair_accuracy": 97.9,
+      "precision": 97.2,
+      "recall": 97.3,
+      "macro_f1": 97.2,
+      "accuracy": 97.2,
+      "pair_accuracy": 98.2,
       "runs": [
         {
           "method_name": "purly table i...",
           "tooltip": "purly table image seed 22 + threshold 5 + HITL",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 96.5,
-          "recall": 96.6,
-          "macro_f1": 96.5,
-          "accuracy": 96.5,
-          "pair_accuracy": 97.9
+          "precision": 97.2,
+          "recall": 97.3,
+          "macro_f1": 97.2,
+          "accuracy": 97.2,
+          "pair_accuracy": 98.2
         },
         {
           "method_name": "purly table i...",
           "tooltip": "purly table image seed 22 + threshold 5 + HITL",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 96.3,
-          "recall": 96.4,
-          "macro_f1": 96.3,
-          "accuracy": 96.3,
-          "pair_accuracy": 97.7
+          "precision": 97.0,
+          "recall": 97.1,
+          "macro_f1": 97.0,
+          "accuracy": 97.0,
+          "pair_accuracy": 97.9
         },
         {
           "method_name": "purly table i...",
           "tooltip": "purly table image seed 22 + threshold 5.5 + HITL",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 95.0,
-          "recall": 95.0,
-          "macro_f1": 95.0,
-          "accuracy": 95.0,
-          "pair_accuracy": 96.3
+          "precision": 95.7,
+          "recall": 95.7,
+          "macro_f1": 95.7,
+          "accuracy": 95.7,
+          "pair_accuracy": 96.5
         },
         {
           "method_name": "purly table i...",
           "tooltip": "purly table image seed 22 + threshold 6 + HITL",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 94.3,
-          "recall": 94.4,
-          "macro_f1": 94.3,
-          "accuracy": 94.3,
-          "pair_accuracy": 95.6
+          "precision": 95.1,
+          "recall": 95.2,
+          "macro_f1": 95.1,
+          "accuracy": 95.1,
+          "pair_accuracy": 96.1
         },
         {
           "method_name": "pipline run p...",
           "tooltip": "pipline run purely on table image with random seed 22",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 92.1,
-          "recall": 92.2,
-          "macro_f1": 92.1,
-          "accuracy": 92.2,
-          "pair_accuracy": 93.3
+          "precision": 93.0,
+          "recall": 93.1,
+          "macro_f1": 93.0,
+          "accuracy": 93.0,
+          "pair_accuracy": 94.0
         }
       ]
     },
     {
-      "team": "SciTrue",
+      "team": "Black Socks",
       "is_baseline": false,
-      "precision": 97.2,
-      "recall": 97.3,
-      "macro_f1": 97.3,
-      "accuracy": 97.3,
-      "pair_accuracy": 97.5,
+      "precision": 94.1,
+      "recall": 93.7,
+      "macro_f1": 93.8,
+      "accuracy": 93.8,
+      "pair_accuracy": 90.0,
       "runs": [
         {
-          "method_name": "Single-model ...",
-          "tooltip": "Single-model verification with Claude Fable 5. Each evidence item (claim + caption + context + a structured markdown rendering of the official table data, for tables + the evidence image, read directly from disk via the Claude Code CLI's Read tool) is scored by Fable 5, which returns a calibrated support score in [0,1]. We then apply a legal pair prior: claims are grouped by identical claim text (a field visible at test time) to recover the Supported/Refuted contrastive pairs, and within each pair the higher-scoring evidence is labeled Supported, the lower Refuted; ties are broken by the continuous score, never by item ordering. Unpaired (singleton) claims are labeled by Fable 5's absolute judgment.",
+          "method_name": "Gemma4 31B Th...",
+          "tooltip": "Gemma4 31B Think High + Pairwise Inference",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 97.2,
-          "recall": 97.3,
-          "macro_f1": 97.3,
-          "accuracy": 97.3,
-          "pair_accuracy": 97.5
+          "precision": 94.1,
+          "recall": 93.7,
+          "macro_f1": 93.8,
+          "accuracy": 93.8,
+          "pair_accuracy": 90.0
         },
         {
-          "method_name": "SciTrue-T1-En...",
-          "tooltip": "SciTrue-T1-Ensemble+GPT5.5+PairPrior",
+          "method_name": "Gemma4 Think ...",
+          "tooltip": "Gemma4 Think High + CoT",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 96.7,
-          "recall": 96.8,
-          "macro_f1": 96.7,
-          "accuracy": 96.7,
-          "pair_accuracy": 97.2
-        },
-        {
-          "method_name": "Training-free...",
-          "tooltip": "Training-free ensemble with evidence-type routing and a legal pair prior. Four models \u2014 Claude Opus 4.8, Gemma-4-31B, GPT-5.5, and Claude Fable 5 \u2014 score every item (claim + caption + context + table markdown/LaTeX source for tables + evidence image); GLM-4.6V is added to the mix for figure-type evidence, where models are weaker on average. Scores are averaged within the routed model set, then the same legal pair prior described above (recover pairs by claim text, rank by fused score, leak-free tie-breaking) converts the fused scores into final Supported/Refuted labels.",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 96.3,
-          "recall": 96.3,
-          "macro_f1": 96.3,
-          "accuracy": 96.3,
-          "pair_accuracy": 96.8
-        },
-        {
-          "method_name": "Description: ...",
-          "tooltip": "Description: A training-free system built from five multimodal models with full test coverage (Claude Fable 5, GPT-5.5, Gemma-4-31B, Claude Opus 4.8, GLM-4.6V-Flash). Each model returns a JSON verdict with a support score in [0,1] under one fixed fact-checker prompt (no chain-of-thought, no examples). We exploit the fact that a claim's evidence type (evi_type) is visible at test time and apply evidence-type routing, fusing a different, per-type-optimal subset of models by signed-sum of support scores:   Table claims \u2192 Fable 5 + GPT-5.5 + Gemma-4-31B + Opus 4.8 Figure claims \u2192 GPT-5.5 + Opus 4.8 (figures reward only the strongest few; pooling weaker models dilutes them)   We then apply the legal pair prior: pairs are recovered from identical claim text (a visible field \u2014 never the hidden claim_id_pair), and within each recovered pair the higher-scoring member is labeled Supported, the other Refuted. This turns two absolute judgments into one relative ranking. The method is leak-free: ties are broken by the continuous fused score, never by row position; the ~45 unpaired supported-only claims are labeled Supported.  On the development set (352 pairs) this routed pair prior reaches 96.9 leak-free pair-accuracy, above the fixed-routing baseline (96.2). All operations use only test-visible fields, so the gains are expected to transfer.",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 95.3,
-          "recall": 95.3,
-          "macro_f1": 95.3,
-          "accuracy": 95.3,
-          "pair_accuracy": 95.2
-        },
-        {
-          "method_name": "task1_routed_...",
-          "tooltip": "task1_routed_gptfable_SUBMIT",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 95.3,
-          "recall": 95.3,
-          "macro_f1": 95.3,
-          "accuracy": 95.3,
-          "pair_accuracy": 95.0
+          "precision": 86.7,
+          "recall": 86.6,
+          "macro_f1": 86.6,
+          "accuracy": 86.6,
+          "pair_accuracy": 74.5
         }
       ]
     },
     {
       "team": "Pro\u00b2Crast",
       "is_baseline": false,
-      "precision": 87.3,
-      "recall": 87.3,
-      "macro_f1": 87.3,
-      "accuracy": 87.3,
-      "pair_accuracy": 86.9,
+      "precision": 87.2,
+      "recall": 87.2,
+      "macro_f1": 87.2,
+      "accuracy": 87.2,
+      "pair_accuracy": 86.8,
       "runs": [
         {
           "method_name": "v7_rev2",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 87.3,
-          "recall": 87.3,
-          "macro_f1": 87.3,
-          "accuracy": 87.3,
-          "pair_accuracy": 86.9
+          "precision": 87.2,
+          "recall": 87.2,
+          "macro_f1": 87.2,
+          "accuracy": 87.2,
+          "pair_accuracy": 86.8
         },
         {
           "method_name": "v7_rev2",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 87.3,
-          "recall": 87.3,
-          "macro_f1": 87.3,
-          "accuracy": 87.3,
-          "pair_accuracy": 86.9
+          "precision": 87.2,
+          "recall": 87.2,
+          "macro_f1": 87.2,
+          "accuracy": 87.2,
+          "pair_accuracy": 86.8
         },
         {
           "method_name": "v7.5",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 87.6,
-          "recall": 87.7,
-          "macro_f1": 87.7,
-          "accuracy": 87.7,
-          "pair_accuracy": 86.7
+          "precision": 87.5,
+          "recall": 87.5,
+          "macro_f1": 87.5,
+          "accuracy": 87.5,
+          "pair_accuracy": 86.6
         },
         {
           "method_name": "v6_rev2",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 85.0,
-          "recall": 85.0,
-          "macro_f1": 85.0,
-          "accuracy": 85.1,
-          "pair_accuracy": 84.9
+          "precision": 85.2,
+          "recall": 85.2,
+          "macro_f1": 85.2,
+          "accuracy": 85.2,
+          "pair_accuracy": 85.2
         },
         {
           "method_name": "v7.5",
@@ -192,30 +159,30 @@
           "notes_tooltip": "",
           "precision": 86.2,
           "recall": 86.1,
-          "macro_f1": 86.1,
+          "macro_f1": 86.2,
           "accuracy": 86.2,
-          "pair_accuracy": 84.2
+          "pair_accuracy": 84.3
         },
         {
           "method_name": "v5_zuy_cot_re...",
           "tooltip": "v5_zuy_cot_revertlowconf_5ctxtwindow",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 78.8,
-          "recall": 78.6,
-          "macro_f1": 78.6,
-          "accuracy": 78.7,
-          "pair_accuracy": 60.8
+          "precision": 79.0,
+          "recall": 78.9,
+          "macro_f1": 78.9,
+          "accuracy": 79.0,
+          "pair_accuracy": 61.1
         },
         {
           "method_name": "base",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 73.7,
-          "recall": 73.5,
-          "macro_f1": 73.6,
-          "accuracy": 73.7,
+          "precision": 73.8,
+          "recall": 73.7,
+          "macro_f1": 73.7,
+          "accuracy": 73.8,
           "pair_accuracy": 52.8
         }
       ]
@@ -223,363 +190,385 @@
     {
       "team": "University of Southampton NTCIR team",
       "is_baseline": false,
-      "precision": 85.3,
-      "recall": 85.4,
-      "macro_f1": 85.4,
-      "accuracy": 85.4,
-      "pair_accuracy": 85.8,
+      "precision": 85.8,
+      "recall": 85.9,
+      "macro_f1": 85.8,
+      "accuracy": 85.9,
+      "pair_accuracy": 85.9,
       "runs": [
         {
           "method_name": "GPT-5.5 v1",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 85.3,
-          "recall": 85.4,
-          "macro_f1": 85.4,
-          "accuracy": 85.4,
-          "pair_accuracy": 85.8
+          "precision": 85.8,
+          "recall": 85.9,
+          "macro_f1": 85.8,
+          "accuracy": 85.9,
+          "pair_accuracy": 85.9
         }
       ]
     },
     {
       "team": "ProvideQ",
       "is_baseline": false,
-      "precision": 89.2,
-      "recall": 89.3,
-      "macro_f1": 89.2,
-      "accuracy": 89.2,
-      "pair_accuracy": 81.7,
+      "precision": 89.9,
+      "recall": 90.0,
+      "macro_f1": 90.0,
+      "accuracy": 90.0,
+      "pair_accuracy": 82.4,
       "runs": [
         {
           "method_name": "table_pair_co...",
           "tooltip": "table_pair_contrast_any_agree__figure_pair_qwen37plus_gpt54_refs_any_reference_contrast",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 89.2,
-          "recall": 89.3,
-          "macro_f1": 89.2,
-          "accuracy": 89.2,
-          "pair_accuracy": 81.7
+          "precision": 89.9,
+          "recall": 90.0,
+          "macro_f1": 90.0,
+          "accuracy": 90.0,
+          "pair_accuracy": 82.4
         },
         {
           "method_name": "table_pair_co...",
           "tooltip": "table_pair_contrast_any_agree__figure_pair_both_same_contrastive_gpt54_if_base_same",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 88.9,
-          "recall": 89.0,
-          "macro_f1": 88.9,
-          "accuracy": 88.9,
-          "pair_accuracy": 81.0
+          "precision": 89.5,
+          "recall": 89.6,
+          "macro_f1": 89.5,
+          "accuracy": 89.5,
+          "pair_accuracy": 81.7
         },
         {
           "method_name": "table_pair_co...",
           "tooltip": "table_pair_contrast_any_agree_plus_gpt54_gpt_only_if_base_same__figure_pair_qwen37plus_gpt54_refs_any_reference_contrast",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 88.5,
-          "recall": 88.6,
-          "macro_f1": 88.5,
-          "accuracy": 88.5,
-          "pair_accuracy": 79.8
+          "precision": 89.3,
+          "recall": 89.3,
+          "macro_f1": 89.3,
+          "accuracy": 89.3,
+          "pair_accuracy": 80.6
         },
         {
           "method_name": "table_pair_co...",
           "tooltip": "table_pair_contrast_any_agree_plus_gpt54_two_refs_agree_with_gpt__figure_pair_qwen37plus_gpt54_refs_any_reference_contrast",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 87.8,
-          "recall": 87.8,
-          "macro_f1": 87.8,
-          "accuracy": 87.8,
-          "pair_accuracy": 78.2
+          "precision": 88.5,
+          "recall": 88.6,
+          "macro_f1": 88.5,
+          "accuracy": 88.5,
+          "pair_accuracy": 78.9
         },
         {
           "method_name": "table_pair_co...",
           "tooltip": "table_pair_contrast_any_agree__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 87.3,
-          "recall": 87.4,
-          "macro_f1": 87.3,
-          "accuracy": 87.3,
-          "pair_accuracy": 77.5
+          "precision": 87.9,
+          "recall": 88.0,
+          "macro_f1": 88.0,
+          "accuracy": 88.0,
+          "pair_accuracy": 78.2
         },
         {
           "method_name": "table_qwen37m...",
           "tooltip": "table_qwen37max_two_round_no_attrs_allfixed__figure_pair_both_same_contrastive_gpt54_if_base_same",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 86.9,
-          "recall": 87.0,
-          "macro_f1": 86.9,
-          "accuracy": 86.9,
-          "pair_accuracy": 76.4
+          "precision": 87.5,
+          "recall": 87.6,
+          "macro_f1": 87.5,
+          "accuracy": 87.5,
+          "pair_accuracy": 77.1
         },
         {
           "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_pair_both_same_contrastive_if_base_same__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "table: Html 3...",
           "notes_tooltip": "table: Html 392 parsed by png ,131 use original html",
-          "precision": 85.6,
-          "recall": 85.6,
-          "macro_f1": 85.6,
-          "accuracy": 85.6,
-          "pair_accuracy": 73.6
+          "precision": 86.2,
+          "recall": 86.2,
+          "macro_f1": 86.2,
+          "accuracy": 86.2,
+          "pair_accuracy": 74.3
         },
         {
           "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_merge_ultra_conservative_counterevidence__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "tables: 392 p...",
           "notes_tooltip": "tables: 392 parsed by png, 131 use original html",
-          "precision": 85.3,
-          "recall": 85.4,
-          "macro_f1": 85.4,
-          "accuracy": 85.4,
-          "pair_accuracy": 72.9
+          "precision": 86.0,
+          "recall": 86.0,
+          "macro_f1": 86.0,
+          "accuracy": 86.0,
+          "pair_accuracy": 73.6
         },
         {
           "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_merge_lenient_v2_slight_support_rescue__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "table: html 3...",
           "notes_tooltip": "table: html 392 parsed from png , 131 original html",
-          "precision": 85.6,
-          "recall": 85.5,
-          "macro_f1": 85.6,
-          "accuracy": 85.6,
-          "pair_accuracy": 72.9
+          "precision": 86.2,
+          "recall": 86.2,
+          "macro_f1": 86.2,
+          "accuracy": 86.2,
+          "pair_accuracy": 73.6
         },
         {
           "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_merge_lenient_double_support__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "table : 392 h...",
           "notes_tooltip": "table : 392 html parsed from png, 131 original html",
-          "precision": 85.3,
-          "recall": 85.3,
-          "macro_f1": 85.3,
-          "accuracy": 85.4,
-          "pair_accuracy": 72.7
+          "precision": 86.0,
+          "recall": 86.0,
+          "macro_f1": 86.0,
+          "accuracy": 86.0,
+          "pair_accuracy": 73.4
         },
         {
           "method_name": "table_qwen37m...",
           "tooltip": "table_qwen37max_two_round_no_pair_no_attrs_allfixed__figure_qwen37plus_two_round",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 85.6,
-          "recall": 85.6,
-          "macro_f1": 85.6,
-          "accuracy": 85.6,
-          "pair_accuracy": 72.5
+          "precision": 86.3,
+          "recall": 86.3,
+          "macro_f1": 86.3,
+          "accuracy": 86.3,
+          "pair_accuracy": 73.2
         },
         {
           "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_pair_both_same_contrastive_if_base_same__figure_gpt54_v1_strict_only_hard_contradiction",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 84.9,
-          "recall": 85.0,
-          "macro_f1": 84.8,
-          "accuracy": 84.8,
-          "pair_accuracy": 72.5
+          "precision": 85.5,
+          "recall": 85.5,
+          "macro_f1": 85.4,
+          "accuracy": 85.4,
+          "pair_accuracy": 73.2
         },
         {
           "method_name": "test_submissi...",
           "tooltip": "test_submission_table_best_no_attrs_merge_strict_double_refute__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "table: 392 ht...",
           "notes_tooltip": "table: 392 html that parsed by png , 131original",
-          "precision": 84.5,
-          "recall": 84.5,
-          "macro_f1": 84.4,
-          "accuracy": 84.4,
-          "pair_accuracy": 70.9
+          "precision": 85.1,
+          "recall": 85.2,
+          "macro_f1": 85.1,
+          "accuracy": 85.1,
+          "pair_accuracy": 71.5
         },
         {
           "method_name": "Table:HTML pa...",
           "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round prompting+stage one\uff1aqwen3-vl:32b,stage2:qwen3.6-plus",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 84.3,
-          "recall": 84.3,
-          "macro_f1": 84.3,
-          "accuracy": 84.3,
-          "pair_accuracy": 70.4
+          "precision": 84.8,
+          "recall": 84.9,
+          "macro_f1": 84.9,
+          "accuracy": 84.9,
+          "pair_accuracy": 71.1
         },
         {
           "method_name": "table_qwen37m...",
           "tooltip": "table_qwen37max_two_round_mixed_html_clean_no_attrs_allfixed__figure_azure_gpt5_4_two_round",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 84.2,
-          "recall": 84.2,
-          "macro_f1": 84.1,
-          "accuracy": 84.1,
-          "pair_accuracy": 70.4
+          "precision": 85.0,
+          "recall": 85.0,
+          "macro_f1": 84.9,
+          "accuracy": 84.9,
+          "pair_accuracy": 71.1
         },
         {
           "method_name": "Table:HTML pa...",
           "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round natural prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 81.9,
-          "recall": 82.0,
-          "macro_f1": 81.9,
-          "accuracy": 81.9,
-          "pair_accuracy": 66.3
+          "precision": 82.6,
+          "recall": 82.6,
+          "macro_f1": 82.5,
+          "accuracy": 82.6,
+          "pair_accuracy": 66.9
         },
         {
           "method_name": "Table:HTML pa...",
           "tooltip": "Table:HTML parsed from PNG with chandra+target CoT improve version+qwen3-max, Figure: PNG+two round natural prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 81.7,
-          "recall": 81.8,
-          "macro_f1": 81.7,
-          "accuracy": 81.7,
-          "pair_accuracy": 65.1
+          "precision": 82.2,
+          "recall": 82.2,
+          "macro_f1": 82.1,
+          "accuracy": 82.1,
+          "pair_accuracy": 65.5
         },
         {
           "method_name": "able:HTML par...",
           "tooltip": "able:HTML parsed from PNG with chandra+target CoT improve version+qwen3.6:35B, Figure: PNG+two round natural prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 80.8,
-          "recall": 80.8,
-          "macro_f1": 80.6,
-          "accuracy": 80.6,
-          "pair_accuracy": 63.5
+          "precision": 81.3,
+          "recall": 81.3,
+          "macro_f1": 81.1,
+          "accuracy": 81.1,
+          "pair_accuracy": 64.1
         },
         {
           "method_name": "table_azure_g...",
           "tooltip": "table_azure_gpt5_4_single_mixed_html_clean_no_attrs_allfixed__figure_qwen3vl32b_grounding_qwen37plus_stage20",
           "team_notes": "table:392 htm...",
           "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 80.7,
-          "recall": 80.8,
-          "macro_f1": 80.6,
-          "accuracy": 80.6,
-          "pair_accuracy": 62.4
+          "precision": 81.0,
+          "recall": 81.1,
+          "macro_f1": 80.9,
+          "accuracy": 80.9,
+          "pair_accuracy": 63.0
         },
         {
           "method_name": "HTML that par...",
           "tooltip": "HTML that parsed by chandraOCR+qwen3.6:35B, two round figure +qwen3vl:8B",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 80.0,
-          "recall": 80.0,
-          "macro_f1": 80.0,
-          "accuracy": 80.0,
-          "pair_accuracy": 61.7
+          "precision": 80.5,
+          "recall": 80.5,
+          "macro_f1": 80.5,
+          "accuracy": 80.6,
+          "pair_accuracy": 62.0
         },
         {
           "method_name": "Table:HTML pa...",
           "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 80.0,
-          "recall": 80.0,
-          "macro_f1": 80.0,
-          "accuracy": 80.0,
-          "pair_accuracy": 61.7
+          "precision": 80.5,
+          "recall": 80.5,
+          "macro_f1": 80.5,
+          "accuracy": 80.6,
+          "pair_accuracy": 62.0
         },
         {
           "method_name": "Table:Qwen3:\u00b4...",
           "tooltip": "Table:Qwen3:\u00b48B+HTML parsed from OCR, two round prompting for figure",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 71.7,
-          "recall": 71.8,
-          "macro_f1": 71.7,
-          "accuracy": 71.8,
-          "pair_accuracy": 46.8
+          "precision": 71.9,
+          "recall": 72.0,
+          "macro_f1": 71.9,
+          "accuracy": 72.0,
+          "pair_accuracy": 47.2
         }
       ]
     },
     {
       "team": "Denso IT Laboratory NTCIR team",
       "is_baseline": false,
-      "precision": 73.4,
-      "recall": 73.5,
-      "macro_f1": 73.4,
-      "accuracy": 73.4,
-      "pair_accuracy": 75.5,
+      "precision": 74.1,
+      "recall": 74.1,
+      "macro_f1": 74.0,
+      "accuracy": 74.1,
+      "pair_accuracy": 75.9,
       "runs": [
         {
           "method_name": "evi=image, co...",
           "tooltip": "evi=image, context=no",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 73.4,
-          "recall": 73.5,
-          "macro_f1": 73.4,
-          "accuracy": 73.4,
-          "pair_accuracy": 75.5
+          "precision": 74.1,
+          "recall": 74.1,
+          "macro_f1": 74.0,
+          "accuracy": 74.1,
+          "pair_accuracy": 75.9
         },
         {
           "method_name": "baseline + pa...",
           "tooltip": "baseline + pairwise estimation",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 67.7,
-          "recall": 67.7,
-          "macro_f1": 67.6,
-          "accuracy": 67.6,
-          "pair_accuracy": 69.3
+          "precision": 68.2,
+          "recall": 68.3,
+          "macro_f1": 68.2,
+          "accuracy": 68.2,
+          "pair_accuracy": 69.7
         },
         {
           "method_name": "baseline",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 59.7,
-          "recall": 57.9,
-          "macro_f1": 55.1,
-          "accuracy": 56.8,
-          "pair_accuracy": 17.4
+          "precision": 59.8,
+          "recall": 58.0,
+          "macro_f1": 55.3,
+          "accuracy": 57.0,
+          "pair_accuracy": 17.6
         }
       ]
     },
     {
       "team": "TakasuLab",
       "is_baseline": false,
-      "precision": 86.1,
-      "recall": 85.7,
-      "macro_f1": 85.8,
-      "accuracy": 85.9,
-      "pair_accuracy": 73.2,
+      "precision": 86.7,
+      "recall": 86.4,
+      "macro_f1": 86.5,
+      "accuracy": 86.5,
+      "pair_accuracy": 73.8,
       "runs": [
         {
           "method_name": "Gemma4 Pipeli...",
           "tooltip": "Gemma4 Pipeline",
           "team_notes": "CommitID: bf1...",
           "notes_tooltip": "CommitID: bf1bce5",
-          "precision": 86.1,
-          "recall": 85.7,
-          "macro_f1": 85.8,
-          "accuracy": 85.9,
-          "pair_accuracy": 73.2
+          "precision": 86.7,
+          "recall": 86.4,
+          "macro_f1": 86.5,
+          "accuracy": 86.5,
+          "pair_accuracy": 73.8
+        }
+      ]
+    },
+    {
+      "team": "SEBIS TUM team",
+      "is_baseline": false,
+      "precision": 72.7,
+      "recall": 72.8,
+      "macro_f1": 72.7,
+      "accuracy": 72.7,
+      "pair_accuracy": 72.9,
+      "runs": [
+        {
+          "method_name": "Using disagre...",
+          "tooltip": "Using disagreement between two models(Qwen 7B and Qwen-VL 3B) as a signal",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 72.7,
+          "recall": 72.8,
+          "macro_f1": 72.7,
+          "accuracy": 72.7,
+          "pair_accuracy": 72.9
         }
       ]
     },
     {
       "team": "VerifyAI",
       "is_baseline": false,
-      "precision": 84.6,
-      "recall": 84.7,
-      "macro_f1": 84.6,
-      "accuracy": 84.6,
-      "pair_accuracy": 71.6,
+      "precision": 85.3,
+      "recall": 85.4,
+      "macro_f1": 85.3,
+      "accuracy": 85.3,
+      "pair_accuracy": 72.2,
       "runs": [
         {
           "method_name": "extractor_eva...",
           "tooltip": "extractor_evaluator_subtask1",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 84.6,
-          "recall": 84.7,
-          "macro_f1": 84.6,
-          "accuracy": 84.6,
-          "pair_accuracy": 71.6
+          "precision": 85.3,
+          "recall": 85.4,
+          "macro_f1": 85.3,
+          "accuracy": 85.3,
+          "pair_accuracy": 72.2
         }
       ]
     },
@@ -656,7 +645,7 @@
       "recall": 81.3,
       "macro_f1": 81.1,
       "accuracy": 81.1,
-      "pair_accuracy": 63.8,
+      "pair_accuracy": 64.1,
       "runs": [
         {
           "method_name": "SIBTM_T1_R01",
@@ -667,29 +656,84 @@
           "recall": 81.3,
           "macro_f1": 81.1,
           "accuracy": 81.1,
-          "pair_accuracy": 63.8
+          "pair_accuracy": 64.1
         },
         {
           "method_name": "Qwen3-VL-32B-...",
           "tooltip": "Qwen3-VL-32B-Instruct + fine-tuning",
           "team_notes": "QLoRA fine-tu...",
           "notes_tooltip": "QLoRA fine-tuning of Qwen3 on automatically-perturbed claim-evidence pairs derived from SIBiLS/PMC OA tables and figures",
-          "precision": 79.7,
-          "recall": 79.6,
-          "macro_f1": 79.4,
-          "accuracy": 79.4,
-          "pair_accuracy": 61.7
+          "precision": 80.0,
+          "recall": 79.9,
+          "macro_f1": 79.7,
+          "accuracy": 79.7,
+          "pair_accuracy": 62.0
         },
         {
           "method_name": "Baseline Qwen...",
           "tooltip": "Baseline Qwen3-VL-32B-Instruct",
           "team_notes": "Baseline eval...",
           "notes_tooltip": "Baseline evaluation of the claim label prediction task (Task 1) on the test split, without fine-tuning, providing a reference point for future runs",
-          "precision": 78.0,
-          "recall": 77.9,
-          "macro_f1": 77.6,
-          "accuracy": 77.6,
-          "pair_accuracy": 58.0
+          "precision": 78.3,
+          "recall": 78.2,
+          "macro_f1": 77.9,
+          "accuracy": 77.9,
+          "pair_accuracy": 58.3
+        }
+      ]
+    },
+    {
+      "team": "SciNex",
+      "is_baseline": false,
+      "precision": 77.5,
+      "recall": 77.5,
+      "macro_f1": 77.4,
+      "accuracy": 77.4,
+      "pair_accuracy": 57.4,
+      "runs": [
+        {
+          "method_name": "subtask1-one-...",
+          "tooltip": "subtask1-one-stage-png",
+          "team_notes": "-",
+          "notes_tooltip": "",
+          "precision": 77.5,
+          "recall": 77.5,
+          "macro_f1": 77.4,
+          "accuracy": 77.4,
+          "pair_accuracy": 57.4
+        },
+        {
+          "method_name": "subtask1-two-...",
+          "tooltip": "subtask1-two-stage-png",
+          "team_notes": "-",
+          "notes_tooltip": "",
+          "precision": 75.5,
+          "recall": 75.4,
+          "macro_f1": 75.4,
+          "accuracy": 75.5,
+          "pair_accuracy": 56.0
+        }
+      ]
+    },
+    {
+      "team": "CAISALab",
+      "is_baseline": false,
+      "precision": 62.3,
+      "recall": 59.8,
+      "macro_f1": 58.2,
+      "accuracy": 60.8,
+      "pair_accuracy": 26.9,
+      "runs": [
+        {
+          "method_name": "baseline_only...",
+          "tooltip": "baseline_only_png",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 62.3,
+          "recall": 59.8,
+          "macro_f1": 58.2,
+          "accuracy": 60.8,
+          "pair_accuracy": 26.9
         }
       ]
     }
@@ -697,8 +741,8 @@
   "best": {
     "precision": 97.2,
     "recall": 97.3,
-    "macro_f1": 97.3,
-    "accuracy": 97.3,
-    "pair_accuracy": 97.9
+    "macro_f1": 97.2,
+    "accuracy": 97.2,
+    "pair_accuracy": 98.2
   }
 }

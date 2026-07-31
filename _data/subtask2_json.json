@@ -3,63 +3,63 @@
     {
       "team": "TakasuLab",
       "is_baseline": false,
-      "accuracy": 93.3,
+      "accuracy": 93.5,
       "runs": [
         {
           "method_name": "Gemma4 Pipeli...",
           "tooltip": "Gemma4 Pipeline",
           "team_notes": "Commit ID: 3e...",
           "notes_tooltip": "Commit ID: 3ece2e4",
-          "accuracy": 93.3
+          "accuracy": 93.5
         }
       ]
     },
     {
       "team": "SciNex",
       "is_baseline": false,
-      "accuracy": 89.0,
+      "accuracy": 89.3,
       "runs": [
         {
           "method_name": "subtask2-two-...",
           "tooltip": "subtask2-two-stage",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 89.0
+          "accuracy": 89.3
         }
       ]
     },
     {
       "team": "Black Socks",
       "is_baseline": false,
-      "accuracy": 83.7,
+      "accuracy": 84.5,
       "runs": [
         {
           "method_name": "task2 gemma n...",
           "tooltip": "task2 gemma no pot gate no hedge",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 83.7
+          "accuracy": 84.5
         }
       ]
     },
     {
       "team": "LMU & TUM NLP team",
       "is_baseline": false,
-      "accuracy": 83.3,
+      "accuracy": 83.6,
       "runs": [
         {
           "method_name": "2step_op_8tab...",
           "tooltip": "2step_op_8tabjson_json_extraction_fallback_30fig",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 83.3
+          "accuracy": 83.6
         },
         {
           "method_name": "2step_op_8tab...",
           "tooltip": "2step_op_8tabjson_indep_desc_30fig",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 80.5
+          "accuracy": 80.8
         },
         {
           "method_name": "2step_op_8tab...",
@@ -80,14 +80,14 @@
     {
       "team": "VerifyAI",
       "is_baseline": false,
-      "accuracy": 66.3,
+      "accuracy": 66.7,
       "runs": [
         {
           "method_name": "extractor_eva...",
           "tooltip": "extractor_eval_test",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 66.3
+          "accuracy": 66.7
         },
         {
           "method_name": "EXTRACTOR-EVA...",
@@ -108,54 +108,40 @@
     {
       "team": "Pro\u00b2Crast",
       "is_baseline": false,
-      "accuracy": 66.3,
+      "accuracy": 66.7,
       "runs": [
         {
           "method_name": "v2",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 66.3
+          "accuracy": 66.7
         },
         {
           "method_name": "v3",
           "tooltip": "",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 63.3
+          "accuracy": 63.4
         }
       ]
     },
     {
       "team": "Denso IT Laboratory NTCIR team",
       "is_baseline": false,
-      "accuracy": 65.1,
+      "accuracy": 65.5,
       "runs": [
         {
           "method_name": "evi=json, con...",
           "tooltip": "evi=json, context=flag",
           "team_notes": "",
           "notes_tooltip": "",
-          "accuracy": 65.1
-        }
-      ]
-    },
-    {
-      "team": "SEBIS TUM team",
-      "is_baseline": false,
-      "accuracy": 60.5,
-      "runs": [
-        {
-          "method_name": "Comparing con...",
-          "tooltip": "Comparing contexts from different evidence types",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "accuracy": 60.5
+          "accuracy": 65.5
         }
       ]
     }
   ],
   "best": {
-    "accuracy": 93.3
+    "accuracy": 93.5
   }
 }
