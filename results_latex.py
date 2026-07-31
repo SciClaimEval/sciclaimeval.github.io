@@ -36,10 +36,10 @@ OUT_DIR = Path("assets/latex")
 # Keep this in sync with METRICS in results_processor.py.
 COLUMN_SPECS = {
     "subtask1": [
-        ("precision", "Precision"),
-        ("recall", "Recall"),
+        ("precision", "P"),
+        ("recall", "R"),
         ("macro_f1", "Macro-F1"),
-        ("accuracy", "Accuracy"),
+        ("accuracy", "Acc."),
         ("pair_accuracy", "Pair Acc."),
     ],
     "subtask2": [
@@ -96,6 +96,7 @@ def build_table(task_key, fmt_key, payload):
     lines = [
         r"\begin{table}[ht]",
         r"\centering",
+        r"\small",
         f"\\caption{{{caption}}}",
         f"\\label{{tab:{task_key}_{fmt_key}}}",
         f"\\begin{{tabular}}{{{col_spec}}}",
@@ -113,6 +114,7 @@ def build_table(task_key, fmt_key, payload):
     else:
         for entry in entries:
             team_name = escape_latex(entry.get("team", ""))
+            team_name = team_name.replace(" NTCIR team", "")
             if entry.get("is_baseline"):
                 team_name = f"\\textit{{{team_name}}}"
 
