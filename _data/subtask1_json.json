@@ -3,66 +3,66 @@
     {
       "team": "SciTrue",
       "is_baseline": false,
-      "precision": 97.2,
-      "recall": 97.3,
-      "macro_f1": 97.3,
-      "accuracy": 97.3,
-      "pair_accuracy": 97.5,
+      "precision": 98.1,
+      "recall": 98.1,
+      "macro_f1": 98.1,
+      "accuracy": 98.1,
+      "pair_accuracy": 98.4,
       "runs": [
         {
           "method_name": "Single-model ...",
           "tooltip": "Single-model verification with Claude Fable 5. Each evidence item (claim + caption + context + a structured markdown rendering of the official table data, for tables + the evidence image, read directly from disk via the Claude Code CLI's Read tool) is scored by Fable 5, which returns a calibrated support score in [0,1]. We then apply a legal pair prior: claims are grouped by identical claim text (a field visible at test time) to recover the Supported/Refuted contrastive pairs, and within each pair the higher-scoring evidence is labeled Supported, the lower Refuted; ties are broken by the continuous score, never by item ordering. Unpaired (singleton) claims are labeled by Fable 5's absolute judgment.",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 97.2,
-          "recall": 97.3,
-          "macro_f1": 97.3,
-          "accuracy": 97.3,
-          "pair_accuracy": 97.5
+          "precision": 98.1,
+          "recall": 98.1,
+          "macro_f1": 98.1,
+          "accuracy": 98.1,
+          "pair_accuracy": 98.4
         },
         {
           "method_name": "SciTrue-T1-En...",
           "tooltip": "SciTrue-T1-Ensemble+GPT5.5+PairPrior",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 96.7,
-          "recall": 96.8,
-          "macro_f1": 96.7,
-          "accuracy": 96.7,
-          "pair_accuracy": 97.2
+          "precision": 97.3,
+          "recall": 97.4,
+          "macro_f1": 97.3,
+          "accuracy": 97.3,
+          "pair_accuracy": 97.7
         },
         {
           "method_name": "Training-free...",
           "tooltip": "Training-free ensemble with evidence-type routing and a legal pair prior. Four models \u2014 Claude Opus 4.8, Gemma-4-31B, GPT-5.5, and Claude Fable 5 \u2014 score every item (claim + caption + context + table markdown/LaTeX source for tables + evidence image); GLM-4.6V is added to the mix for figure-type evidence, where models are weaker on average. Scores are averaged within the routed model set, then the same legal pair prior described above (recover pairs by claim text, rank by fused score, leak-free tie-breaking) converts the fused scores into final Supported/Refuted labels.",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 96.3,
-          "recall": 96.3,
-          "macro_f1": 96.3,
-          "accuracy": 96.3,
-          "pair_accuracy": 96.8
+          "precision": 96.9,
+          "recall": 96.9,
+          "macro_f1": 96.9,
+          "accuracy": 96.9,
+          "pair_accuracy": 97.2
         },
         {
           "method_name": "Description: ...",
           "tooltip": "Description: A training-free system built from five multimodal models with full test coverage (Claude Fable 5, GPT-5.5, Gemma-4-31B, Claude Opus 4.8, GLM-4.6V-Flash). Each model returns a JSON verdict with a support score in [0,1] under one fixed fact-checker prompt (no chain-of-thought, no examples). We exploit the fact that a claim's evidence type (evi_type) is visible at test time and apply evidence-type routing, fusing a different, per-type-optimal subset of models by signed-sum of support scores:   Table claims \u2192 Fable 5 + GPT-5.5 + Gemma-4-31B + Opus 4.8 Figure claims \u2192 GPT-5.5 + Opus 4.8 (figures reward only the strongest few; pooling weaker models dilutes them)   We then apply the legal pair prior: pairs are recovered from identical claim text (a visible field \u2014 never the hidden claim_id_pair), and within each recovered pair the higher-scoring member is labeled Supported, the other Refuted. This turns two absolute judgments into one relative ranking. The method is leak-free: ties are broken by the continuous fused score, never by row position; the ~45 unpaired supported-only claims are labeled Supported.  On the development set (352 pairs) this routed pair prior reaches 96.9 leak-free pair-accuracy, above the fixed-routing baseline (96.2). All operations use only test-visible fields, so the gains are expected to transfer.",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 95.3,
-          "recall": 95.3,
-          "macro_f1": 95.3,
-          "accuracy": 95.3,
-          "pair_accuracy": 95.2
+          "precision": 96.0,
+          "recall": 96.0,
+          "macro_f1": 96.0,
+          "accuracy": 96.0,
+          "pair_accuracy": 95.6
         },
         {
           "method_name": "task1_routed_...",
           "tooltip": "task1_routed_gptfable_SUBMIT",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 95.3,
-          "recall": 95.3,
-          "macro_f1": 95.3,
-          "accuracy": 95.3,
-          "pair_accuracy": 95.0
+          "precision": 96.0,
+          "recall": 96.0,
+          "macro_f1": 96.0,
+          "accuracy": 96.0,
+          "pair_accuracy": 95.4
         }
       ]
     },
@@ -332,10 +332,10 @@
     }
   ],
   "best": {
-    "precision": 97.2,
-    "recall": 97.3,
-    "macro_f1": 97.3,
-    "accuracy": 97.3,
-    "pair_accuracy": 97.5
+    "precision": 98.1,
+    "recall": 98.1,
+    "macro_f1": 98.1,
+    "accuracy": 98.1,
+    "pair_accuracy": 98.4
   }
 }
