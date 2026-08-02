@@ -14,19 +14,44 @@ METRIC_COLS = ["precision", "recall", "macro_f1", "accuracy", "pair_accuracy"]
 # Individual baseline models. Grouped into a single "Baseline" row per task
 # at build time, the same way a team's multiple runs are grouped.
 BASELINE_MODELS = {
-    "subtask1": [
-        {"method_name": "o4-mini",              "precision": 83.4, "recall": 82.4, "macro_f1": 82.9, "accuracy": 82.3, "pair_accuracy": 68.2},
-        {"method_name": "Qwen3-VL-30B-A3B",      "precision": 77.1, "recall": 74.8, "macro_f1": 76.0, "accuracy": 75.0, "pair_accuracy": 54.8},
-        {"method_name": "Qwen3-VL-8B",           "precision": 76.3, "recall": 68.3, "macro_f1": 72.1, "accuracy": 68.3, "pair_accuracy": 46.9},
-        {"method_name": "InternVL3_5-38B",       "precision": 72.1, "recall": 68.1, "macro_f1": 67.8, "accuracy": 69.2, "pair_accuracy": 40.1},
-        {"method_name": "Llama-3.2-11B-Vision",  "precision": 57.4, "recall": 52.9, "macro_f1": 48.6, "accuracy": 54.8, "pair_accuracy": 10.8},
+    # "subtask1": [
+    #     {"method_name": "o4-mini",              "precision": 83.4, "recall": 82.4, "macro_f1": 82.9, "accuracy": 82.3, "pair_accuracy": 68.2},
+    #     {"method_name": "Qwen3-VL-30B-A3B",      "precision": 77.1, "recall": 74.8, "macro_f1": 76.0, "accuracy": 75.0, "pair_accuracy": 54.8},
+    #     {"method_name": "Qwen3-VL-8B",           "precision": 76.3, "recall": 68.3, "macro_f1": 72.1, "accuracy": 68.3, "pair_accuracy": 46.9},
+    #     {"method_name": "InternVL3_5-38B",       "precision": 72.1, "recall": 68.1, "macro_f1": 67.8, "accuracy": 69.2, "pair_accuracy": 40.1},
+    #     {"method_name": "Llama-3.2-11B-Vision",  "precision": 57.4, "recall": 52.9, "macro_f1": 48.6, "accuracy": 54.8, "pair_accuracy": 10.8},
+    # ],
+    # "subtask2": [
+    #     {"method_name": "o4-mini",              "accuracy": 85.2},
+    #     {"method_name": "Qwen3-VL-8B",           "accuracy": 56.2},
+    #     {"method_name": "InternVL3_5-38B",       "accuracy": 54.5},
+    #     {"method_name": "Qwen3-VL-30B-A3B",      "accuracy": 54.3},
+    #     {"method_name": "Llama-3.2-11B-Vision",  "accuracy": 34.7},
+    # ],
+"subtask1": [
+        {"method_name": "o4-mini",                "precision": 80.4, "recall": 79.5, "macro_f1": 79.8, "accuracy": 79.4, "pair_accuracy": 61.1},
+        {"method_name": "Qwen3-VL-30B-A3B",       "precision": 72.5, "recall": 70.7, "macro_f1": 71.5, "accuracy": 70.6, "pair_accuracy": 46.5},
+        {"method_name": "Qwen3-VL-8B",            "precision": 75.8, "recall": 65.8, "macro_f1": 70.3, "accuracy": 65.7, "pair_accuracy": 44.4},
+        {"method_name": "Qwen3-VL-4B",            "precision": 72.8, "recall": 67.1, "macro_f1": 69.8, "accuracy": 67.1, "pair_accuracy": 43.1},
+        {"method_name": "InternVL3_5-38B",        "precision": 71.8, "recall": 68.8, "macro_f1": 68.5, "accuracy": 69.5, "pair_accuracy": 42.4},
+        {"method_name": "InternVL3_5-14B",        "precision": 69.5, "recall": 66.2, "macro_f1": 65.4, "accuracy": 67.1, "pair_accuracy": 36.3},
+        {"method_name": "InternVL3_5-8B",         "precision": 67.0, "recall": 64.0, "macro_f1": 62.9, "accuracy": 64.9, "pair_accuracy": 35.0},
+        {"method_name": "InternVL3_5-1B",         "precision": 54.5, "recall": 52.3, "macro_f1": 51.6, "accuracy": 53.2, "pair_accuracy": 20.8},
+        {"method_name": "LLaVA-Mistral-7B",       "precision": 50.8, "recall": 48.2, "macro_f1": 48.6, "accuracy": 47.8, "pair_accuracy": 1.9},
+        {"method_name": "Llama-3.2-11B-Vision",   "precision": 56.7, "recall": 51.8, "macro_f1": 48.4, "accuracy": 53.2, "pair_accuracy": 14.6},
+        {"method_name": "LLaVA-Vicuna-13B",       "precision": 44.4, "recall": 25.8, "macro_f1": 27.2, "accuracy": 26.9, "pair_accuracy": 0.2},
     ],
     "subtask2": [
-        {"method_name": "o4-mini",              "accuracy": 85.2},
-        {"method_name": "Qwen3-VL-8B",           "accuracy": 56.2},
-        {"method_name": "InternVL3_5-38B",       "accuracy": 54.5},
-        {"method_name": "Qwen3-VL-30B-A3B",      "accuracy": 54.3},
-        {"method_name": "Llama-3.2-11B-Vision",  "accuracy": 34.7},
+        {"method_name": "o4-mini",                "accuracy": 81.9},
+        {"method_name": "Qwen3-VL-8B",            "accuracy": 56.2},
+        {"method_name": "Qwen3-VL-30B-A3B",       "accuracy": 53.5},
+        {"method_name": "InternVL3_5-14B",        "accuracy": 52.5},
+        {"method_name": "InternVL3_5-38B",        "accuracy": 52.1},
+        {"method_name": "InternVL3_5-8B",         "accuracy": 51.6},
+        {"method_name": "LLaVA-Mistral-7B",       "accuracy": 48.8},
+        {"method_name": "InternVL3_5-1B",         "accuracy": 46.1},
+        {"method_name": "Qwen3-VL-4B",            "accuracy": 41.2},
+        {"method_name": "Llama-3.2-11B-Vision",   "accuracy": 35.9},
     ],
 }
 
