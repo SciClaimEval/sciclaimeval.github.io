@@ -39,7 +39,7 @@ BASELINE_MODELS = {
         {"method_name": "InternVL3_5-1B",         "precision": 54.5, "recall": 52.3, "macro_f1": 51.6, "accuracy": 53.2, "pair_accuracy": 20.8},
         {"method_name": "LLaVA-Mistral-7B",       "precision": 50.8, "recall": 48.2, "macro_f1": 48.6, "accuracy": 47.8, "pair_accuracy": 1.9},
         {"method_name": "Llama-3.2-11B-Vision",   "precision": 56.7, "recall": 51.8, "macro_f1": 48.4, "accuracy": 53.2, "pair_accuracy": 14.6},
-        {"method_name": "LLaVA-Vicuna-13B",       "precision": 44.4, "recall": 25.8, "macro_f1": 27.2, "accuracy": 26.9, "pair_accuracy": 0.2},
+        # {"method_name": "LLaVA-Vicuna-13B",       "precision": 44.4, "recall": 25.8, "macro_f1": 27.2, "accuracy": 26.9, "pair_accuracy": 0.2},
     ],
     "subtask2": [
         {"method_name": "o4-mini",                "accuracy": 81.9},
@@ -48,7 +48,7 @@ BASELINE_MODELS = {
         {"method_name": "InternVL3_5-14B",        "accuracy": 52.5},
         {"method_name": "InternVL3_5-38B",        "accuracy": 52.1},
         {"method_name": "InternVL3_5-8B",         "accuracy": 51.6},
-        {"method_name": "LLaVA-Mistral-7B",       "accuracy": 48.8},
+        # {"method_name": "LLaVA-Mistral-7B",       "accuracy": 48.8},
         {"method_name": "InternVL3_5-1B",         "accuracy": 46.1},
         {"method_name": "Qwen3-VL-4B",            "accuracy": 41.2},
         {"method_name": "Llama-3.2-11B-Vision",   "accuracy": 35.9},
