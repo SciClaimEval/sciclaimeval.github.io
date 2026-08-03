@@ -149,100 +149,62 @@ The evaluation script (in python) is available on github: [github.com/SciClaimEv
 
 All submissions will be evaluated on precision, recall, macro F1, and accuracy. In order to minimize the risk of model bias on subtask 1, the primary evaluation metric here is accuracy on claim pairs (a claim pair are two entries in the dataset with the same claim but opposing evidence labels). This stricter metric only counts correct results if both entries of a pair were correctly predicted (i.e., the supported claim and refuted claim of the same claim text were correctly identified).
 
+------------------------
+
+## Results
+
+The following tables show the results of all submissions on the evaluation set. In each table, only the best submission is shown directly. To see all run submissions from the same team, click on the specific row. Approaches and notes descriptions were given by the teams. All tables show the team names and baselines.
+
+Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was sorted by the primary metric 'accuracy'.
+
+<link rel="stylesheet" href="{{ '/assets/css/tables.css' | relative_url }}">
+
 <div class="evaluation-table">
-  <table>
-    <thead>
-      <tr>
-        <th>Subtask 1 Baselines</th>
-        <th>Precision</th>
-        <th>Recall</th>
-        <th>Macro-F1</th>
-        <th>Accuracy</th>
-        <th>Pair Accuracy</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>o4-mini</th>
-        <td>83.4</td>
-        <td>82.4</td>
-        <td>82.9</td>
-        <td>82.3</td>
-        <td>68.2</td>
-      </tr>
-      <tr>
-        <th>Qwen3-VL-30B-A3B</th>
-        <td>77.1</td>
-        <td>74.8</td>
-        <td>76.0</td>
-        <td>75.0</td>
-        <td>54.8</td>
-      </tr>
-      <tr>
-        <th>Qwen3-VL-8B</th>
-        <td>76.3</td>
-        <td>68.3</td>
-        <td>72.1</td>
-        <td>68.3</td>
-        <td>46.9</td>
-      </tr>
-      <tr>
-        <th>InternVL3_5-38B</th>
-        <td>72.1</td>
-        <td>68.1</td>
-        <td>67.8</td>
-        <td>69.2</td>
-        <td>40.1</td>
-      </tr>
-      <tr>
-        <th>Llama-3.2-11B-Vision</th>
-        <td>57.4</td>
-        <td>52.9</td>
-        <td>48.6</td>
-        <td>54.8</td>
-        <td>10.8</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section-header-row">
+    <div class="tab-nav" role="tablist" aria-label="Subtask 1 evidence format">
+      <button class="tab-btn active" data-target="subtask1-png" role="tab" aria-selected="true">PNG</button>
+      <button class="tab-btn" data-target="subtask1-json" role="tab" aria-selected="false">JSON</button>
+      <button class="tab-btn" data-target="subtask1-tex" role="tab" aria-selected="false">TeX / HTML</button>
+    </div>
+    <h3 id="subtask-1" class="section-title">Subtask 1</h3>
+  </div>
+
+  <div class="tab-panel" id="subtask1-png">
+    {% include results_table_subtask1.html data=site.data.subtask1_png panel_id="subtask1-png-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask1-json" hidden>
+    {% include results_table_subtask1.html data=site.data.subtask1_json panel_id="subtask1-json-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask1-tex" hidden>
+    {% include results_table_subtask1.html data=site.data.subtask1_tex panel_id="subtask1-tex-zebra" %}
+  </div>
 </div>
 
 <div class="evaluation-table">
-  <table>
-    <thead>
-      <tr>
-        <th>Subtask 2 Baselines</th>
-        <th>Accuracy</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>o4-mini</th>
-        <td>85.2</td>
-      </tr>
-      <tr>
-        <th>Qwen3-VL-8B</th>
-        <td>56.2</td>
-      </tr>
-      <tr>
-        <th>InternVL3_5-38B</th>
-        <td>54.5</td>
-      </tr>
-      <tr>
-        <th>Qwen3-VL-30B-A3B</th>
-        <td>54.3</td>
-      </tr>
-      <tr>
-        <th>Llama-3.2-11B-Vision</th>
-        <td>34.7</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="section-header-row">
+    <div class="tab-nav" role="tablist" aria-label="Subtask 2 evidence format">
+      <button class="tab-btn active" data-target="subtask2-png" role="tab" aria-selected="true">PNG</button>
+      <button class="tab-btn" data-target="subtask2-json" role="tab" aria-selected="false">JSON</button>
+      <button class="tab-btn" data-target="subtask2-tex" role="tab" aria-selected="false">TeX / HTML</button>
+    </div>
+    <h3 id="subtask-2" class="section-title">Subtask 2</h3>
+  </div>
+
+  <div class="tab-panel" id="subtask2-png">
+    {% include results_table_subtask2.html data=site.data.subtask2_png panel_id="subtask2-png-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask2-json" hidden>
+    {% include results_table_subtask2.html data=site.data.subtask2_json panel_id="subtask2-json-zebra" %}
+  </div>
+  <div class="tab-panel" id="subtask2-tex" hidden>
+    {% include results_table_subtask2.html data=site.data.subtask2_tex panel_id="subtask2-tex-zebra" %}
+  </div>
 </div>
 
-*Note: these scores are evaluated on the validation set.
-
+<script src="{{ '/assets/js/tables.js' | relative_url }}"></script>
 
 ## News
+- [2026-08-03] All run results are now available. Congratulations and thanks to all participants. Paper submissions instructions have been added.
 - [2026-07-21] Submissions are now closed. Thanks to all participants. Remember the paper submission.
 - [2026-06-17] EvalBot is now live. It automatically evaluates your submission and informs you via e-mail about your results within 30min.
 - [2026-06-11] We created an FAQ page for participants. Check it out here: <a href="https://sciclaimeval.github.io/faq.html">sciclaimeval.github.io/faq.html</a>
@@ -265,7 +227,7 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 | ~~March 01, 2026~~ | Formal Run Dataset Release |
 | ~~July 10, 2026~~ | Registration Deadline for Participants |
 | ~~July 19, 2026~~ | Formal Run Submission Deadline |
-| **August 1, 2026** | **Evaluation Results Return** |
+| ~~August 1, 2026~~ | Evaluation Results Return |
 | **September 1, 2026** | **Submission Due for Participant's Papers** |
 | November 1, 2026 | Camera-ready participant paper due |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
@@ -296,7 +258,7 @@ All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).
 </div>
 
 
-## Submission Form
+## Run Submission Form
 **The submission of runs is now closed.**
 ~~You can submit your prediction file for the test data here.~~
 
@@ -319,6 +281,33 @@ All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).
   </a>
 </div>
 
+## Paper Submission
+
+All participants are required submit a paper explaining their approaches by 1st September.
+Further information are available on <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html">research.nii.ac.jp/ntcir/ntcir-19/papers</a>. Please use the template provided. Also note the checklist before submission:
+* Your paper must include the **Task Name** SciClaimEval
+* Your paper must include your **Team Name** (i.e., your *Group Name* as shown in the result tables above)
+* You need to reference the SciClaimEval **Task Overview Paper** (a bibtex will be provided shortly after)
+* Submit to the **SciClaimEval track** on easychair.
+
+<div style="text-align:center; margin:1.5em 0;">
+  <a href="https://easychair.org/conferences/?conf=ntcir19"
+    target="_blank" rel="noopener"
+    style="
+      display: inline-block; 
+      padding: 10px 16px; 
+      background-color: #0066cc;
+      color: white; 
+      border: none; 
+      border-radius: 4px; 
+      font-weight: 600; 
+      font-size: 1em; 
+      ursor: pointer; 
+      text-decoration: none;
+    ">
+    Submit your Paper
+  </a>
+</div>
 
 ## Contact
 

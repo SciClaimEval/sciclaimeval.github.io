@@ -16,3 +16,9 @@ bundle exec jekyll serve
 ```
 
 This should start the service on `127.0.0.1:4000`.
+
+## Update result tables
+
+First, update the excel file in `assets/SciClaimEval26_Results.xlsx` than run `python results_processor.py`. After that, just refresh the website.
+
+In order to run the python script (which analyzes the Excel file and generates a JSON file), you need to install requirements `pip install -r requirements.txt`

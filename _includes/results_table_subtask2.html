@@ -1,0 +1,60 @@
+{% assign d = include.data %}
+{% if d.entries.size == 0 %}
+<p class="empty-tab">No submissions in this format yet.</p>
+{% else %}
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Team Name</th>
+      <th>Accuracy <span class="sort-badge" title="Table sorted by this column, descending">&#9662;</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in d.entries %}
+    {% assign expandable = false %}
+    {% if entry.runs.size > 1 %}{% assign expandable = true %}{% endif %}
+    {% capture alt_class %}{% cycle include.panel_id: 'row-alt', '' %}{% endcapture %}
+    <tr class="main-row{% if expandable %} expandable{% endif %}{% if entry.is_baseline %} baseline-row{% endif %} {{ alt_class }}">
+      <th>{{ entry.team }}{% if expandable %}<span class="chevron">&#9656;</span>{% endif %}</th>
+      <td{% if entry.accuracy and entry.accuracy == d.best.accuracy %} class="best"{% endif %}>{{ entry.accuracy | default: "–" }}</td>
+    </tr>
+    {% if expandable %}
+    <tr class="detail-row">
+      <td colspan="2">
+        <div class="detail-wrapper">
+          <div class="detail-inner">
+            <table class="detail-table">
+              <thead>
+                <tr>
+                  <th>Approach</th>
+                  <th>Notes</th>
+                  <th>Accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for run in entry.runs %}
+                <tr>
+                  <td>
+                    {% if run.tooltip != "" %}
+                    <div class="table-tooltip-container">{{ run.method_name }}<div class="custom-tooltip" role="tooltip">{{ run.tooltip }}</div></div>
+                    {% else %}{{ run.method_name }}{% endif %}
+                  </td>
+                  <td>
+                    {% if run.notes_tooltip != "" %}
+                    <div class="table-tooltip-container">{{ run.team_notes }}<div class="custom-tooltip" role="tooltip">{{ run.notes_tooltip }}</div></div>
+                    {% else %}{{ run.team_notes }}{% endif %}
+                  </td>
+                  <td>{{ run.accuracy | default: "–" }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}

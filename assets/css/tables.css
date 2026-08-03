@@ -1,0 +1,249 @@
+table th {
+  background-color: #f7f7f7;
+}
+
+.evaluation-table {
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+
+.results-table thead th {
+  text-align: left;
+  padding: 8px 10px;
+}
+
+.results-table td,
+.results-table th {
+  padding: 8px 10px;
+}
+
+/* --- main rows: zebra striping ---
+   Scoped as `.results-table tbody tr.main-row` (element + 2 classes) so it
+   outranks minima's global `tr:nth-child(even)` rule, which otherwise wins
+   on specificity and also gets thrown off-parity by the hidden detail rows.
+   Alternation itself comes from the `row-alt` class, assigned per-entry via
+   {% cycle %} in the includes — not from nth-child — so it stays correct
+   regardless of how many detail <tr>s sit in between. */
+
+.results-table tbody tr.main-row {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.results-table tbody tr.main-row.row-alt {
+  background: #f7f8f9;
+}
+
+.results-table tbody tr.detail-row {
+  background: transparent;
+}
+
+.main-row.expandable {
+  cursor: pointer;
+}
+
+.results-table tbody tr.main-row.expandable:hover {
+  background: #eef2f6;
+}
+
+.main-row th {
+  font-weight: 600;
+  position: relative;
+}
+
+.baseline-row th {
+  font-style: italic;
+  color: #555;
+}
+
+/* chevron affordance, inline with the team name instead of its own column */
+.chevron {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.75em;
+  color: #888;
+  transition: transform 0.2s ease;
+}
+
+.main-row.open .chevron {
+  transform: rotate(90deg);
+}
+
+/* sort indicator on the ranking-metric column header */
+.sort-badge {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.8em;
+  color: #888;
+  cursor: help;
+}
+
+th:has(.sort-badge) {
+  min-width: 75px;
+}
+
+/* bold the best value in each column (ties are all bolded) */
+.results-table td.best {
+  font-weight: 700;
+}
+
+/* --- detail (collapsible) rows --- */
+
+.detail-row td {
+  padding: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.detail-wrapper {
+  max-height: 0;
+  overflow: hidden; /* required while closed/animating so content doesn't
+                        show through; toggled to visible once fully open
+                        by tables.js so tooltips inside aren't clipped */
+  transition: max-height 0.28s ease;
+  background: #f2f3f5;
+}
+
+.detail-inner {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.88em;
+  background: transparent;
+  margin-bottom: 0px;
+}
+
+.detail-table th {
+  text-align: left;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 2px solid #d6d8db;
+  padding: 4px 8px;
+}
+
+.detail-table td {
+  padding: 4px 8px;
+  border-bottom: 1px solid #e2e3e5;
+  color: #333;
+  word-break: break-word;
+}
+
+.detail-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- tooltips on truncated method_name / team_notes --- */
+
+.table-tooltip-container {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  border-bottom: 1px dashed #888;
+}
+
+.table-tooltip-container .custom-tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translate(20%, 40%);
+
+  background-color: #222222;
+  color: #ffffff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+
+  opacity: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+
+  white-space: normal;
+  width: max-content;
+  max-width: 450px;
+  word-wrap: break-word;
+}
+
+.table-tooltip-container:hover .custom-tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* --- evidence-format tabs --- */
+
+.section-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 0.75em;
+}
+
+.section-header-row .tab-nav {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-weight: 600;
+  color: #666;
+  margin: 0;
+  margin-bottom: -0.75em;
+  padding: 8px 16px;
+  white-space: nowrap;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 0.75em;
+}
+
+.tab-btn {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  font-size: 0.95em;
+  font-family: inherit;
+  color: #666;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.tab-btn:hover {
+  color: #24292e;
+}
+
+.tab-btn.active {
+  color: #007bff;
+  font-weight: 600;
+  border-bottom-color: #007bff;
+}
+
+.tab-panel {
+  padding-top: 0.5em;
+}
+
+.empty-tab {
+  color: #888;
+  font-style: italic;
+  padding: 1em 0.5em;
+}

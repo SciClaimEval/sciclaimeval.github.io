@@ -1,0 +1,76 @@
+{% assign d = include.data %}
+{% if d.entries.size == 0 %}
+<p class="empty-tab">No submissions in this format yet.</p>
+{% else %}
+<table class="results-table">
+  <thead>
+    <tr>
+      <th style="min-width: 115px;">Team Name</th>
+      <th>Precision</th>
+      <th>Recall</th>
+      <th>Macro-F1</th>
+      <th>Accuracy</th>
+      <th>Pair Accuracy <span class="sort-badge" title="Table sorted by this column, descending">&#9662;</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for entry in d.entries %}
+    {% assign expandable = false %}
+    {% if entry.runs.size > 1 %}{% assign expandable = true %}{% endif %}
+    {% capture alt_class %}{% cycle include.panel_id: 'row-alt', '' %}{% endcapture %}
+    <tr class="main-row{% if expandable %} expandable{% endif %}{% if entry.is_baseline %} baseline-row{% endif %} {{ alt_class }}">
+      <th>{{ entry.team }}{% if expandable %}<span class="chevron">&#9656;</span>{% endif %}</th>
+      <td{% if entry.precision and entry.precision == d.best.precision %} class="best"{% endif %}>{{ entry.precision | default: "–" }}</td>
+      <td{% if entry.recall and entry.recall == d.best.recall %} class="best"{% endif %}>{{ entry.recall | default: "–" }}</td>
+      <td{% if entry.macro_f1 and entry.macro_f1 == d.best.macro_f1 %} class="best"{% endif %}>{{ entry.macro_f1 | default: "–" }}</td>
+      <td{% if entry.accuracy and entry.accuracy == d.best.accuracy %} class="best"{% endif %}>{{ entry.accuracy | default: "–" }}</td>
+      <td{% if entry.pair_accuracy and entry.pair_accuracy == d.best.pair_accuracy %} class="best"{% endif %}>{{ entry.pair_accuracy | default: "–" }}</td>
+    </tr>
+    {% if expandable %}
+    <tr class="detail-row">
+      <td colspan="6">
+        <div class="detail-wrapper">
+          <div class="detail-inner">
+            <table class="detail-table">
+              <thead>
+                <tr>
+                  <th>Approach</th>
+                  <th>Notes</th>
+                  <th>Precision</th>
+                  <th>Recall</th>
+                  <th>Macro-F1</th>
+                  <th>Accuracy</th>
+                  <th>Pair Accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for run in entry.runs %}
+                <tr>
+                  <td>
+                    {% if run.tooltip != "" %}
+                    <div class="table-tooltip-container">{{ run.method_name }}<div class="custom-tooltip" role="tooltip">{{ run.tooltip }}</div></div>
+                    {% else %}{{ run.method_name }}{% endif %}
+                  </td>
+                  <td>
+                    {% if run.notes_tooltip != "" %}
+                    <div class="table-tooltip-container">{{ run.team_notes }}<div class="custom-tooltip" role="tooltip">{{ run.notes_tooltip }}</div></div>
+                    {% else %}{{ run.team_notes }}{% endif %}
+                  </td>
+                  <td>{{ run.precision | default: "–" }}</td>
+                  <td>{{ run.recall | default: "–" }}</td>
+                  <td>{{ run.macro_f1 | default: "–" }}</td>
+                  <td>{{ run.accuracy | default: "–" }}</td>
+                  <td>{{ run.pair_accuracy | default: "–" }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
