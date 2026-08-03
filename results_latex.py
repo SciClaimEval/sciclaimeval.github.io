@@ -115,6 +115,7 @@ def build_table(task_key, fmt_key, payload):
         for entry in entries:
             team_name = escape_latex(entry.get("team", ""))
             team_name = team_name.replace(" NTCIR team", "")
+            team_name = team_name.replace(" team", "")
             if entry.get("is_baseline"):
                 team_name = f"\\textit{{{team_name}}}"
 
