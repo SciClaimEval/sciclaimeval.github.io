@@ -52,7 +52,7 @@ CAPTIONS = {
     "subtask2": "Subtask 2 results",
 }
 
-FORMAT_LABEL = {"png": "PNG", "json": "JSON", "tex": "TeX"}
+FORMAT_LABEL = {"png": "PNG", "json": "JSON", "tex": "TeX/HTML"}
 
 FILENAME_RE = re.compile(r"^(subtask\d)_(png|json|tex)\.json$")
 
