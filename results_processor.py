@@ -200,6 +200,8 @@ def build_task(df, df_teams, task_key, evidence_format):
             continue
 
         team_name = team_row.iloc[0]['group name']
+        team_name = team_name.replace(" NTCIR team", "")
+        team_name = team_name.replace(" team", "")
 
         runs = group.sort_values(metric, ascending=False, na_position="last")
 

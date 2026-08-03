@@ -204,6 +204,7 @@ Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was s
 <script src="{{ '/assets/js/tables.js' | relative_url }}"></script>
 
 ## News
+- [2026-08-03] All run results are now available. Congratulations and thanks to all participants. Paper submissions instructions have been added.
 - [2026-07-21] Submissions are now closed. Thanks to all participants. Remember the paper submission.
 - [2026-06-17] EvalBot is now live. It automatically evaluates your submission and informs you via e-mail about your results within 30min.
 - [2026-06-11] We created an FAQ page for participants. Check it out here: <a href="https://sciclaimeval.github.io/faq.html">sciclaimeval.github.io/faq.html</a>
@@ -226,7 +227,7 @@ Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was s
 | ~~March 01, 2026~~ | Formal Run Dataset Release |
 | ~~July 10, 2026~~ | Registration Deadline for Participants |
 | ~~July 19, 2026~~ | Formal Run Submission Deadline |
-| **August 1, 2026** | **Evaluation Results Return** |
+| ~~August 1, 2026~~ | Evaluation Results Return |
 | **September 1, 2026** | **Submission Due for Participant's Papers** |
 | November 1, 2026 | Camera-ready participant paper due |
 | December 8 - 10, 2026 | NTCIR-19 Conference |
@@ -257,7 +258,7 @@ All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).
 </div>
 
 
-## Submission Form
+## Run Submission Form
 **The submission of runs is now closed.**
 ~~You can submit your prediction file for the test data here.~~
 
@@ -280,6 +281,33 @@ All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).
   </a>
 </div>
 
+## Paper Submission
+
+All participants are required submit a paper explaining their approaches by 1st September.
+Further information are available on <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html">research.nii.ac.jp/ntcir/ntcir-19/papers</a>. Please use the template provided. Also note the checklist before submission:
+* Your paper must include the **Task Name** SciClaimEval
+* Your paper must include your **Team Name** (i.e., your *Group Name* as shown in the result tables above)
+* You need to reference the SciClaimEval **Task Overview Paper** (a bibtex will be provided shortly after)
+* Submit to the **SciClaimEval track** on easychair.
+
+<div style="text-align:center; margin:1.5em 0;">
+  <a href="https://easychair.org/conferences/?conf=ntcir19"
+    target="_blank" rel="noopener"
+    style="
+      display: inline-block; 
+      padding: 10px 16px; 
+      background-color: #0066cc;
+      color: white; 
+      border: none; 
+      border-radius: 4px; 
+      font-weight: 600; 
+      font-size: 1em; 
+      ursor: pointer; 
+      text-decoration: none;
+    ">
+    Submit your Paper
+  </a>
+</div>
 
 ## Contact
 

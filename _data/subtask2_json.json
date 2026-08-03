@@ -43,7 +43,7 @@
       ]
     },
     {
-      "team": "LMU & TUM NLP team",
+      "team": "LMU & TUM NLP",
       "is_baseline": false,
       "accuracy": 83.6,
       "runs": [
@@ -127,7 +127,7 @@
       ]
     },
     {
-      "team": "Denso IT Laboratory NTCIR team",
+      "team": "Denso IT Laboratory",
       "is_baseline": false,
       "accuracy": 65.5,
       "runs": [

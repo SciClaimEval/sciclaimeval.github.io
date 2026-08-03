@@ -254,7 +254,7 @@
       ]
     },
     {
-      "team": "University of Southampton NTCIR team",
+      "team": "University of Southampton",
       "is_baseline": false,
       "precision": 85.8,
       "recall": 85.9,
@@ -276,7 +276,7 @@
       ]
     },
     {
-      "team": "Denso IT Laboratory NTCIR team",
+      "team": "Denso IT Laboratory",
       "is_baseline": false,
       "precision": 74.1,
       "recall": 74.1,
@@ -342,7 +342,7 @@
       ]
     },
     {
-      "team": "SEBIS TUM team",
+      "team": "SEBIS TUM",
       "is_baseline": false,
       "precision": 72.7,
       "recall": 72.8,
