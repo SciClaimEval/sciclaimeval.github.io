@@ -276,259 +276,6 @@
       ]
     },
     {
-      "team": "ProvideQ",
-      "is_baseline": false,
-      "precision": 89.9,
-      "recall": 90.0,
-      "macro_f1": 90.0,
-      "accuracy": 90.0,
-      "pair_accuracy": 82.4,
-      "runs": [
-        {
-          "method_name": "table_pair_co...",
-          "tooltip": "table_pair_contrast_any_agree__figure_pair_qwen37plus_gpt54_refs_any_reference_contrast",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 89.9,
-          "recall": 90.0,
-          "macro_f1": 90.0,
-          "accuracy": 90.0,
-          "pair_accuracy": 82.4
-        },
-        {
-          "method_name": "table_pair_co...",
-          "tooltip": "table_pair_contrast_any_agree__figure_pair_both_same_contrastive_gpt54_if_base_same",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 89.5,
-          "recall": 89.6,
-          "macro_f1": 89.5,
-          "accuracy": 89.5,
-          "pair_accuracy": 81.7
-        },
-        {
-          "method_name": "table_pair_co...",
-          "tooltip": "table_pair_contrast_any_agree_plus_gpt54_gpt_only_if_base_same__figure_pair_qwen37plus_gpt54_refs_any_reference_contrast",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 89.3,
-          "recall": 89.3,
-          "macro_f1": 89.3,
-          "accuracy": 89.3,
-          "pair_accuracy": 80.6
-        },
-        {
-          "method_name": "table_pair_co...",
-          "tooltip": "table_pair_contrast_any_agree_plus_gpt54_two_refs_agree_with_gpt__figure_pair_qwen37plus_gpt54_refs_any_reference_contrast",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 88.5,
-          "recall": 88.6,
-          "macro_f1": 88.5,
-          "accuracy": 88.5,
-          "pair_accuracy": 78.9
-        },
-        {
-          "method_name": "table_pair_co...",
-          "tooltip": "table_pair_contrast_any_agree__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 87.9,
-          "recall": 88.0,
-          "macro_f1": 88.0,
-          "accuracy": 88.0,
-          "pair_accuracy": 78.2
-        },
-        {
-          "method_name": "table_qwen37m...",
-          "tooltip": "table_qwen37max_two_round_no_attrs_allfixed__figure_pair_both_same_contrastive_gpt54_if_base_same",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 87.5,
-          "recall": 87.6,
-          "macro_f1": 87.5,
-          "accuracy": 87.5,
-          "pair_accuracy": 77.1
-        },
-        {
-          "method_name": "table_best_no...",
-          "tooltip": "table_best_no_attrs_pair_both_same_contrastive_if_base_same__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "table: Html 3...",
-          "notes_tooltip": "table: Html 392 parsed by png ,131 use original html",
-          "precision": 86.2,
-          "recall": 86.2,
-          "macro_f1": 86.2,
-          "accuracy": 86.2,
-          "pair_accuracy": 74.3
-        },
-        {
-          "method_name": "table_best_no...",
-          "tooltip": "table_best_no_attrs_merge_ultra_conservative_counterevidence__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "tables: 392 p...",
-          "notes_tooltip": "tables: 392 parsed by png, 131 use original html",
-          "precision": 86.0,
-          "recall": 86.0,
-          "macro_f1": 86.0,
-          "accuracy": 86.0,
-          "pair_accuracy": 73.6
-        },
-        {
-          "method_name": "table_best_no...",
-          "tooltip": "table_best_no_attrs_merge_lenient_v2_slight_support_rescue__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "table: html 3...",
-          "notes_tooltip": "table: html 392 parsed from png , 131 original html",
-          "precision": 86.2,
-          "recall": 86.2,
-          "macro_f1": 86.2,
-          "accuracy": 86.2,
-          "pair_accuracy": 73.6
-        },
-        {
-          "method_name": "table_best_no...",
-          "tooltip": "table_best_no_attrs_merge_lenient_double_support__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "table : 392 h...",
-          "notes_tooltip": "table : 392 html parsed from png, 131 original html",
-          "precision": 86.0,
-          "recall": 86.0,
-          "macro_f1": 86.0,
-          "accuracy": 86.0,
-          "pair_accuracy": 73.4
-        },
-        {
-          "method_name": "table_qwen37m...",
-          "tooltip": "table_qwen37max_two_round_no_pair_no_attrs_allfixed__figure_qwen37plus_two_round",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 86.3,
-          "recall": 86.3,
-          "macro_f1": 86.3,
-          "accuracy": 86.3,
-          "pair_accuracy": 73.2
-        },
-        {
-          "method_name": "table_best_no...",
-          "tooltip": "table_best_no_attrs_pair_both_same_contrastive_if_base_same__figure_gpt54_v1_strict_only_hard_contradiction",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 85.5,
-          "recall": 85.5,
-          "macro_f1": 85.4,
-          "accuracy": 85.4,
-          "pair_accuracy": 73.2
-        },
-        {
-          "method_name": "test_submissi...",
-          "tooltip": "test_submission_table_best_no_attrs_merge_strict_double_refute__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "table: 392 ht...",
-          "notes_tooltip": "table: 392 html that parsed by png , 131original",
-          "precision": 85.1,
-          "recall": 85.2,
-          "macro_f1": 85.1,
-          "accuracy": 85.1,
-          "pair_accuracy": 71.5
-        },
-        {
-          "method_name": "Table:HTML pa...",
-          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round prompting+stage one\uff1aqwen3-vl:32b,stage2:qwen3.6-plus",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 84.8,
-          "recall": 84.9,
-          "macro_f1": 84.9,
-          "accuracy": 84.9,
-          "pair_accuracy": 71.1
-        },
-        {
-          "method_name": "table_qwen37m...",
-          "tooltip": "table_qwen37max_two_round_mixed_html_clean_no_attrs_allfixed__figure_azure_gpt5_4_two_round",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 85.0,
-          "recall": 85.0,
-          "macro_f1": 84.9,
-          "accuracy": 84.9,
-          "pair_accuracy": 71.1
-        },
-        {
-          "method_name": "Table:HTML pa...",
-          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round natural prompting+qwen3-vl:32b",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 82.6,
-          "recall": 82.6,
-          "macro_f1": 82.5,
-          "accuracy": 82.6,
-          "pair_accuracy": 66.9
-        },
-        {
-          "method_name": "Table:HTML pa...",
-          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT improve version+qwen3-max, Figure: PNG+two round natural prompting+qwen3-vl:32b",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 82.2,
-          "recall": 82.2,
-          "macro_f1": 82.1,
-          "accuracy": 82.1,
-          "pair_accuracy": 65.5
-        },
-        {
-          "method_name": "able:HTML par...",
-          "tooltip": "able:HTML parsed from PNG with chandra+target CoT improve version+qwen3.6:35B, Figure: PNG+two round natural prompting+qwen3-vl:32b",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 81.3,
-          "recall": 81.3,
-          "macro_f1": 81.1,
-          "accuracy": 81.1,
-          "pair_accuracy": 64.1
-        },
-        {
-          "method_name": "table_azure_g...",
-          "tooltip": "table_azure_gpt5_4_single_mixed_html_clean_no_attrs_allfixed__figure_qwen3vl32b_grounding_qwen37plus_stage20",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 81.0,
-          "recall": 81.1,
-          "macro_f1": 80.9,
-          "accuracy": 80.9,
-          "pair_accuracy": 63.0
-        },
-        {
-          "method_name": "HTML that par...",
-          "tooltip": "HTML that parsed by chandraOCR+qwen3.6:35B, two round figure +qwen3vl:8B",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 80.5,
-          "recall": 80.5,
-          "macro_f1": 80.5,
-          "accuracy": 80.6,
-          "pair_accuracy": 62.0
-        },
-        {
-          "method_name": "Table:HTML pa...",
-          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round prompting+qwen3-vl:32b",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 80.5,
-          "recall": 80.5,
-          "macro_f1": 80.5,
-          "accuracy": 80.6,
-          "pair_accuracy": 62.0
-        },
-        {
-          "method_name": "Table:Qwen3:\u00b4...",
-          "tooltip": "Table:Qwen3:\u00b48B+HTML parsed from OCR, two round prompting for figure",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 71.9,
-          "recall": 72.0,
-          "macro_f1": 71.9,
-          "accuracy": 72.0,
-          "pair_accuracy": 47.2
-        }
-      ]
-    },
-    {
       "team": "Denso IT Laboratory NTCIR team",
       "is_baseline": false,
       "precision": 74.1,
@@ -639,68 +386,90 @@
       ]
     },
     {
-      "team": "Baselines",
-      "is_baseline": true,
-      "precision": 83.4,
-      "recall": 82.4,
-      "macro_f1": 82.9,
-      "accuracy": 82.3,
-      "pair_accuracy": 68.2,
+      "team": "ProvideQ",
+      "is_baseline": false,
+      "precision": 84.8,
+      "recall": 84.9,
+      "macro_f1": 84.9,
+      "accuracy": 84.9,
+      "pair_accuracy": 71.1,
       "runs": [
         {
-          "method_name": "o4-mini",
-          "tooltip": "",
+          "method_name": "Table:HTML pa...",
+          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round prompting+stage one\uff1aqwen3-vl:32b,stage2:qwen3.6-plus",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 83.4,
-          "recall": 82.4,
-          "macro_f1": 82.9,
-          "accuracy": 82.3,
-          "pair_accuracy": 68.2
+          "precision": 84.8,
+          "recall": 84.9,
+          "macro_f1": 84.9,
+          "accuracy": 84.9,
+          "pair_accuracy": 71.1
         },
         {
-          "method_name": "Qwen3-VL-30B-...",
-          "tooltip": "Qwen3-VL-30B-A3B",
+          "method_name": "Table:HTML pa...",
+          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round natural prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 77.1,
-          "recall": 74.8,
-          "macro_f1": 76.0,
-          "accuracy": 75.0,
-          "pair_accuracy": 54.8
+          "precision": 82.6,
+          "recall": 82.6,
+          "macro_f1": 82.5,
+          "accuracy": 82.6,
+          "pair_accuracy": 66.9
         },
         {
-          "method_name": "Qwen3-VL-8B",
-          "tooltip": "",
+          "method_name": "Table:HTML pa...",
+          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT improve version+qwen3-max, Figure: PNG+two round natural prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 76.3,
-          "recall": 68.3,
-          "macro_f1": 72.1,
-          "accuracy": 68.3,
-          "pair_accuracy": 46.9
+          "precision": 82.2,
+          "recall": 82.2,
+          "macro_f1": 82.1,
+          "accuracy": 82.1,
+          "pair_accuracy": 65.5
         },
         {
-          "method_name": "InternVL3_5-3...",
-          "tooltip": "InternVL3_5-38B",
+          "method_name": "able:HTML par...",
+          "tooltip": "able:HTML parsed from PNG with chandra+target CoT improve version+qwen3.6:35B, Figure: PNG+two round natural prompting+qwen3-vl:32b",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 72.1,
-          "recall": 68.1,
-          "macro_f1": 67.8,
-          "accuracy": 69.2,
-          "pair_accuracy": 40.1
+          "precision": 81.3,
+          "recall": 81.3,
+          "macro_f1": 81.1,
+          "accuracy": 81.1,
+          "pair_accuracy": 64.1
         },
         {
-          "method_name": "Llama-3.2-11B...",
-          "tooltip": "Llama-3.2-11B-Vision",
+          "method_name": "HTML that par...",
+          "tooltip": "HTML that parsed by chandraOCR+qwen3.6:35B, two round figure +qwen3vl:8B",
           "team_notes": "",
           "notes_tooltip": "",
-          "precision": 57.4,
-          "recall": 52.9,
-          "macro_f1": 48.6,
-          "accuracy": 54.8,
-          "pair_accuracy": 10.8
+          "precision": 80.5,
+          "recall": 80.5,
+          "macro_f1": 80.5,
+          "accuracy": 80.6,
+          "pair_accuracy": 62.0
+        },
+        {
+          "method_name": "Table:HTML pa...",
+          "tooltip": "Table:HTML parsed from PNG with chandra+target CoT+qwen3.6:35B, Figure: PNG+two round prompting+qwen3-vl:32b",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 80.5,
+          "recall": 80.5,
+          "macro_f1": 80.5,
+          "accuracy": 80.6,
+          "pair_accuracy": 62.0
+        },
+        {
+          "method_name": "Table:Qwen3:\u00b4...",
+          "tooltip": "Table:Qwen3:\u00b48B+HTML parsed from OCR, two round prompting for figure",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 71.9,
+          "recall": 72.0,
+          "macro_f1": 71.9,
+          "accuracy": 72.0,
+          "pair_accuracy": 47.2
         }
       ]
     },
@@ -745,6 +514,105 @@
           "macro_f1": 77.9,
           "accuracy": 77.9,
           "pair_accuracy": 58.3
+        }
+      ]
+    },
+    {
+      "team": "Baselines",
+      "is_baseline": true,
+      "precision": 80.4,
+      "recall": 79.5,
+      "macro_f1": 79.8,
+      "accuracy": 79.4,
+      "pair_accuracy": 61.1,
+      "runs": [
+        {
+          "method_name": "o4-mini",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 80.4,
+          "recall": 79.5,
+          "macro_f1": 79.8,
+          "accuracy": 79.4,
+          "pair_accuracy": 61.1
+        },
+        {
+          "method_name": "Qwen3-VL-30B-...",
+          "tooltip": "Qwen3-VL-30B-A3B",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 72.5,
+          "recall": 70.7,
+          "macro_f1": 71.5,
+          "accuracy": 70.6,
+          "pair_accuracy": 46.5
+        },
+        {
+          "method_name": "Qwen3-VL-8B",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 75.8,
+          "recall": 65.8,
+          "macro_f1": 70.3,
+          "accuracy": 65.7,
+          "pair_accuracy": 44.4
+        },
+        {
+          "method_name": "Qwen3-VL-4B",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 72.8,
+          "recall": 67.1,
+          "macro_f1": 69.8,
+          "accuracy": 67.1,
+          "pair_accuracy": 43.1
+        },
+        {
+          "method_name": "InternVL3_5-3...",
+          "tooltip": "InternVL3_5-38B",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 71.8,
+          "recall": 68.8,
+          "macro_f1": 68.5,
+          "accuracy": 69.5,
+          "pair_accuracy": 42.4
+        },
+        {
+          "method_name": "InternVL3_5-1...",
+          "tooltip": "InternVL3_5-14B",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 69.5,
+          "recall": 66.2,
+          "macro_f1": 65.4,
+          "accuracy": 67.1,
+          "pair_accuracy": 36.3
+        },
+        {
+          "method_name": "InternVL3_5-8...",
+          "tooltip": "InternVL3_5-8B",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 67.0,
+          "recall": 64.0,
+          "macro_f1": 62.9,
+          "accuracy": 64.9,
+          "pair_accuracy": 35.0
+        },
+        {
+          "method_name": "Llama-3.2-11B...",
+          "tooltip": "Llama-3.2-11B-Vision",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 56.7,
+          "recall": 51.8,
+          "macro_f1": 48.4,
+          "accuracy": 53.2,
+          "pair_accuracy": 14.6
         }
       ]
     },
