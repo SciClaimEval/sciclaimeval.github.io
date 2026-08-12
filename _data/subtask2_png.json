@@ -106,6 +106,27 @@
       ]
     },
     {
+      "team": "ProvideQ",
+      "is_baseline": false,
+      "accuracy": 91.7,
+      "runs": [
+        {
+          "method_name": "table_qwen36_...",
+          "tooltip": "table_qwen36_contrastive__figure_qwen37plus_two_round",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 91.7
+        },
+        {
+          "method_name": "chandraOCR_HT...",
+          "tooltip": "chandraOCR_HTML\u2014qwen3.6:35B+qwen3-vl:8B-compare_prompting",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "accuracy": 83.1
+        }
+      ]
+    },
+    {
       "team": "SIB Text Mining",
       "is_baseline": false,
       "accuracy": 90.5,
@@ -165,20 +186,6 @@
           "team_notes": "-",
           "notes_tooltip": "",
           "accuracy": 83.6
-        }
-      ]
-    },
-    {
-      "team": "ProvideQ",
-      "is_baseline": false,
-      "accuracy": 83.1,
-      "runs": [
-        {
-          "method_name": "chandraOCR_HT...",
-          "tooltip": "chandraOCR_HTML\u2014qwen3.6:35B+qwen3-vl:8B-compare_prompting",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "accuracy": 83.1
         }
       ]
     },
