@@ -142,6 +142,17 @@
           "pair_accuracy": 93.8
         },
         {
+          "method_name": "Parser fix",
+          "tooltip": "",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 92.7,
+          "recall": 92.8,
+          "macro_f1": 92.7,
+          "accuracy": 92.7,
+          "pair_accuracy": 93.5
+        },
+        {
           "method_name": "Best performi...",
           "tooltip": "Best performing pipeline with random seed 23",
           "team_notes": "",
@@ -164,17 +175,6 @@
           "pair_accuracy": 93.5
         },
         {
-          "method_name": "Parser fix",
-          "tooltip": "",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 92.7,
-          "recall": 92.8,
-          "macro_f1": 92.7,
-          "accuracy": 92.7,
-          "pair_accuracy": 93.5
-        },
-        {
           "method_name": "Ensemble resu...",
           "tooltip": "Ensemble results with random seed 23-24-26",
           "team_notes": "",
@@ -184,17 +184,6 @@
           "macro_f1": 92.9,
           "accuracy": 92.9,
           "pair_accuracy": 93.5
-        },
-        {
-          "method_name": "Ensemble resu...",
-          "tooltip": "Ensemble results with random seed 22-24-26",
-          "team_notes": "",
-          "notes_tooltip": "",
-          "precision": 92.7,
-          "recall": 92.7,
-          "macro_f1": 92.7,
-          "accuracy": 92.7,
-          "pair_accuracy": 93.3
         },
         {
           "method_name": "Task 2 no cor...",
@@ -216,6 +205,17 @@
           "recall": 92.6,
           "macro_f1": 92.6,
           "accuracy": 92.6,
+          "pair_accuracy": 93.3
+        },
+        {
+          "method_name": "Ensemble resu...",
+          "tooltip": "Ensemble results with random seed 22-24-26",
+          "team_notes": "",
+          "notes_tooltip": "",
+          "precision": 92.7,
+          "recall": 92.7,
+          "macro_f1": 92.7,
+          "accuracy": 92.7,
           "pair_accuracy": 93.3
         },
         {
@@ -351,17 +351,6 @@
           "pair_accuracy": 74.3
         },
         {
-          "method_name": "table_best_no...",
-          "tooltip": "table_best_no_attrs_merge_lenient_v2_slight_support_rescue__figure_qwen3vl32b_grounding_qwen37plus_stage2",
-          "team_notes": "table: html 3...",
-          "notes_tooltip": "table: html 392 parsed from png , 131 original html",
-          "precision": 86.2,
-          "recall": 86.2,
-          "macro_f1": 86.2,
-          "accuracy": 86.2,
-          "pair_accuracy": 73.6
-        },
-        {
           "method_name": "table_qwen37m...",
           "tooltip": "table_qwen37max_two_round_mixed_html_clean_no_attrs_allfixed__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "",
@@ -385,6 +374,17 @@
         },
         {
           "method_name": "table_best_no...",
+          "tooltip": "table_best_no_attrs_merge_lenient_v2_slight_support_rescue__figure_qwen3vl32b_grounding_qwen37plus_stage2",
+          "team_notes": "table: html 3...",
+          "notes_tooltip": "table: html 392 parsed from png , 131 original html",
+          "precision": 86.2,
+          "recall": 86.2,
+          "macro_f1": 86.2,
+          "accuracy": 86.2,
+          "pair_accuracy": 73.6
+        },
+        {
+          "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_merge_lenient_double_support__figure_qwen3vl32b_grounding_qwen37plus_stage2",
           "team_notes": "table : 392 h...",
           "notes_tooltip": "table : 392 html parsed from png, 131 original html",
@@ -395,17 +395,6 @@
           "pair_accuracy": 73.4
         },
         {
-          "method_name": "table_qwen37m...",
-          "tooltip": "table_qwen37max_two_round_no_pair_no_attrs_allfixed__figure_qwen37plus_two_round",
-          "team_notes": "table:392 htm...",
-          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
-          "precision": 86.3,
-          "recall": 86.3,
-          "macro_f1": 86.3,
-          "accuracy": 86.3,
-          "pair_accuracy": 73.2
-        },
-        {
           "method_name": "table_best_no...",
           "tooltip": "table_best_no_attrs_pair_both_same_contrastive_if_base_same__figure_gpt54_v1_strict_only_hard_contradiction",
           "team_notes": "table:392 htm...",
@@ -414,6 +403,17 @@
           "recall": 85.5,
           "macro_f1": 85.4,
           "accuracy": 85.4,
+          "pair_accuracy": 73.2
+        },
+        {
+          "method_name": "table_qwen37m...",
+          "tooltip": "table_qwen37max_two_round_no_pair_no_attrs_allfixed__figure_qwen37plus_two_round",
+          "team_notes": "table:392 htm...",
+          "notes_tooltip": "table:392 htmlparsed from png, 131 original html",
+          "precision": 86.3,
+          "recall": 86.3,
+          "macro_f1": 86.3,
+          "accuracy": 86.3,
           "pair_accuracy": 73.2
         },
         {

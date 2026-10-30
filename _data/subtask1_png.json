@@ -7,7 +7,7 @@
       "recall": 98.0,
       "macro_f1": 98.0,
       "accuracy": 98.0,
-      "pair_accuracy": 98.2,
+      "pair_accuracy": 98.1,
       "runs": [
         {
           "method_name": "Claude Fable ...",
@@ -18,7 +18,7 @@
           "recall": 98.0,
           "macro_f1": 98.0,
           "accuracy": 98.0,
-          "pair_accuracy": 98.2
+          "pair_accuracy": 98.1
         },
         {
           "method_name": "routed ensemb...",
@@ -48,7 +48,7 @@
           "team_notes": "",
           "notes_tooltip": "",
           "precision": 97.2,
-          "recall": 97.2,
+          "recall": 97.3,
           "macro_f1": 97.2,
           "accuracy": 97.2,
           "pair_accuracy": 97.5
@@ -73,7 +73,7 @@
       "recall": 97.3,
       "macro_f1": 97.2,
       "accuracy": 97.2,
-      "pair_accuracy": 98.2,
+      "pair_accuracy": 98.1,
       "runs": [
         {
           "method_name": "purly table i...",
@@ -84,7 +84,7 @@
           "recall": 97.3,
           "macro_f1": 97.2,
           "accuracy": 97.2,
-          "pair_accuracy": 98.2
+          "pair_accuracy": 98.1
         },
         {
           "method_name": "purly table i...",
@@ -280,7 +280,7 @@
       "is_baseline": false,
       "precision": 74.1,
       "recall": 74.1,
-      "macro_f1": 74.0,
+      "macro_f1": 74.1,
       "accuracy": 74.1,
       "pair_accuracy": 75.9,
       "runs": [
@@ -291,7 +291,7 @@
           "notes_tooltip": "",
           "precision": 74.1,
           "recall": 74.1,
-          "macro_f1": 74.0,
+          "macro_f1": 74.1,
           "accuracy": 74.1,
           "pair_accuracy": 75.9
         },
@@ -345,7 +345,7 @@
       "team": "SEBIS TUM",
       "is_baseline": false,
       "precision": 72.7,
-      "recall": 72.8,
+      "recall": 72.7,
       "macro_f1": 72.7,
       "accuracy": 72.7,
       "pair_accuracy": 72.9,
@@ -356,7 +356,7 @@
           "team_notes": "",
           "notes_tooltip": "",
           "precision": 72.7,
-          "recall": 72.8,
+          "recall": 72.7,
           "macro_f1": 72.7,
           "accuracy": 72.7,
           "pair_accuracy": 72.9
@@ -412,7 +412,7 @@
           "notes_tooltip": "",
           "precision": 82.6,
           "recall": 82.6,
-          "macro_f1": 82.5,
+          "macro_f1": 82.6,
           "accuracy": 82.6,
           "pair_accuracy": 66.9
         },
@@ -466,7 +466,7 @@
           "team_notes": "",
           "notes_tooltip": "",
           "precision": 71.9,
-          "recall": 72.0,
+          "recall": 71.9,
           "macro_f1": 71.9,
           "accuracy": 72.0,
           "pair_accuracy": 47.2
@@ -677,6 +677,6 @@
     "recall": 98.0,
     "macro_f1": 98.0,
     "accuracy": 98.0,
-    "pair_accuracy": 98.2
+    "pair_accuracy": 98.1
   }
 }
