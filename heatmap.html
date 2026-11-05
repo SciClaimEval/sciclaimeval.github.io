@@ -1,0 +1,75 @@
+---
+layout: page
+title: Heatmap
+permalink: /heatmap.html
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/heatmap.css' | relative_url }}">
+
+<p class="hm-intro">
+  Every submitted run against every sample in the evaluation test set. Each row is a run,
+  grouped into team blocks; each column is one sample. Orange means the run got that
+  sample wrong. Hover any cell to see which run and which sample it is, and click to
+  pin the panel so you can follow its link.
+</p>
+
+<div class="hm-root">
+
+  <div id="hm-controls" class="hm-controls"></div>
+
+  <p id="hm-status" class="hm-status">Loading run results&hellip;</p>
+  <p id="hm-empty" class="hm-status" hidden>No runs match this combination of subtask and evidence format.</p>
+
+  <figure id="hm-figure" class="hm-figure" hidden>
+    <figcaption class="hm-caption">
+      <span id="hm-title" class="hm-title"></span>
+      <span id="hm-subtitle" class="hm-subtitle"></span>
+    </figcaption>
+
+    <div id="hm-grid" class="hm-grid">
+      <!-- left gutter: team names, then the consensus row labels -->
+      <div class="hm-gutter-left">
+        <div id="hm-row-labels" class="hm-row-labels"></div>
+        <div id="hm-consensus-labels" class="hm-consensus-labels"></div>
+      </div>
+
+      <!-- the plot itself: horizontally scrollable when columns would be squashed -->
+      <div id="hm-scroller" class="hm-scroller">
+        <!-- operation names go above the matrix, clear of the Figures /
+             Tables labels that sit below it -->
+        <div id="hm-block-labels-top" class="hm-block-labels-top"></div>
+        <div id="hm-plot" class="hm-plot">
+          <canvas id="hm-canvas" class="hm-canvas"></canvas>
+          <div id="hm-consensus-wrap" class="hm-consensus-wrap">
+            <canvas id="hm-consensus-canvas" class="hm-canvas"></canvas>
+          </div>
+          <canvas id="hm-overlay" class="hm-overlay" aria-hidden="true"></canvas>
+        </div>
+        <div id="hm-axis-hints" class="hm-axis-hints"></div>
+        <div id="hm-block-labels" class="hm-block-labels"></div>
+      </div>
+
+      <!-- right gutter: per-run accuracy, then the legends -->
+      <div class="hm-gutter-right">
+        <div id="hm-row-values" class="hm-row-values"></div>
+        <div id="hm-legends" class="hm-legends">
+          <div id="hm-legend-outcome" class="hm-legend" hidden></div>
+          <div id="hm-legend-consensus" class="hm-legend" hidden></div>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <p class="hm-footnote">
+    All runs (rows) sorted by accuracy (correct predictions over all samples) as indicated at the right.
+    Cells where a run made no prediction are left blank and excluded from the per-column difficulty sort and
+    from the consensus rows. Agreement is the fraction of run pairs that predicted the
+    same label; majority correct is P(correct)&nbsp;&ge;&nbsp;0.5. Both are computed over
+    exactly the runs shown above.
+  </p>
+
+</div>
+
+<div id="hm-panel" class="hm-panel" hidden role="dialog" aria-label="Cell details"></div>
+
+<script src="{{ '/assets/js/heatmap.js' | relative_url }}"></script>

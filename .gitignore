@@ -2,3 +2,6 @@
 Gemfile.lock
 _site/
 .venv
+
+# Local reference material, not part of the site
+_dev/
