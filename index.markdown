@@ -35,7 +35,7 @@ The **SciClaimEval** pilot task focuses on **cross-modal scientific claim verifi
 - ~~<a href="#registration-for-participation">Register</a> as participant by July 10, 2026~~
 - ~~Submit your run on the test dataset by July 19, 2026~~
 - ~~<a href="#submission-form">Make a submission</a> via our submission form~~
-- Submit your paper draft by **September 1, 2026** <br>(Please refer to the <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html" target="_blank" rel="noopener">NTCIR-19 Paper Submission Instructions</a> for details.)
+- ~~Submit your paper draft by **September 1, 2026** <br>(Please refer to the <a href="https://research.nii.ac.jp/ntcir/ntcir-19/papers.html" target="_blank" rel="noopener">NTCIR-19 Paper Submission Instructions</a> for details.)~~
 
 ## Task Description
 
@@ -153,6 +153,8 @@ All submissions will be evaluated on precision, recall, macro F1, and accuracy. 
 
 ## Results
 
+An interactive [heatmap](/heatmap.html) allows you to browse all run results for each query and both subtasks individually (we advice to use a desktop browser).
+
 The following tables show the results of all submissions on the evaluation set. In each table, only the best submission is shown directly. To see all run submissions from the same team, click on the specific row. Approaches and notes descriptions were given by the teams. All tables show the team names and baselines.
 
 Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was sorted by the primary metric 'accuracy'.
@@ -203,7 +205,10 @@ Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was s
 
 <script src="{{ '/assets/js/tables.js' | relative_url }}"></script>
 
+For a per-sample view of the same submissions, our interactive [Per-Sample Heatmap](/heatmap.html) shows every run against every claim in the evaluation set, so you can see which samples the field found hard and where runs agreed or disagreed.
+
 ## News
+- [2026-11-05] Release of a heatmap to explore all results individually is now available under <a href="https://sciclaimeval.github.io/heatmap.html">sciclaimeval.github.io/heatmap.html</a>.
 - [2026-08-03] All run results are now available. Congratulations and thanks to all participants. Paper submissions instructions have been added.
 - [2026-07-21] Submissions are now closed. Thanks to all participants. Remember the paper submission.
 - [2026-06-17] EvalBot is now live. It automatically evaluates your submission and informs you via e-mail about your results within 30min.
@@ -228,9 +233,9 @@ Subtask 1 was sorted by the primary metric 'pair accuracy' while subtask 2 was s
 | ~~July 10, 2026~~ | Registration Deadline for Participants |
 | ~~July 19, 2026~~ | Formal Run Submission Deadline |
 | ~~August 1, 2026~~ | Evaluation Results Return |
-| **September 1, 2026** | **Submission Due for Participant's Papers** |
-| November 1, 2026 | Camera-ready participant paper due |
-| December 8 - 10, 2026 | NTCIR-19 Conference |
+| ~~September 1, 2026~~ | Submission Due for Participant's Papers |
+| ~~November 1, 2026~~ | Camera-ready participant paper due |
+| **December 8 - 10, 2026** | **NTCIR-19 Conference** |
 | December 11, 2026 | Full Dataset Release |
 
 All deadlines are 11.59 pm UTC -12h (Anywhere on Earth (AoE)).

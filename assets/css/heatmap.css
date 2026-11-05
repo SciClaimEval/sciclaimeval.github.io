@@ -1,0 +1,546 @@
+/* ============================================================================
+ * SciClaimEval — interactive per-sample evaluation heatmap.
+ *
+ * Colour comes from custom properties, set once below to the same light values
+ * the rest of the site uses (see tables.css). There is deliberately NO
+ * prefers-color-scheme override: the site ships minima's `classic` skin
+ * unconditionally, so reacting to the OS preference made this one block go
+ * dark while every other element on the page stayed white. Browser-level dark
+ * modes such as Dark Reader invert the whole page uniformly, which only works
+ * if this block starts out light like everything else. If a dark minima skin
+ * is ever enabled via `site.minima.skin`, change the values in .hm-root and
+ * .hm-panel below — that is the only place colour is defined.
+ *
+ * The canvas is deliberately NOT themed: the cell palette (#e07a5f wrong /
+ * #e7e7e7 correct, viridis) is the data encoding and is identical to the
+ * static figure. The canvases are transparent, so the page shows through.
+ * ========================================================================== */
+
+.hm-root {
+  --hm-fg: #222;
+  --hm-muted: #666;
+  --hm-faint: #888;
+  --hm-line: #e2e2e2;
+  --hm-surface: #fff;
+  --hm-surface-alt: #f7f8f9;
+  --hm-accent: #2a7ae2;
+
+  margin: 1.5em 0 2em;
+}
+
+/* The minima wrapper is 800px; the matrix needs far more than that, so the
+ * whole block breaks out to the viewport width and re-centres itself. */
+.hm-root,
+.hm-intro,
+.hm-footnote {
+  position: relative;
+}
+
+.hm-root {
+  width: 96vw;
+  max-width: 1760px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.hm-intro,
+.hm-footnote {
+  color: var(--hm-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.hm-footnote {
+  width: 96vw;
+  max-width: 1760px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--hm-line);
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+/* ── Controls ─────────────────────────────────────────────────────────── */
+
+.hm-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  background: var(--hm-surface-alt);
+  border: 1px solid var(--hm-line);
+  border-radius: 6px;
+}
+
+.hm-control {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hm-control-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--hm-muted);
+  white-space: nowrap;
+}
+
+.hm-control-toggle .hm-control-label {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.hm-control-toggle input {
+  margin: 0;
+  cursor: pointer;
+}
+
+.hm-btn-group {
+  display: inline-flex;
+  border: 1px solid var(--hm-line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--hm-surface);
+}
+
+.hm-btn {
+  appearance: none;
+  border: 0;
+  border-right: 1px solid var(--hm-line);
+  background: transparent;
+  color: var(--hm-muted);
+  font: inherit;
+  font-size: 0.76rem;
+  line-height: 1;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.hm-btn:last-child { border-right: 0; }
+
+.hm-btn:hover { background: var(--hm-line); color: var(--hm-fg); }
+
+.hm-btn.active {
+  background: var(--hm-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.hm-status {
+  color: var(--hm-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.hm-status.hm-error {
+  color: #c0392b;
+  font-style: normal;
+}
+
+/* ── Figure scaffolding ───────────────────────────────────────────────── */
+
+.hm-figure { margin: 0; }
+
+.hm-caption {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.hm-title {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--hm-fg);
+}
+
+.hm-subtitle {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--hm-faint);
+  margin-top: 3px;
+}
+
+/* left gutter | plot | right gutter */
+.hm-grid {
+  display: grid;
+  grid-template-columns: minmax(96px, max-content) minmax(0, 1fr) minmax(74px, max-content);
+  align-items: start;
+  gap: 0 8px;
+  /* Height of the operation-name band above the matrix; set by JS, 0 when
+     operation grouping is off. */
+  --hm-top-band: 0px;
+}
+
+/* The band sits inside the scroller and pushes the matrix down, so both
+   gutters must drop by the same amount or every row label and accuracy
+   figure ends up offset from the row it belongs to. */
+.hm-gutter-left,
+.hm-gutter-right {
+  margin-top: var(--hm-top-band);
+}
+
+.hm-gutter-left {
+  position: relative;
+}
+
+/* Right gutter: the per-run accuracies sit flush against the plot, with the
+   legends in their own column beside them. Each legend is absolutely placed
+   (top set by JS) so it lines up with the band it explains — the outcome key
+   with the top of the matrix, the consensus key with the consensus track. */
+.hm-gutter-right {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* Height is set by JS to clear the lowest legend, so neither key can spill
+   into the footnote below the figure. */
+.hm-legends {
+  position: relative;
+  flex: none;
+  min-width: 112px;
+}
+
+.hm-row-labels,
+.hm-row-values,
+.hm-consensus-labels {
+  position: relative;
+}
+
+/* Every child here is absolutely positioned, so without an explicit width
+   this column would collapse to 0 and the legends beside it would be drawn
+   straight over the accuracy numbers. */
+.hm-row-values {
+  flex: none;
+  width: 34px;
+}
+
+.hm-consensus-labels { margin-top: 14px; } /* LAYOUT.consensusGap */
+
+/* Team names: bold, team-coloured, vertically centred on their block. */
+.hm-team-label {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  text-align: right;
+  font-size: 0.68rem;
+  font-weight: 700;
+  /* Tight leading so a two-line team name centred on a single-run block
+     stays inside the blank rows that separate it from its neighbours. */
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+/* Per-run accuracy: small and grey, at the right edge. */
+.hm-run-value {
+  position: absolute;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 0.58rem;
+  /* line-height 1 keeps each label's box no taller than LAYOUT.rowH, so
+     consecutive runs in a dense team block never overlap. */
+  line-height: 1;
+  color: var(--hm-muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.hm-consensus-label {
+  position: absolute;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 0.64rem;
+  line-height: 1; /* as .hm-run-value: keep the box within consensusRowH */
+  color: var(--hm-muted);
+  white-space: nowrap;
+}
+
+/* ── Plot ─────────────────────────────────────────────────────────────── */
+
+.hm-scroller {
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* room beneath for the hardest/easiest hints and the block labels */
+  padding-bottom: 4px;
+}
+
+.hm-scroller.hm-scrolling {
+  border-bottom: 1px solid var(--hm-line);
+}
+
+.hm-plot {
+  position: relative;
+  cursor: crosshair;
+}
+
+.hm-canvas {
+  display: block;
+  background: transparent;
+}
+
+.hm-consensus-wrap {
+  position: absolute;
+  left: 0;
+}
+
+/* The crosshair overlay sits above the matrix but must never eat pointer
+ * events — hit testing is done against the plot box itself. */
+.hm-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hm-axis-hints,
+.hm-block-labels {
+  position: relative;
+  height: 16px;
+}
+
+.hm-axis-hints.hm-ticks-mode { height: 34px; }
+
+.hm-block-labels { height: 22px; margin-top: 2px; }
+
+/* Operation names sit ABOVE the matrix, directly over the blocks they name,
+   so they cannot collide with the Figures / Tables labels underneath it.
+   Height is set by JS: tall enough for rotated labels when the blocks are
+   narrow, flat when they are wide. */
+.hm-block-labels-top {
+  position: relative;
+  height: 0;
+}
+
+.hm-axis-hint {
+  position: absolute;
+  top: 2px;
+  transform: translateX(-50%);
+  font-size: 0.64rem;
+  color: var(--hm-faint);
+  white-space: nowrap;
+}
+
+/* Dataset-order mode: a short claim-id tick every 10 columns. */
+.hm-tick {
+  position: absolute;
+  top: 2px;
+  transform-origin: right top;
+  transform: translateX(-100%) rotate(-60deg);
+  font-size: 0.54rem;
+  color: var(--hm-faint);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.hm-block-label {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.hm-block-label.hm-level-1 {
+  font-size: 0.78rem;
+  color: var(--hm-fg);
+}
+
+.hm-block-label.hm-level-2 {
+  font-size: 0.62rem;
+  color: var(--hm-muted);
+}
+
+/* Narrow blocks: anchor each label at its own baseline-left and let it run
+   up and to the right. Rotating about the centre (as the matplotlib version
+   does) makes adjacent narrow groups overlap; this way they stay parallel and
+   clear of each other, like rotated axis ticks. */
+.hm-block-label.hm-rotated {
+  /* A steep angle keeps the horizontal footprint small, so the narrowest
+     operation blocks (9-20 samples) still get a label that starts at its own
+     block and reads clear of its neighbours. */
+  transform: rotate(-55deg);
+  transform-origin: left bottom;
+  text-align: left;
+  font-size: 0.56rem;
+}
+
+.hm-block-labels-top .hm-block-label {
+  bottom: 0;
+  top: auto;
+}
+
+.hm-block-labels-top .hm-block-label:not(.hm-rotated) {
+  transform: translateX(-50%);
+}
+
+/* ── Legends ──────────────────────────────────────────────────────────── */
+
+.hm-legend {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.hm-legend-box {
+  border: 1px solid var(--hm-line);
+  border-radius: 4px;
+  padding: 7px 8px;
+  background: var(--hm-surface);
+  font-size: 0.62rem;
+  color: var(--hm-muted);
+}
+
+.hm-legend-title {
+  font-weight: 700;
+  color: var(--hm-fg);
+  margin-bottom: 5px;
+  white-space: pre-line;
+  line-height: 1.2;
+}
+
+.hm-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+
+.hm-legend-sub { margin-top: 9px; }
+
+.hm-swatch {
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  flex: none;
+}
+
+.hm-grad-inner {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  height: 58px;
+}
+
+.hm-grad-bar {
+  width: 11px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.hm-grad-ticks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 0.58rem;
+}
+
+/* ── Info panel ───────────────────────────────────────────────────────── */
+
+.hm-panel {
+  position: fixed;
+  z-index: 1000;
+  max-width: 310px;
+  padding: 10px 12px;
+  background: var(--hm-surface, #fff);
+  color: var(--hm-fg, #222);
+  border: 1px solid var(--hm-line, #e2e2e2);
+  border-radius: 6px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.16);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  pointer-events: none; /* hovering must not steal the mouse from the canvas */
+}
+
+/* Pinned: now interactive, so the Hugging Face link can actually be clicked. */
+.hm-panel.hm-pinned {
+  pointer-events: auto;
+  border-color: var(--hm-accent, #2a7ae2);
+}
+
+.hm-panel-section + .hm-panel-section { margin-top: 9px; }
+
+.hm-panel-head {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  color: var(--hm-faint, #888);
+  border-bottom: 1px solid var(--hm-line, #e2e2e2);
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+}
+
+.hm-panel-team {
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.hm-panel-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hm-panel-key {
+  color: var(--hm-muted, #666);
+  flex: none;
+}
+
+.hm-panel-val {
+  text-align: right;
+  word-break: break-word;
+}
+
+.hm-strong .hm-panel-val { font-weight: 600; }
+
+.hm-ok .hm-panel-val { color: #1e7a3c; font-weight: 600; }
+.hm-bad .hm-panel-val { color: #c0392b; font-weight: 600; }
+.hm-missing .hm-panel-val { color: var(--hm-faint, #888); font-style: italic; }
+
+.hm-panel-link {
+  display: block;
+  margin-top: 10px;
+  padding-top: 7px;
+  border-top: 1px solid var(--hm-line, #e2e2e2);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--hm-accent, #2a7ae2);
+  text-decoration: none;
+}
+
+.hm-panel:not(.hm-pinned) .hm-panel-link {
+  color: var(--hm-faint, #888);
+  font-weight: 500;
+}
+
+.hm-panel:not(.hm-pinned) .hm-panel-link::after {
+  content: " \2014 click the cell to pin, then follow";
+  font-weight: 400;
+  font-style: italic;
+}
+
+.hm-panel-link:hover { text-decoration: underline; }
+
+/* ── Narrow screens ───────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .hm-root,
+  .hm-footnote {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .hm-grid {
+    grid-template-columns: minmax(72px, max-content) minmax(0, 1fr) minmax(52px, max-content);
+  }
+
+  .hm-team-label { font-size: 0.62rem; }
+  .hm-panel { max-width: 260px; }
+}
